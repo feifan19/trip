@@ -2,369 +2,1053 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>北京5日游行程单 (11/6 - 11/10)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>北京五日深度游路书 | 11/6 - 11/10 (6人同行定制版)</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --red-dark: #7F1D1D;
+            --red-main: #9B2323;
+            --red-light: #FEF2F2;
+            --red-border: #FECACA;
+            --gold-main: #B45309;
+            --gold-bg: #FFFBEB;
+            --gold-border: #FDE68A;
+            --teal-main: #0F766E;
+            --teal-bg: #F0FDFA;
+            --bg-page: #F7F4EF;
+            --text-main: #1F1D1B;
+            --text-sub: #57534E;
+            --border-color: #E7E2DA;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background-color: #FAF7F2;
-            color: #2D2926;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
         }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 14px; }
+        .container { max-width: 860px; margin: 0 auto; padding: 0 14px; }
 
-        /* 顶部横幅 */
+        /* 顶部宫廷风横幅 */
         header {
-            background: linear-gradient(135deg, #8B1E1E 0%, #A82828 100%);
+            background: linear-gradient(135deg, #681414 0%, #9B2323 60%, #B4342A 100%);
             color: #fff;
-            padding: 28px 16px 36px;
-            text-align: center;
+            padding: 32px 16px 28px;
+            position: relative;
+            border-bottom: 4px solid #D97706;
         }
-        .badge-top {
-            display: inline-block;
+        .header-inner { max-width: 860px; margin: 0 auto; }
+        .top-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             background: rgba(251, 191, 36, 0.2);
             border: 1px solid rgba(251, 191, 36, 0.5);
             color: #FDE68A;
             font-size: 12px;
-            padding: 3px 12px;
+            font-weight: 600;
+            padding: 4px 12px;
             border-radius: 99px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
-        header h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
-        header p { font-size: 13px; color: #FECACA; }
+        header h1 { font-size: 26px; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
+        .header-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 8px;
+            margin-top: 14px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #FDE68A;
+        }
+        .header-meta div span { color: #fff; font-weight: 600; }
 
-        /* 顶部悬浮快捷跳转栏 */
-        .quick-nav {
+        /* 悬浮电梯导航 */
+        .sticky-nav {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid #E6E1DA;
+            z-index: 99;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
             padding: 10px 12px;
             display: flex;
-            gap: 6px;
+            gap: 8px;
             overflow-x: auto;
             white-space: nowrap;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        .quick-nav a {
+        .sticky-nav::-webkit-scrollbar { display: none; }
+        .sticky-nav a {
             text-decoration: none;
-            color: #2D2926;
-            background: #F3EFEA;
-            padding: 6px 12px;
+            color: var(--text-main);
+            background: #F0ECE3;
+            padding: 6px 13px;
             border-radius: 99px;
             font-size: 13px;
             font-weight: 600;
             flex-shrink: 0;
+            border: 1px solid transparent;
         }
-        .quick-nav a.highlight {
-            background: #9B2323;
-            color: #fff;
+        .sticky-nav a:active { background: var(--red-main); color: #fff; }
+        .sticky-nav a.nav-special {
+            background: var(--red-light);
+            color: var(--red-main);
+            border-color: var(--red-border);
         }
 
-        /* 分区大标题 */
-        .part-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #9B2323;
+        /* 章节标题 */
+        .section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin: 28px 0 14px;
-            padding-left: 10px;
-            border-left: 4px solid #9B2323;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--red-main);
         }
+        .section-heading h2 { font-size: 20px; font-weight: 800; color: var(--red-main); }
+        .section-heading span { font-size: 12px; color: var(--text-sub); }
 
-        /* 每日卡片 */
+        /* 每日行程大卡片 */
         .day-card {
             background: #fff;
-            border-radius: 14px;
-            border: 1px solid #E6E1DA;
-            margin-bottom: 16px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
             overflow: hidden;
-            scroll-margin-top: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            scroll-margin-top: 64px;
         }
-        .day-header {
-            background: #9B2323;
+        .day-banner {
+            background: linear-gradient(90deg, #881313 0%, #A82828 100%);
             color: #fff;
-            padding: 12px 16px;
-            font-size: 16px;
-            font-weight: 700;
+            padding: 16px 18px;
+        }
+        .day-banner-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
         }
-        .day-header span { font-size: 12px; font-weight: normal; color: #FDE68A; }
-        .day-body { padding: 16px; }
+        .day-num {
+            background: #FDE68A;
+            color: #78350F;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-right: 8px;
+        }
+        .day-title { font-size: 18px; font-weight: 800; }
+        .day-badge {
+            font-size: 11px;
+            background: rgba(255,255,255,0.18);
+            padding: 3px 10px;
+            border-radius: 99px;
+            color: #FEF08A;
+        }
+        /* 当日路线总览条 */
+        .day-route-bar {
+            background: rgba(0,0,0,0.22);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #FDE68A;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .day-route-bar strong { color: #fff; }
 
-        /* 行程块 */
-        .route-box {
-            background: #FDFBF7;
+        .day-content { padding: 18px; }
+
+        /* 精细化时间轴样式 */
+        .timeline-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--red-main);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 22px;
+            border-left: 2px dashed #D6C7B2;
+            margin-left: 8px;
+            margin-bottom: 22px;
+        }
+        .tl-node {
+            position: relative;
+            margin-bottom: 18px;
+            background: #FCFBF9;
             border: 1px solid #EDE8DF;
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 12px;
-        }
-        .route-item { margin-bottom: 10px; font-size: 14px; }
-        .route-item:last-child { margin-bottom: 0; }
-        .time-tag {
-            display: inline-block;
-            background: #FEE2E2;
-            color: #991B1B;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 1px 7px;
-            border-radius: 4px;
-            margin-right: 6px;
-        }
-
-        /* 餐饮列表 */
-        .food-title { font-size: 13px; font-weight: 700; color: #66615E; margin: 10px 0 6px; }
-        .food-list { list-style: none; font-size: 13px; space-y: 6px; }
-        .food-list li {
-            background: #F9F8F6;
-            padding: 8px 10px;
-            border-radius: 8px;
-            margin-bottom: 6px;
-            border-left: 3px solid #D97706;
-        }
-        .price-tag {
-            float: right;
-            font-size: 12px;
-            color: #9B2323;
-            font-weight: 600;
-        }
-        .six-tip {
-            margin-top: 10px;
-            background: #FFFBEB;
-            color: #92400E;
-            padding: 8px 10px;
-            border-radius: 8px;
-            font-size: 12px;
-        }
-
-        /* 预约卡片网格 */
-        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        @media (min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-        .book-card {
-            background: #fff;
-            border: 1px solid #E6E1DA;
             border-radius: 12px;
             padding: 14px;
         }
-        .book-head { display: flex; justify-content: space-between; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
-        .must-tag { background: #FEE2E2; color: #991B1B; font-size: 11px; padding: 2px 6px; border-radius: 4px; }
-        .sug-tag { background: #FEF3C7; color: #92400E; font-size: 11px; padding: 2px 6px; border-radius: 4px; }
-        .book-info { font-size: 12px; color: #444; line-height: 1.7; }
+        .tl-node:last-child { margin-bottom: 0; }
+        .tl-dot {
+            position: absolute;
+            left: -30px;
+            top: 16px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--red-main);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--red-main);
+        }
+        .tl-dot.food-dot { background: #D97706; box-shadow: 0 0 0 2px #D97706; }
+        .tl-dot.trans-dot { background: #0F766E; box-shadow: 0 0 0 2px #0F766E; }
+
+        .tl-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        .tl-time-badge {
+            font-size: 12px;
+            font-weight: 800;
+            padding: 2px 9px;
+            border-radius: 6px;
+            background: var(--red-light);
+            color: var(--red-main);
+        }
+        .tl-time-badge.amber { background: var(--gold-bg); color: var(--gold-main); }
+        .tl-time-badge.teal { background: var(--teal-bg); color: var(--teal-main); }
+
+        .tl-duration { font-size: 12px; color: var(--text-sub); font-weight: 500; }
+        .tl-spot-name { font-size: 16px; font-weight: 800; color: var(--text-main); margin-bottom: 6px; }
+        .tl-desc { font-size: 13px; color: var(--text-sub); margin-bottom: 8px; }
+
+        /* 景区内路线胶囊流 */
+        .inner-route {
+            background: #fff;
+            border: 1px solid #E5E0D8;
+            border-radius: 8px;
+            padding: 8px 10px;
+            margin: 8px 0;
+            font-size: 12px;
+        }
+        .inner-route-label {
+            font-weight: 700;
+            color: var(--teal-main);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .route-steps {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-main);
+        }
+        .step-pill {
+            background: #F3EFEA;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .step-arrow { color: #A8A29E; font-size: 11px; }
+
+        /* 景点关键微提示 */
+        .spot-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .micro-tag {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .micro-tag.warn { background: #FEE2E2; color: #991B1B; }
+        .micro-tag.info { background: #E0F2FE; color: #075985; }
+        .micro-tag.ok { background: #DCFCE7; color: #166534; }
+
+        /* 餐饮推荐区 */
+        .dining-section {
+            border-top: 1px dashed var(--border-color);
+            padding-top: 16px;
+        }
+        .meal-period-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gold-main);
+            margin: 10px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .rest-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        @media (min-width: 640px) {
+            .rest-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .rest-box {
+            background: #FAF8F5;
+            border: 1px solid #E7E2DA;
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .rest-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .rest-title { font-size: 14px; font-weight: 800; color: var(--text-main); }
+        .rest-price {
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--red-light);
+            color: var(--red-main);
+            padding: 2px 7px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .rest-dishes {
+            font-size: 12px;
+            color: var(--gold-main);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .rest-note { font-size: 12px; color: var(--text-sub); }
+
+        .group-advice {
+            margin-top: 12px;
+            background: var(--gold-bg);
+            border: 1px solid var(--gold-border);
+            border-left: 4px solid #D97706;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #78350F;
+        }
+
+        /* 预约抢票与贴士卡片 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        @media (min-width: 640px) {
+            .cards-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .rule-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 14px;
+        }
+        .rule-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .rule-name { font-size: 15px; font-weight: 800; }
+        .rule-list { font-size: 12px; color: var(--text-sub); line-height: 1.75; }
+        .rule-list strong { color: var(--text-main); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="badge-top">👥 6人同行定制版</div>
-    <h1>🏮 北京五日游行程与美食攻略</h1>
-    <p>11/6 (周五) K286 12:54抵京 — 11/10 (周二) G1091 15:34返程</p>
+    <div class="header-inner">
+        <div class="top-pill">🏮 6人同行定制路书 · 行程动线 + 景点走法 + 聚餐指南</div>
+        <h1>金秋北京 · 五日深度游全攻略</h1>
+        <div class="header-meta">
+            <div>📅 出行日期：<span>11月6日(周五) — 11月10日(周二)</span></div>
+            <div>🚂 去程抵达：<span>11/6 12:54 北京丰台站 (K286)</span></div>
+            <div>🚄 返程发车：<span>11/10 15:34 北京南站 (G1091)</span></div>
+        </div>
+    </div>
 </header>
 
-<!-- 顶部悬浮电梯导航（手机点击直接滑动定位） -->
-<nav class="quick-nav">
-    <a href="#d1">11/6 周五</a>
-    <a href="#d2">11/7 周六</a>
-    <a href="#d3">11/8 周日</a>
-    <a href="#d4">11/9 周一</a>
-    <a href="#d5">11/10 周二</a>
-    <a href="#booking" class="highlight">🎫 景点预约表</a>
-    <a href="#tips" class="highlight">💡 6人聚餐贴士</a>
+<!-- 顶部悬浮电梯栏 -->
+<nav class="sticky-nav">
+    <a href="#d1">D1 · 11/6 周五</a>
+    <a href="#d2">D2 · 11/7 周六</a>
+    <a href="#d3">D3 · 11/8 周日</a>
+    <a href="#d4">D4 · 11/9 周一</a>
+    <a href="#d5">D5 · 11/10 周二</a>
+    <a href="#booking" class="nav-special">🎫 抢票时间表</a>
+    <a href="#tips" class="nav-special">💡 6人聚餐贴士</a>
 </nav>
 
 <main class="container">
 
-    <!-- ==================== 第一部分：每日行程与用餐 ==================== -->
-    <h2 class="part-title">🗺️ 每日行程 & 餐饮安排</h2>
+    <div class="section-heading">
+        <h2>🗺️ 逐日精细行程 & 游览动线</h2>
+        <span>含景区内走法与6人用餐方案</span>
+    </div>
 
-    <!-- D1 -->
-    <div class="day-card" id="d1">
-        <div class="day-header">11/6 周五 (D1)<span>抵京 · 胡同日落</span></div>
-        <div class="day-body">
-            <div class="route-box">
-                <div class="route-item"><span class="time-tag">中午</span><strong>12:54 到北京丰台站</strong>（K286次），前往酒店办理入住。</div>
-                <div class="route-item"><span class="time-tag">下午/晚</span><strong>南锣鼓巷 ➔ 什刹海</strong>（步行串联，银锭桥看日落）。</div>
+    <!-- ==================== DAY 1 ==================== -->
+    <section class="day-card" id="d1">
+        <div class="day-banner">
+            <div class="day-banner-top">
+                <div class="day-title"><span class="day-num">DAY 1</span>11月6日 周五 · 老北京胡同与什刹海日落</div>
+                <span class="day-badge">✅ 全天免预约 · 轻松慢游</span>
             </div>
-            <div class="food-title">🍽️ 当日用餐推荐</div>
-            <ul class="food-list">
-                <li><strong>【午餐】列车简餐：</strong>K286有餐车，或提前在烟台买些便携食物带上车。</li>
-                <li><span class="price-tag">人均 ¥100</span><strong>【晚餐】烤肉季（什刹海总店）：</strong>银锭桥边百年清真老字号，招牌烤羊肉配芝麻烧饼，二楼可俯瞰什刹海日落。</li>
-                <li><span class="price-tag">人均 ¥82</span><strong>【晚餐】峨嵋酒家（地安门店）：</strong>川菜老字号，宫保鸡丁、干炸丸子是招牌，紧邻地铁站。</li>
-                <li><span class="price-tag">人均 ¥70</span><strong>【晚餐】印巷小馆（南锣鼓巷店）：</strong>菊儿胡同内新派京菜，有包厢，适合逛完直接吃。</li>
-            </ul>
-            <div class="six-tip">💡 <strong>6人建议：</strong>烤肉季旺季排队久，建议提前电话问能否订包间；印巷小馆有包厢适合家庭聚餐。</div>
-        </div>
-    </div>
-
-    <!-- D2 -->
-    <div class="day-card" id="d2">
-        <div class="day-header">11/7 周六 (D2)<span>广场 · 皇家园林</span></div>
-        <div class="day-body">
-            <div class="route-box">
-                <div class="route-item"><span class="time-tag">上午</span><strong>毛主席纪念堂 ➔ 天安门广场</strong>（⚠️纪念堂严禁带包、相机、水杯）</div>
-                <div class="route-item"><span class="time-tag">下午/晚</span><strong>颐和园</strong>（东宫门进，核心区游览，需刷身份证原件入园）</div>
+            <div class="day-route-bar">
+                📍 <strong>当日动线：</strong>北京丰台站 (12:54) ➔ 酒店入住放行李 ➔ 南锣鼓巷 ➔ 什刹海 (银锭桥看日落) ➔ 什刹海晚餐
             </div>
-            <div class="food-title">🍽️ 当日用餐推荐</div>
-            <ul class="food-list">
-                <li><span class="price-tag">人均 ¥160</span><strong>【午餐·前门】四季民福烤鸭店（前门店）：</strong>评分4.8，果木烤鸭、贝勒烤肉、炸酱面，设有包厢。</li>
-                <li><span class="price-tag">人均 ¥100-150</span><strong>【午餐·前门】泰丰楼（前门店）：</strong>八大楼之一，鲁菜老字号，葱烧海参、烩乌鱼蛋汤，设包间。</li>
-                <li><span class="price-tag">人均 ¥72</span><strong>【午餐·前门】都一处烧麦馆（前门店）：</strong>百年老字号，三鲜烧麦是招牌。</li>
-                <li><span class="price-tag">人均 ¥100</span><strong>【晚餐】北华涮肉（畅春园店）：</strong>颐和园东宫门附近30年老字号铜锅涮肉（或回王府井吃）。</li>
-            </ul>
-            <div class="six-tip">💡 <strong>6人建议：</strong>四季民福日常等位约1.5小时，务必提前取号或电话订包间；赶时间可选泰丰楼或都一处。</div>
         </div>
-    </div>
 
-    <!-- D3 -->
-    <div class="day-card" id="d3">
-        <div class="day-header">11/8 周日 (D3)<span>故宫中轴线 · 景山</span></div>
-        <div class="day-body">
-            <div class="route-box">
-                <div class="route-item"><span class="time-tag">上午</span><strong>天安门城楼 ➔ 故宫（中轴线）</strong>（⚠️城楼禁带包/水杯/充电宝，北侧免费存）</div>
-                <div class="route-item"><span class="time-tag">下午/晚</span><strong>景山公园 ➔ 自由活动</strong>（故宫神武门出来过马路即到，现场扫码2元入园）</div>
+        <div class="day-content">
+            <div class="timeline-title">🕒 分时段行程计划</div>
+            <div class="timeline">
+                <!-- 节点1 -->
+                <div class="tl-node">
+                    <span class="tl-dot trans-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge teal">中午 12:54 - 14:30</span>
+                        <span class="tl-duration">交通与休整</span>
+                    </div>
+                    <div class="tl-spot-name">抵达北京丰台站 ➔ 酒店办理入住</div>
+                    <div class="tl-desc">K286次列车于 12:54 准时抵达北京丰台站。出站后乘地铁（10号线/16号线换乘）或打车前往酒店（6人同行建议叫2辆网约车或1辆6座商务车），放好行李稍作休整。</div>
+                    <div class="spot-tags">
+                        <span class="micro-tag info">🍱 车上简餐：K286有餐车，或提前在烟台备好便携食物在车上吃</span>
+                    </div>
+                </div>
+
+                <!-- 节点2 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">下午 15:00 - 18:00</span>
+                        <span class="tl-duration">步行串联游览 · 约3小时</span>
+                    </div>
+                    <div class="tl-spot-name">南锣鼓巷 ➔ 什刹海（银锭桥日落）</div>
+                    <div class="tl-desc">北京最具代表性的胡同历史街区与水系，两处紧紧相邻，全程平路步行串联即可，非常适合第一天下午放松闲逛。</div>
+                    <div class="inner-route">
+                        <span class="inner-route-label">👣 推荐步行串联路线（不走回头路）：</span>
+                        <div class="route-steps">
+                            <span class="step-pill">南锣鼓巷南口进</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">主街及两侧胡同</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">穿过烟袋斜街</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">银锭桥(约16:50看日落)</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">什刹海前海/后海夜景</span>
+                        </div>
+                    </div>
+                    <div class="spot-tags">
+                        <span class="micro-tag ok">🎫 无需门票与预约</span>
+                        <span class="micro-tag info">🌅 11月初北京日落约在 17:05 左右，建议 16:45 前走到银锭桥</span>
+                    </div>
+                </div>
             </div>
-            <div class="food-title">🍽️ 当日用餐推荐</div>
-            <ul class="food-list">
-                <li><span class="price-tag">必吃榜前三</span><strong>【午餐·入宫前】四季民福（故宫店）：</strong>南池子大街11号，距故宫步行可达。</li>
-                <li><span class="price-tag">人均 ¥200</span><strong>【午餐·入宫前】大董（王府井店）：</strong>王府井喜悦商场5楼，酥不腻烤鸭，大厅宽敞包间多。</li>
-                <li><span class="price-tag">人均 ¥158</span><strong>【午餐·入宫前】花家怡园（八爷府王府井店）：</strong>八爷烤鸭、老北京爆肚儿，有大厅和包间。</li>
-                <li><span class="price-tag">人均 ¥74</span><strong>【晚餐】眉州东坡酒楼（王府井店）：</strong>东坡肘子、樟茶鸭，性价比高有包厢（或从景山坐观光3线去什刹海吃）。</li>
-            </ul>
-            <div class="six-tip">💡 <strong>6人建议：</strong>大董和花家怡园适合正式聚餐，建议提前订包间；眉州东坡更亲民，人均70左右能吃得很好。</div>
-        </div>
-    </div>
 
-    <!-- D4 -->
-    <div class="day-card" id="d4">
-        <div class="day-header">11/9 周一 (D4)<span>八达岭长城 · 鸟巢夜景</span></div>
-        <div class="day-body">
-            <div class="route-box">
-                <div class="route-item"><span class="time-tag">全天</span><strong>八达岭长城</strong>（周一正常开放；建议出发前在市区买些面包水果带上补充体力）</div>
-                <div class="route-item"><span class="time-tag">晚上</span><strong>奥林匹克公园</strong>（回程看鸟巢、水立方夜景）</div>
+            <!-- 餐饮区 -->
+            <div class="dining-section">
+                <div class="timeline-title">🍽️ 当日用餐方案（什刹海/地安门一带 · 晚餐3选1）</div>
+                <div class="rest-grid">
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🥩 烤肉季（什刹海总店）</span>
+                                <span class="rest-price">人均 ¥100</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：烤羊肉配芝麻烧饼（百年清真老字号）</div>
+                            <div class="rest-note">就在银锭桥边！二楼窗户可俯瞰什刹海，傍晚边吃边看日落非常惬意。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🌶️ 峨嵋酒家（地安门店）</span>
+                                <span class="rest-price">人均 ¥82</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：宫保鸡丁、干炸丸子（川菜老字号）</div>
+                            <div class="rest-note">紧邻地铁什刹海站和南锣鼓巷站，交通位置极佳，口味老少咸宜。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🥢 印巷小馆（南锣鼓巷店）</span>
+                                <span class="rest-price">人均 ¥70</span>
+                            </div>
+                            <div class="rest-dishes">★ 特色：新派北京家常菜（有包厢）</div>
+                            <div class="rest-note">藏在菊儿胡同里，环境安静，适合逛完南锣鼓巷直接去吃。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-advice">
+                    💡 <strong>6人聚餐专属建议：</strong>烤肉季旺季排队较久，建议提前打电话问能否订包间；印巷小馆设有包厢，家庭聚餐性价比很高。
+                </div>
             </div>
-            <div class="food-title">🍽️ 当日用餐推荐</div>
-            <ul class="food-list">
-                <li><span class="price-tag">设贵宾包房</span><strong>【午餐·长城】八达岭饭店：</strong>11:00-14:30营业，主营淮扬菜、粤菜及川鲁菜。</li>
-                <li><span class="price-tag">人均 ¥30-100</span><strong>【午餐·长城】苏禾·SUHE餐厅 / 快餐：</strong>苏禾主打红烧肉（人均80-100）；步行街有庆丰包子铺、李先生牛肉面。</li>
-                <li><span class="price-tag">人均 ¥80</span><strong>【晚餐·奥体】小吊梨汤（鸟巢店）：</strong>新奥购物中心B1层，招牌梨汤与京菜，逛完直接吃很方便。</li>
-                <li><span class="price-tag">人均 ¥206</span><strong>【晚餐·奥体】兰特伯爵国奥店：</strong>德式西餐，烤猪肘配酸菜、德式香肠、德国啤酒。</li>
-            </ul>
-            <div class="six-tip">💡 <strong>6人建议：</strong>爬长城体力消耗大，晚餐建议选小吊梨汤这种上菜快、口味家常的。</div>
         </div>
-    </div>
+    </section>
 
-    <!-- D5 -->
-    <div class="day-card" id="d5">
-        <div class="day-header">11/10 周二 (D5)<span>天坛公园 · 顺利返程</span></div>
-        <div class="day-body">
-            <div class="route-box">
-                <div class="route-item"><span class="time-tag">上午</span><strong>天坛公园</strong>（南门进，游览圜丘、回音壁、祈年殿核心景点）</div>
-                <div class="route-item"><span class="time-tag">下午</span><strong>取行李 ➔ 北京南站 ➔ G1091 (15:34) 返程</strong></div>
+    <!-- ==================== DAY 2 ==================== -->
+    <section class="day-card" id="d2">
+        <div class="day-banner">
+            <div class="day-banner-top">
+                <div class="day-title"><span class="day-num">DAY 2</span>11月7日 周六 · 天安门广场与皇家园林颐和园</div>
+                <span class="day-badge">⚠️ 纪念堂严禁带包/相机/水杯</span>
             </div>
-            <div class="food-title">🍽️ 当日用餐推荐</div>
-            <ul class="food-list">
-                <li><strong>【早餐】</strong>酒店附近解决，或到天坛南门附近吃。</li>
-                <li><span class="price-tag">人均 ¥84</span><strong>【午餐·天坛】南门涮肉（天坛店）：</strong>天坛南门旁，清真铜锅涮肉，鲜切元宝羊肉+麻酱小料。</li>
-                <li><span class="price-tag">人均 ¥30-40</span><strong>【午餐·天坛】祥隆餐厅（天坛总店）：</strong>砂锅烫饭、电烤羊肉串，适合赶时间快速解决。</li>
-                <li><span class="price-tag">¥15-50</span><strong>【返程高铁餐】</strong>12306扫码预订“京铁佳膳”热链便当；或在北京南站候车大厅买<strong>七鲜小厨</strong>现炒盖饭（3-5分钟出餐）打包上车。</li>
-            </ul>
-            <div class="six-tip">💡 <strong>6人建议：</strong>南门涮肉建议提前电话问能否订位；若时间紧，祥隆餐厅或南站七鲜小厨更保险。</div>
+            <div class="day-route-bar">
+                📍 <strong>当日动线：</strong>毛主席纪念堂 ➔ 天安门广场 ➔ 前门大栅栏(午餐) ➔ 地铁4号线 ➔ 颐和园(东宫门进)
+            </div>
         </div>
+
+        <div class="day-content">
+            <div class="timeline-title">🕒 分时段行程计划</div>
+            <div class="timeline">
+                <!-- 节点1 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">上午 08:30 - 11:30</span>
+                        <span class="tl-duration">核心庄严打卡 · 约3小时</span>
+                    </div>
+                    <div class="tl-spot-name">毛主席纪念堂 ➔ 天安门广场</div>
+                    <div class="tl-desc">按预约时段先瞻仰毛主席纪念堂（仅上午开放），出来后直接在天安门广场漫步拍照，外观人民大会堂、国家博物馆与人民英雄纪念碑。</div>
+                    <div class="spot-tags">
+                        <span class="micro-tag warn">🚫 纪念堂严禁带包、相机、水杯（需提前在广场东侧存包）</span>
+                        <span class="micro-tag ok">🎫 凭纪念堂预约记录可直接进天安门广场，无需单独约广场</span>
+                        <span class="micro-tag info">👥 纪念堂每单限5人，6人需用2个账号提前1-6天(12:30)抢票</span>
+                    </div>
+                </div>
+
+                <!-- 节点2 -->
+                <div class="tl-node">
+                    <span class="tl-dot food-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge amber">中午 11:30 - 13:30</span>
+                        <span class="tl-duration">步行即达</span>
+                    </div>
+                    <div class="tl-spot-name">前门大街 / 大栅栏午餐（之后乘地铁前往颐和园）</div>
+                    <div class="tl-desc">从纪念堂南侧出来步行即可到达前门大栅栏商圈用餐。餐后搭乘地铁（前门站换乘4号线至西苑站/北宫门站）或打车前往颐和园东宫门。</div>
+                </div>
+
+                <!-- 节点3 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">下午 14:00 - 17:30</span>
+                        <span class="tl-duration">皇家园林精粹 · 约3.5小时</span>
+                    </div>
+                    <div class="tl-spot-name">颐和园（东宫门进 · 核心区游览）</div>
+                    <div class="tl-desc">从正门“东宫门”入园， concentrated 游览帝后朝政生活区、万寿山建筑群与昆明湖风光。</div>
+                    <div class="inner-route">
+                        <span class="inner-route-label">👣 东宫门核心区精华路线：</span>
+                        <div class="route-steps">
+                            <span class="step-pill">东宫门入园</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">仁寿殿</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">乐寿堂</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">长廊</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">排云殿 & 佛香阁</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">昆明湖畔远眺十七孔桥</span>
+                        </div>
+                    </div>
+                    <div class="spot-tags">
+                        <span class="micro-tag warn">🪪 订单内所有人入园时必须刷各自的【身份证原件】</span>
+                        <span class="micro-tag info">🎫 淡季门票20元，联票50元（含佛香阁），建议提前1-7天预约</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 餐饮区 -->
+            <div class="dining-section">
+                <div class="timeline-title">🍽️ 当日用餐方案</div>
+                <div class="meal-period-title">🦆 午餐：前门 / 大栅栏一带（纪念堂结束后步行可达 · 3选1）</div>
+                <div class="rest-grid">
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🦆 四季民福烤鸭店（前门店）</span>
+                                <span class="rest-price">人均 ¥160</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：果木烤鸭、贝勒烤肉、老北京炸酱面</div>
+                            <div class="rest-note">大栅栏超人气烤鸭（评分4.8），店里设有包厢，非常适合家庭聚会。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🍲 泰丰楼（前门店）</span>
+                                <span class="rest-price">人均 ¥100-150</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：葱烧海参、烩乌鱼蛋汤</div>
+                            <div class="rest-note">老北京“八大楼”之一，正宗鲁菜老字号，店内设包间，等位压力较小。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🥟 都一处烧麦馆（前门店）</span>
+                                <span class="rest-price">人均 ¥72</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：三鲜烧麦（乾隆赐名百年老字号）</div>
+                            <div class="rest-note">上菜快，适合想尝尝地道老北京特色小吃、不想久等的情况。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🥘 晚餐：北华涮肉（畅春园店）</span>
+                                <span class="rest-price">人均 ¥100</span>
+                            </div>
+                            <div class="rest-dishes">★ 特色：30年老字号传统铜锅涮肉</div>
+                            <div class="rest-note">就在颐和园东宫门附近，逛完直接吃很近；若回市区吃，可去王府井选择更多。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-advice">
+                    💡 <strong>6人聚餐专属建议：</strong>四季民福日常等位约 1.5 小时，务必提前线上取号或打电话问能否订包间！如果下午赶着去颐和园，选泰丰楼或都一处排队压力小很多。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DAY 3 ==================== -->
+    <section class="day-card" id="d3">
+        <div class="day-banner">
+            <div class="day-banner-top">
+                <div class="day-title"><span class="day-num">DAY 3</span>11月8日 周日 · 天安门城楼、故宫与景山俯瞰</div>
+                <span class="day-badge">⚠️ 城楼禁带包/水杯/充电宝</span>
+            </div>
+            <div class="day-route-bar">
+                📍 <strong>当日动线：</strong>天安门城楼 ➔ 城楼北侧取包 ➔ 入宫前午餐 ➔ 故宫(午门进-中轴线-神武门出) ➔ 景山公园
+            </div>
+        </div>
+
+        <div class="day-content">
+            <div class="timeline-title">🕒 分时段行程计划</div>
+            <div class="timeline">
+                <!-- 节点1 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">上午 08:30 - 10:30</span>
+                        <span class="tl-duration">登城楼看广场</span>
+                    </div>
+                    <div class="tl-spot-name">登天安门城楼</div>
+                    <div class="tl-desc">登上天安门城楼，感受课本里的历史视角。下来后在城楼北侧免费存包处取回随身背包。</div>
+                    <div class="spot-tags">
+                        <span class="micro-tag warn">🚫 背包、水杯、充电宝一律不能带上城楼（北侧有免费存包处）</span>
+                        <span class="micro-tag info">🎫 门票15元，提前7天(17:00)放票，每单可约10人（6人一单搞定）</span>
+                    </div>
+                </div>
+
+                <!-- 节点2 -->
+                <div class="tl-node">
+                    <span class="tl-dot food-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge amber">中午 10:45 - 12:15</span>
+                        <span class="tl-duration">错峰早午餐 · 补充体力</span>
+                    </div>
+                    <div class="tl-spot-name">故宫周边午餐（强烈建议在进入故宫午门前解决！）</div>
+                    <div class="tl-desc">故宫里面面积巨大且餐厅较少、价格偏贵，建议登完天安门城楼后，先去旁边的南池子大街或王府井吃饱喝足，再检票进故宫。</div>
+                </div>
+
+                <!-- 节点3 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">下午 12:30 - 16:00</span>
+                        <span class="tl-duration">紫禁城深度游 · 约3.5小时</span>
+                    </div>
+                    <div class="tl-spot-name">故宫博物院（中轴线 + 珍宝馆）</div>
+                    <div class="tl-desc">从午门（南门）检票入宫，沿着紫禁城中轴线一路向北游览，最后从神武门（北门）出宫。</div>
+                    <div class="inner-route">
+                        <span class="inner-route-label">👣 故宫经典中轴线路线：</span>
+                        <div class="route-steps">
+                            <span class="step-pill">午门入宫</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">太和殿/中和殿/保和殿(三大殿)</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">东六宫 & 珍宝馆(九龙壁)</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">乾清宫/交泰殿/坤宁宫</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">御花园</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">神武门出</span>
+                        </div>
+                    </div>
+                    <div class="spot-tags">
+                        <span class="micro-tag warn">⏰ 淡季 15:30 停止检票，务必在此之前进入午门</span>
+                        <span class="micro-tag info">🎫 淡季40元（珍宝馆/钟表馆各10元建议一起约），提前7天20:00抢票(限5人/单)</span>
+                    </div>
+                </div>
+
+                <!-- 节点4 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">傍晚 16:00 - 17:30</span>
+                        <span class="tl-duration">登高俯瞰紫禁城全景</span>
+                    </div>
+                    <div class="tl-spot-name">景山公园 ➔ 自由活动</div>
+                    <div class="tl-desc">从故宫神武门出来，过地下通道到马路对面就是景山公园南门。花10-15分钟登上山顶【万春亭】，俯瞰金碧辉煌的故宫全景与北京中轴线日落。</div>
+                    <div class="spot-tags">
+                        <span class="micro-tag ok">🎫 无需预约，现场扫码买票 2元/人 即可直接入园</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 餐饮区 -->
+            <div class="dining-section">
+                <div class="timeline-title">🍽️ 当日用餐方案</div>
+                <div class="meal-period-title">🦆 午餐：故宫周边 / 王府井（建议入宫前解决 · 3选1）</div>
+                <div class="rest-grid">
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🦆 四季民福（故宫店）</span>
+                                <span class="rest-price">必吃榜前三</span>
+                            </div>
+                            <div class="rest-dishes">★ 位置：东城区南池子大街11号</div>
+                            <div class="rest-note">被评为必吃榜前三，距离故宫东华门/午门步行可达，建议10:30一开门就去取号。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🍽️ 大董（王府井店）</span>
+                                <span class="rest-price">人均 ¥200</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：“酥不腻”烤鸭、创意意境菜</div>
+                            <div class="rest-note">位于王府井喜悦商场5楼，大厅宽敞、包间多，非常适合6人正式聚餐。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🏮 花家怡园（八爷府王府井店）</span>
+                                <span class="rest-price">人均 ¥158</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：八爷烤鸭、老北京爆肚儿</div>
+                            <div class="rest-note">北京菜高端品牌，四合院风情，有可容纳多人的大厅和包间。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🐼 晚餐：眉州东坡（王府井店）</span>
+                                <span class="rest-price">人均 ¥74</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：东坡肘子、樟茶鸭（川菜有包厢）</div>
+                            <div class="rest-note">景山出来可回王府井吃眉州东坡，性价比极高；也可在神武门坐【观光3线】去什刹海或鼓楼用餐。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-advice">
+                    💡 <strong>6人聚餐专属建议：</strong>大董和花家怡园适合正式聚餐，建议提前电话订包间。眉州东坡更亲民，6人点一桌菜人均70元左右就能吃得非常丰盛。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DAY 4 ==================== -->
+    <section class="day-card" id="d4">
+        <div class="day-banner">
+            <div class="day-banner-top">
+                <div class="day-title"><span class="day-num">DAY 4</span>11月9日 周一 · 八达岭长城与奥林匹克夜景</div>
+                <span class="day-badge">✅ 巧妙避开周一市内闭馆潮</span>
+            </div>
+            <div class="day-route-bar">
+                📍 <strong>当日动线：</strong>市区出发 ➔ 八达岭长城(全天) ➔ 回程去奥林匹克公园(鸟巢/水立方夜景) ➔ 新奥购物中心晚餐
+            </div>
+        </div>
+
+        <div class="day-content">
+            <div class="timeline-title">🕒 分时段行程计划</div>
+            <div class="timeline">
+                <!-- 节点1 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">上午 - 下午 08:30 - 15:30</span>
+                        <span class="tl-duration">不到长城非好汉 · 全天核心</span>
+                    </div>
+                    <div class="tl-spot-name">八达岭长城（周一正常开放！）</div>
+                    <div class="tl-desc">周一故宫、纪念堂、天坛核心区均闭馆，今天去八达岭长城是最完美的错峰安排！可从清河站/北京北站乘高铁（约20-30分钟直达八达岭长城站）或包车前往。</div>
+                    <div class="inner-route">
+                        <span class="inner-route-label">👣 长城游览选择建议：</span>
+                        <div class="route-steps">
+                            <span class="step-pill">北线：北一楼至北八楼(好汉坡，经典壮观，可坐北线索道上下)</span>
+                            <span class="step-pill">南线：南一楼至南四楼(人少平缓，可坐地面缆车，适合长辈省力游)</span>
+                        </div>
+                    </div>
+                    <div class="spot-tags">
+                        <span class="micro-tag warn">🥖 景区内餐饮有限，出发前务必在市区买些面包、水果、水带上补充体力</span>
+                        <span class="micro-tag ok">🎫 淡季门票35元，每单可约10人（6人一单搞定）</span>
+                    </div>
+                </div>
+
+                <!-- 节点2 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">傍晚 / 晚上 17:30 - 20:30</span>
+                        <span class="tl-duration">奥运地标璀璨灯光</span>
+                    </div>
+                    <div class="tl-spot-name">奥林匹克公园（鸟巢、水立方夜景）</div>
+                    <div class="tl-desc">从长城返回市区途中，直接前往奥林匹克公园。傍晚亮灯后，火红的【鸟巢】与蔚蓝的【水立方】交相辉映，广场平坦宽阔，散步拍照非常出片，旁边的新奥购物中心直接解决晚餐。</div>
+                </div>
+            </div>
+
+            <!-- 餐饮区 -->
+            <div class="dining-section">
+                <div class="timeline-title">🍽️ 当日用餐方案</div>
+                <div class="rest-grid">
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🏨 午餐：八达岭饭店</span>
+                                <span class="rest-price">11:00-14:30营业</span>
+                            </div>
+                            <div class="rest-dishes">★ 主营：淮扬菜、粤菜，兼顾川菜、鲁菜</div>
+                            <div class="rest-note">长城景区内规模最大的涉外酒店，环境正规，设有可容纳18人的贵宾包房。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🥩 午餐：苏禾餐厅 / 步行街快餐</span>
+                                <span class="rest-price">人均 ¥30-100</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：“老板最爱红烧肉”（苏禾·SUHE）</div>
+                            <div class="rest-note">苏禾位于八达岭镇上，主打本地慢食风味；赶时间也可在景区步行街吃<strong>庆丰包子铺、李先生牛肉面</strong>。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🍐 晚餐：小吊梨汤（鸟巢店）</span>
+                                <span class="rest-price">人均 ¥80</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：小吊梨汤、梨球果仁虾、京味家常菜</div>
+                            <div class="rest-note">位于新奥购物中心B1层，逛完鸟巢水立方下楼直接吃，温润的梨汤非常解乏润燥！</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🍺 晚餐：兰特伯爵国奥店</span>
+                                <span class="rest-price">人均 ¥206</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：烤猪肘配酸菜、德式煎香肠、德国啤酒</div>
+                            <div class="rest-note">正宗德式西餐厅，氛围很好，适合爬完长城想大口吃肉换个口味犒劳一下。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-advice">
+                    💡 <strong>6人聚餐专属建议：</strong>长城这天体力消耗大，晚餐最推荐选【小吊梨汤】这种上菜快、口味家常、还能喝热梨汤润嗓子的餐厅。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DAY 5 ==================== -->
+    <section class="day-card" id="d5">
+        <div class="day-banner">
+            <div class="day-banner-top">
+                <div class="day-title"><span class="day-num">DAY 5</span>11月10日 周二 · 天坛祈年殿与高铁返程</div>
+                <span class="day-badge">🚄 15:34 北京南站 G1091 返程</span>
+            </div>
+            <div class="day-route-bar">
+                📍 <strong>当日动线：</strong>天坛公园(南门进核心游览) ➔ 天坛南门午餐 ➔ 回酒店取行李 ➔ 北京南站(15:34 G1091)
+            </div>
+        </div>
+
+        <div class="day-content">
+            <div class="timeline-title">🕒 分时段行程计划</div>
+            <div class="timeline">
+                <!-- 节点1 -->
+                <div class="tl-node">
+                    <span class="tl-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge">上午 08:30 - 11:30</span>
+                        <span class="tl-duration">明清祭天建筑群 · 约3小时</span>
+                    </div>
+                    <div class="tl-spot-name">天坛公园（南门进 · 核心景点）</div>
+                    <div class="tl-desc">早餐在酒店附近或天坛南门解决后，从【天坛南门】入园，沿着神道由南向北顺次打卡三大核心古建，路线最顺且离午餐店最近。</div>
+                    <div class="inner-route">
+                        <span class="inner-route-label">👣 天坛南门进最佳游览动线：</span>
+                        <div class="route-steps">
+                            <span class="step-pill">昭亨门(南门)进</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">圜丘坛(天心石)</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">皇穹宇(回音壁)</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">丹陛桥</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">祈年殿</span><span class="step-arrow">➔</span>
+                            <span class="step-pill">返回南门出吃涮肉</span>
+                        </div>
+                    </div>
+                    <div class="spot-tags">
+                        <span class="micro-tag warn">🎫 务必购买【联票】（淡季28元，含祈年殿、回音壁、圜丘），只买大门票进不去祈年殿</span>
+                        <span class="micro-tag info">👥 每单限购5张，6人需用2个账号提前1-7天(21:00)预约</span>
+                    </div>
+                </div>
+
+                <!-- 节点2 -->
+                <div class="tl-node">
+                    <span class="tl-dot food-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge amber">中午 11:30 - 13:15</span>
+                        <span class="tl-duration">天坛南门旁</span>
+                    </div>
+                    <div class="tl-spot-name">天坛南门午餐（地道老北京铜锅涮肉）</div>
+                    <div class="tl-desc">出天坛南门就是南门涮肉总店和祥隆餐厅，吃完午餐时间充裕。</div>
+                </div>
+
+                <!-- 节点3 -->
+                <div class="tl-node">
+                    <span class="tl-dot trans-dot"></span>
+                    <div class="tl-header">
+                        <span class="tl-time-badge teal">下午 13:30 - 15:34</span>
+                        <span class="tl-duration">取行李与高铁返程</span>
+                    </div>
+                    <div class="tl-spot-name">回酒店取行李 ➔ 北京南站 ➔ G1091 (15:34发车)</div>
+                    <div class="tl-desc">建议 14:30 前抵达北京南站候车大厅，从容安检候车，搭乘 15:34 发车的 G1091 次高铁平安返程。</div>
+                </div>
+            </div>
+
+            <!-- 餐饮区 -->
+            <div class="dining-section">
+                <div class="timeline-title">🍽️ 当日用餐方案</div>
+                <div class="rest-grid">
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🍲 午餐：南门涮肉（天坛店）</span>
+                                <span class="rest-price">人均 ¥84</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：鲜切元宝羊肉、秘制麻酱小料（清真）</div>
+                            <div class="rest-note">就在天坛南门旁边！老北京铜锅涮肉代表，周二排队比周末少，但仍建议提前电话问能否订位。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🍢 午餐：祥隆餐厅（天坛总店）</span>
+                                <span class="rest-price">人均 ¥30-40</span>
+                            </div>
+                            <div class="rest-dishes">★ 招牌：砂锅烫饭、电烤羊肉串</div>
+                            <div class="rest-note">性价比极高，出餐快，如果南门涮肉排队太长或赶时间，选这家最稳妥。</div>
+                        </div>
+                    </div>
+                    <div class="rest-box" style="grid-column: 1 / -1;">
+                        <div>
+                            <div class="rest-top">
+                                <span class="rest-title">🚄 返程晚餐：北京南站 / G1091 高铁热链餐</span>
+                                <span class="rest-price">人均 ¥15-50</span>
+                            </div>
+                            <div class="rest-dishes">★ 推荐：南站候车厅“七鲜小厨”现炒盖饭 / 12306“京铁佳膳”</div>
+                            <div class="rest-note">
+                                • <strong>南站打包上车：</strong>北京南站候车大厅内有<strong>七鲜小厨</strong>，现炒盖饭十几到二十几元，3-5分钟出餐，打包上车吃热乎又实惠。<br>
+                                • <strong>车上扫码预订：</strong>G1091次上可扫码12306订“京铁佳膳”（老北京葱油肉丁炸酱面、咖喱海鲜便当、葱烧大排便当等）。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 景点预约与抢票速查表 ==================== -->
+    <div class="section-heading" id="booking" style="scroll-margin-top: 64px;">
+        <h2>🎫 景点预约 & 6人抢票规则速查</h2>
+        <span>提前录入“常用观众” · 2-3部手机分批抢</span>
     </div>
 
-    <!-- ==================== 第二部分：景点预约与抢票规则 ==================== -->
-    <h2 class="part-title" id="booking" style="scroll-margin-top: 60px;">🎫 景点预约 & 6人抢票规则表</h2>
-    <div class="six-tip" style="margin-bottom: 12px; font-size: 13px;">
-        ⚡ <strong>6人抢票三大铁律：</strong><br>
-        1. <strong>提前录信息：</strong>提前在各小程序“个人中心”把6人姓名和身份证号存为“常用观众”。<br>
-        2. <strong>多手机分批抢：</strong>纪念堂、故宫、天坛每单限5人！请准备 <strong>2-3部手机同时抢</strong>（每部手机约2-3人）。<br>
-        3. <strong>统一入口：</strong>颐和园、天坛、八达岭也可直接在微信<strong>“京通”小程序</strong>里统一预约。
-    </div>
-
-    <div class="grid-2">
-        <div class="book-card">
-            <div class="book-head"><span>毛主席纪念堂</span><span class="must-tag">必须预约 · 限5人/单</span></div>
-            <div class="book-info">
-                • <strong>放票时间：</strong>提前1-6天，每天 12:30<br>
+    <div class="cards-grid">
+        <div class="rule-card">
+            <div class="rule-head">
+                <span class="rule-name">1. 毛主席纪念堂 (D2上午)</span>
+                <span class="micro-tag warn">必须预约 · 限5人/单</span>
+            </div>
+            <div class="rule-list">
+                • <strong>放票时间：</strong>提前 1-6天，每天 <strong>12:30</strong><br>
                 • <strong>预约渠道：</strong>小程序/公众号“毛主席纪念堂”<br>
-                • <strong>关键备注：</strong>免费；周一闭馆；仅上午开放；严禁带包、相机、水杯。
+                • <strong>多人规则：</strong>每账号每天仅1个待出行预约，最多约5人（6人需2个账号）。
             </div>
         </div>
-        <div class="book-card">
-            <div class="book-head"><span>天安门广场</span><span class="sug-tag">凭记录免单约</span></div>
-            <div class="book-info">
-                • <strong>放票时间：</strong>提前1-7天，每天 12:00<br>
-                • <strong>预约渠道：</strong>小程序“天安门广场预约参观”<br>
-                • <strong>关键备注：</strong>约了纪念堂或故宫可凭记录进广场，无需单约（看升旗需单约）。
+
+        <div class="rule-card">
+            <div class="rule-head">
+                <span class="rule-name">2. 天安门城楼 (D3上午)</span>
+                <span class="micro-tag warn">必须预约 · 限10人/单</span>
             </div>
-        </div>
-        <div class="book-card">
-            <div class="book-head"><span>天安门城楼</span><span class="must-tag">必须预约 · 限10人/单</span></div>
-            <div class="book-info">
-                • <strong>放票时间：</strong>提前7天，每天 17:00<br>
+            <div class="rule-list">
+                • <strong>放票时间：</strong>提前 7天，每天 <strong>17:00</strong><br>
                 • <strong>预约渠道：</strong>公众号“天安门城楼参观预约”<br>
-                • <strong>关键备注：</strong>15元；周一闭馆；包、水杯、充电宝禁上城楼（北侧免费存）。
+                • <strong>多人规则：</strong>单笔可约10人，需为每位参观者单独填写实名信息。
             </div>
         </div>
-        <div class="book-card">
-            <div class="book-head"><span>故宫博物院</span><span class="must-tag">必须预约 · 限5人/单</span></div>
-            <div class="book-info">
-                • <strong>放票时间：</strong>提前7天，每天 20:00<br>
+
+        <div class="rule-card">
+            <div class="rule-head">
+                <span class="rule-name">3. 故宫博物院 (D3下午)</span>
+                <span class="micro-tag warn">必须预约 · 限5人/单</span>
+            </div>
+            <div class="rule-list">
+                • <strong>放票时间：</strong>提前 7天，每天 <strong>20:00</strong><br>
                 • <strong>预约渠道：</strong>小程序“故宫博物院”<br>
-                • <strong>关键备注：</strong>淡季40元；周一闭馆；15:30停检；珍宝馆/钟表馆各10元建议一起约。
+                • <strong>多人规则：</strong>每账号最多约5人（6人需2个号），务必提前把身份证录入“常用观众”。
             </div>
         </div>
-        <div class="book-card">
-            <div class="book-head"><span>颐和园</span><span class="sug-tag">建议预约 · 无上限</span></div>
-            <div class="book-info">
-                • <strong>放票时间：</strong>提前1-7天，每天 21:00<br>
-                • <strong>预约渠道：</strong>公众号“颐和园”或“畅游公园”<br>
-                • <strong>关键备注：</strong>淡季门票20元，联票50元（含佛香阁）；所有人需刷身份证原件。
+
+        <div class="rule-card">
+            <div class="rule-head">
+                <span class="rule-name">4. 颐和园 & 天坛 & 八达岭</span>
+                <span class="micro-tag info">建议提前约 · 可用“京通”</span>
             </div>
-        </div>
-        <div class="book-card">
-            <div class="book-head"><span>天坛公园</span><span class="sug-tag">建议预约 · 限5人/单</span></div>
-            <div class="book-info">
-                • <strong>放票时间：</strong>提前1-7天，每天 21:00<br>
-                • <strong>预约渠道：</strong>“畅游公园”或“天坛”小程序<br>
-                • <strong>关键备注：</strong>建议买淡季联票28元（含祈年殿、回音壁、圜丘）；核心景点周一关闭。
-            </div>
-        </div>
-        <div class="book-card">
-            <div class="book-head"><span>八达岭长城</span><span class="sug-tag">建议预约 · 限10人/单</span></div>
-            <div class="book-info">
-                • <strong>放票时间：</strong>提前7天（以平台显示为准）<br>
-                • <strong>预约渠道：</strong>公众号“八达岭长城”<br>
-                • <strong>关键备注：</strong>淡季35元；周一正常开放；建议提前线上约。
-            </div>
-        </div>
-        <div class="book-card">
-            <div class="book-head"><span>景山公园</span><span style="background:#E5E7EB;font-size:11px;padding:2px 6px;border-radius:4px;">无需预约</span></div>
-            <div class="book-info">
-                • <strong>入园方式：</strong>门票2元，现场扫码即可入园<br>
-                • <strong>位置衔接：</strong>从故宫神武门出来过马路即到。
+            <div class="rule-list">
+                • <strong>颐和园：</strong>提前1-7天 21:00放票（公众号“颐和园”/“畅游公园”），无人数上限。<br>
+                • <strong>天坛公园：</strong>提前1-7天 21:00放票（“畅游公园”/“天坛”小程序），每单限5人。<br>
+                • <strong>八达岭长城：</strong>提前7天（公众号“八达岭长城”），每单限10人。
             </div>
         </div>
     </div>
 
-    <!-- ==================== 第三部分：6人聚餐实用贴士 ==================== -->
-    <h2 class="part-title" id="tips" style="scroll-margin-top: 60px;">💡 6人聚餐实用提醒</h2>
-    <div class="grid-2">
-        <div class="book-card">
-            <div class="book-head">📞 提前订包间 & 错峰</div>
-            <div class="book-info">烤肉季、四季民福、花家怡园、大董、泰丰楼都有包间，6人建议<strong>提前1-2天打电话预订</strong>。四季民福（日常等1.5小时）、南门涮肉、烤肉季排队凶，没订位建议13:30后错峰去。</div>
+    <!-- ==================== 6人聚餐实用贴士 ==================== -->
+    <div class="section-heading" id="tips" style="scroll-margin-top: 64px;">
+        <h2>💡 6人聚餐实用贴士</h2>
+        <span>包间预订 · 清真需求 · 预算参考</span>
+    </div>
+
+    <div class="cards-grid">
+        <div class="rule-card">
+            <div class="rule-head">
+                <span class="rule-name">📞 订包间与错峰就餐</span>
+                <span class="micro-tag info">省时必看</span>
+            </div>
+            <div class="rule-list">
+                • <strong>有包间餐厅：</strong>烤肉季、四季民福、花家怡园、大董、泰丰楼、印巷小馆、眉州东坡均有包间，6人建议<strong>提前1-2天打电话预订</strong>。<br>
+                • <strong>排队预警：</strong>四季民福（日常等1.5小时）、南门涮肉、烤肉季排队最凶，若未订位建议 11:00前 或 13:30后 错峰去。
+            </div>
         </div>
-        <div class="book-card">
-            <div class="book-head">🕌 清真餐饮 & 预算参考</div>
-            <div class="book-info">
-                • <strong>清真餐厅：</strong>烤肉季、南门涮肉、鼎源斋涮肉均为清真。<br>
-                • <strong>人均参考：</strong>老字号正餐 100-160元；品质家常菜 70-82元；快餐简餐 30-50元。
+
+        <div class="rule-card">
+            <div class="rule-head">
+                <span class="rule-name">🕌 清真餐厅 & 预算参考</span>
+                <span class="micro-tag ok">贴心汇总</span>
+            </div>
+            <div class="rule-list">
+                • <strong>清真认证：</strong>行程中的 <strong>烤肉季（什刹海）、南门涮肉（天坛）、鼎源斋涮肉</strong> 均为正宗清真餐厅。<br>
+                • <strong>人均预算：</strong>老字号正餐 <strong>¥100-160</strong>；品质家常菜 <strong>¥70-82</strong>；快餐简餐 <strong>¥30-50</strong>。
             </div>
         </div>
     </div>
