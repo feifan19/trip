@@ -903,9 +903,117 @@
 
         
         
-        /* ==================== 景点导览：双路线切换器与移动端时间轴优化 ==================== */
-        .g-mode-switch-box {
+        
+        /* ==================== 景点导览：全面美化与排版优化 ==================== */
+        .guide-filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            overflow-x: auto;
+            padding: 8px 2px 14px 2px;
+            margin-bottom: 10px;
+            scrollbar-width: thin;
+        }
+
+        .guide-filter-bar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .guide-filter-bar::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+
+        .g-jump-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: #FFFFFF;
+            border: 1px solid #D6D0C5;
+            border-radius: 20px;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #44403C;
+            text-decoration: none !important;
+            white-space: nowrap;
+            transition: all 0.18s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .g-jump-pill:hover,
+        .g-jump-pill:active {
+            background: var(--red-main);
+            color: #FFFFFF !important;
+            border-color: var(--red-main);
+            box-shadow: 0 2px 6px rgba(155, 35, 35, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .guide-card-enriched {
+            background: #FFFFFF;
+            border: 1px solid #E7E2D8;
+            border-radius: 14px;
+            padding: 16px 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            scroll-margin-top: 100px;
+        }
+
+        .g-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            padding-bottom: 11px;
+            border-bottom: 1px solid #EFEAE1;
             margin-bottom: 12px;
+        }
+
+        .g-header-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--red-main);
+            margin: 0;
+            letter-spacing: 0.2px;
+        }
+
+        .g-meta-tags {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .g-tag-item {
+            font-size: 11.5px;
+            padding: 2.5px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .g-tag-gold {
+            background: #FFFBEB;
+            color: #B45309;
+            border: 1px solid #FDE68A;
+        }
+
+        .g-tag-gray {
+            background: #F8FAFC;
+            color: #475569;
+            border: 1px solid #E2E8F0;
+        }
+
+        .g-tag-green {
+            background: #ECFDF5;
+            color: #047857;
+            border: 1px solid #A7F3D0;
+        }
+
+        /* 路线切换器 */
+        .g-mode-switch-box {
+            margin-bottom: 14px;
         }
 
         .g-mode-switch-bar {
@@ -914,15 +1022,16 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 8px;
-            background: #F4EFE6;
+            background: #F5F1E9;
             padding: 5px 8px;
             border-radius: 9px;
-            margin-bottom: 9px;
+            margin-bottom: 10px;
+            border: 1px solid #EAE3D6;
         }
 
         .g-mode-btns {
             display: inline-flex;
-            background: #E5DFC8;
+            background: #E5DFD4;
             padding: 3px;
             border-radius: 7px;
             gap: 3px;
@@ -931,10 +1040,10 @@
         .g-mode-btn {
             font-size: 12px;
             font-weight: 800;
-            padding: 4px 10px;
+            padding: 4px 11px;
             border-radius: 5px;
             cursor: pointer;
-            color: #645E56;
+            color: #57534E;
             transition: all 0.15s ease;
             user-select: none;
             white-space: nowrap;
@@ -944,12 +1053,11 @@
             color: var(--text-main);
         }
 
-        /* 选中态高亮 */
         input[id^="gm-"][id$="-a"]:checked ~ .g-mode-switch-bar label[for$="-a"],
         input[id^="gm-"][id$="-b"]:checked ~ .g-mode-switch-bar label[for$="-b"] {
             background: var(--red-main);
             color: #FFFFFF;
-            box-shadow: 0 1px 4px rgba(155, 35, 35, 0.3);
+            box-shadow: 0 1px 4px rgba(155, 35, 35, 0.25);
         }
 
         .g-mode-panel-a,
@@ -967,18 +1075,13 @@
             animation: fadeIn 0.2s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(2px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 路线卡片容器 */
+        /* 路线卡片 */
         .g-route-card {
-            background: #FCFBF8;
-            border: 1px solid #EFEAE0;
+            background: #FCFBF9;
+            border: 1px solid #ECE6DB;
             border-radius: 10px;
-            padding: 10px 12px;
-            margin-bottom: 11px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
         }
 
         .g-route-card-head {
@@ -990,18 +1093,18 @@
             font-size: 12px;
             font-weight: 700;
             color: #78350F;
-            border-bottom: 1px dashed #EAE3D2;
-            padding-bottom: 6px;
-            margin-bottom: 8px;
+            border-bottom: 1px dashed #E5DFC8;
+            padding-bottom: 7px;
+            margin-bottom: 9px;
         }
 
         .g-route-badge-easy {
             background: #ECFDF5;
             color: #047857;
             border: 1px solid #A7F3D0;
-            padding: 2px 7px;
-            border-radius: 4px;
-            font-size: 11px;
+            padding: 2.5px 8px;
+            border-radius: 5px;
+            font-size: 11.5px;
             font-weight: 700;
         }
 
@@ -1009,39 +1112,52 @@
             background: #EFF6FF;
             color: #1D4ED8;
             border: 1px solid #BFDBFE;
-            padding: 2px 7px;
-            border-radius: 4px;
-            font-size: 11px;
+            padding: 2.5px 8px;
+            border-radius: 5px;
+            font-size: 11.5px;
             font-weight: 700;
         }
 
-        /* 移动端友好垂直步进动线 (Vertical Stepper Timeline) */
+        /* 默认统一2行格式规范的垂直步进器（PC与移动端均完美对齐，绝无空行） */
         .g-step-timeline {
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            position: relative;
-            padding-left: 2px;
+            gap: 8px;
         }
 
-        .g-step-row {
+        @media (min-width: 768px) {
+            .g-step-timeline {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px 16px;
+            }
+        }
+
+        .g-step-item {
             display: flex;
             align-items: flex-start;
-            gap: 8px;
-            font-size: 12.5px;
-            line-height: 1.4;
-            color: var(--text-main);
-            position: relative;
+            gap: 9px;
+            padding: 6px 8px;
+            background: #FFFFFF;
+            border: 1px solid #F0ECE4;
+            border-radius: 8px;
+            min-height: 48px;
+            box-sizing: border-box;
+            transition: border-color 0.15s ease;
+        }
+
+        .g-step-item:hover {
+            border-color: #DDD6C8;
         }
 
         .g-step-dot {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
-            background: #FFF;
+            background: #F1F5F9;
             border: 1.5px solid #CBD5E1;
             color: #475569;
-            font-size: 10.5px;
+            font-size: 11px;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -1050,49 +1166,65 @@
             margin-top: 1px;
         }
 
-        .g-step-row.start .g-step-dot {
+        .g-step-item.start .g-step-dot {
             background: #059669;
             border-color: #059669;
-            color: #FFF;
+            color: #FFFFFF;
         }
 
-        .g-step-row.end .g-step-dot {
+        .g-step-item.end .g-step-dot {
             background: #DC2626;
             border-color: #DC2626;
-            color: #FFF;
+            color: #FFFFFF;
         }
 
-        .g-step-row.highlight .g-step-dot {
-            background: #F59E0B;
-            border-color: #F59E0B;
-            color: #FFF;
+        .g-step-item.highlight .g-step-dot {
+            background: #D97706;
+            border-color: #D97706;
+            color: #FFFFFF;
         }
 
-        .g-step-row.exp .g-step-dot {
+        .g-step-item.exp .g-step-dot {
             background: #2563EB;
             border-color: #2563EB;
-            color: #FFF;
+            color: #FFFFFF;
         }
 
-        .g-step-desc {
+        .g-step-body {
             flex: 1;
-            padding-bottom: 2px;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2px;
         }
 
-        .g-step-desc strong {
-            color: var(--text-main);
+        .g-step-title-line {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            font-size: 12.5px;
             font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.35;
         }
 
-        .g-step-desc .step-tag-pill {
+        .g-step-sub-line {
+            font-size: 11.5px;
+            color: var(--text-sub);
+            line-height: 1.35;
+            white-space: normal;
+        }
+
+        .step-tag-pill {
             display: inline-block;
             font-size: 10px;
             font-weight: 700;
             padding: 1px 5px;
             border-radius: 3px;
-            margin-left: 4px;
-            line-height: 1.2;
-            vertical-align: middle;
+            line-height: 1.25;
+            white-space: nowrap;
         }
 
         .pill-save {
@@ -1113,13 +1245,101 @@
             border: 1px solid #FDE68A;
         }
 
-        /* PC 宽屏自适应：让步骤排成2列网格，充分利用空间 */
-        @media (min-width: 760px) {
-            .g-step-timeline {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 6px 16px;
+        .pill-start {
+            background: #F0FDF4;
+            color: #15803D;
+            border: 1px solid #BBF7D0;
+        }
+
+        .pill-end {
+            background: #FEF2F2;
+            color: #B91C1C;
+            border: 1px solid #FECACA;
+        }
+
+        /* 3大信息块：看点、机位、长辈指南 */
+        .g-content-sections {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .g-content-sections {
+                grid-template-columns: 1fr 1fr;
             }
+            .g-content-span-2 {
+                grid-column: span 2;
+            }
+        }
+
+        .g-block {
+            border-radius: 9px;
+            padding: 11px 13px;
+            font-size: 12.5px;
+            line-height: 1.55;
+            border: 1px solid transparent;
+        }
+
+        .g-block.highlights {
+            background: #FFFDF7;
+            border-color: #F8ECD0;
+            border-left: 4px solid var(--gold-main);
+        }
+
+        .g-block.photos {
+            background: #FFFDFD;
+            border-color: #FEE4E4;
+            border-left: 4px solid var(--red-main);
+        }
+
+        .g-block.senior-tips {
+            background: #F0FDFA;
+            border-color: #CCFBF1;
+            border-left: 4px solid var(--teal-main);
+        }
+
+        .g-block-title {
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .g-block.highlights .g-block-title {
+            color: #92400E;
+        }
+
+        .g-block.photos .g-block-title {
+            color: var(--red-main);
+        }
+
+        .g-block.senior-tips .g-block-title {
+            color: #0F766E;
+        }
+
+        .g-block ul {
+            margin: 0;
+            padding-left: 16px;
+            color: var(--text-main);
+        }
+
+        .g-block ul li {
+            margin-bottom: 5px;
+        }
+        .g-block ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .g-block p {
+            margin: 0 0 5px 0;
+            color: #134E4A;
+        }
+        .g-block p:last-child {
+            margin-bottom: 0;
         }
 
         .guide-card {
@@ -3106,6 +3326,9 @@
                 <!-- =====================================================================
          模块 4：🏛️ 景点导览 & 核心游览攻略（支持“🛋️省力Plan”与“👟深度全览”一键切换）
          ===================================================================== -->
+                <!-- =====================================================================
+         模块 4：🏛️ 景点导览 & 核心游览攻略（支持“🛋️省力Plan”与“👟深度全览”一键切换）
+         ===================================================================== -->
         <div id="panel-guide" class="module-panel">
             <div class="mod-banner">
                 <h2>🏛️ 核心景点全景深度导览 · 经典双路线 & 实战攻略</h2>
@@ -3124,7 +3347,7 @@
                 <a href="#g-olympic" class="g-jump-pill">🏟️ 鸟巢水立方</a>
             </div>
 
-            <!-- 1. 颐和园 -->
+            <!-- 🌊 颐和园 · 中国古典皇家园林之巅 -->
             <div class="guide-card-enriched" id="g-yiheyuan">
                 <div class="g-header">
                     <h3 class="g-header-title">🌊 颐和园 · 中国古典皇家园林之巅</h3>
@@ -3134,7 +3357,6 @@
                     </div>
                 </div>
 
-                <!-- 双路线切换组件 -->
                 <div class="g-mode-switch-box">
                     <input type="radio" name="gmode-yh" id="gm-yh-a" class="state-ctrl" checked>
                     <input type="radio" name="gmode-yh" id="gm-yh-b" class="state-ctrl">
@@ -3154,29 +3376,59 @@
                                 <span>⏱️ 约 2.5 小时 · 约 6,500 步 · 乘船免折返2公里</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>东宫门进园</strong>：平坦入园，打卡仁寿殿神兽“甪端”与御案</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>东宫门平坦进园</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">平坦无陡坡入园，打卡仁寿殿神兽“甪端”与帝王御案</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>乐寿堂 & 玉澜堂</strong>：观米万钟“败家石”，赏慈禧寝宫庭院</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>乐寿堂 & 玉澜堂</span>
+                                        </div>
+                                        <div class="g-step-sub-line">赏慈禧寝宫庭院，观米万钟乾隆“败家石”</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>728米彩绘长廊</strong>：漫步吉尼斯世界纪录游廊，仰拍万寿山佛香阁<span class="step-tag-pill pill-must">必看</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>728米彩绘长廊</span><span class="step-tag-pill pill-must">必看</span>
+                                        </div>
+                                        <div class="g-step-sub-line">漫步吉尼斯纪录游廊，仰拍万寿山佛香阁</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row exp">
+                                <div class="g-step-item exp">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>石舫码头乘画舫横渡昆明湖</strong>：泛舟湖上吹风赏景，直抵南湖岛<span class="step-tag-pill pill-save">立省2公里步行</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>石舫乘画舫横渡昆明湖</span><span class="step-tag-pill pill-save">立省2公里</span>
+                                        </div>
+                                        <div class="g-step-sub-line">湖面泛舟吹风赏秋景，直抵南湖岛，免走返程长路</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>南湖岛 · 十七孔桥 & 镇水铜牛</strong>：漫步十七孔桥头，观清代乾隆镀金铜牛</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>南湖岛 · 十七孔桥 & 铜牛</span>
+                                        </div>
+                                        <div class="g-step-sub-line">漫步十七孔桥头，观清乾隆镀金镇水铜牛</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">6</div>
-                                    <div class="g-step-desc"><strong>新建宫门出园</strong>：迎着黄昏观十七孔桥落日，门外平地打车极方便</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>新建宫门平路出园</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">迎着黄昏赏十七孔桥金光落日，门外平地打车极便利</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3190,29 +3442,59 @@
                                 <span>⏱️ 约 4.5 小时 · 约 13,000 步 · 强度较高</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>东宫门进园</strong> ➔ 仁寿殿 ➔ 德和园大戏楼 ➔ 乐寿堂</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>东宫门进园朝拜</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">仁寿殿 ➔ 德和园大戏楼 ➔ 乐寿堂庭院</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>登万寿山佛香阁</strong>：攀登台阶至排云殿及佛香阁，鸟瞰昆明湖全貌<span class="step-tag-pill pill-must">需爬坡</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>登万寿山佛香阁</span><span class="step-tag-pill pill-must">需攀爬</span>
+                                        </div>
+                                        <div class="g-step-sub-line">沿石阶攀登至佛香阁与排云殿，居高鸟瞰昆明湖全景</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>后山后湖 · 苏州街</strong>：沿万寿山后山下行，观乾隆仿江南水乡水街商铺</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>后山后湖 · 苏州街</span>
+                                        </div>
+                                        <div class="g-step-sub-line">沿后山下行，观乾隆仿江南水乡修建的水街商铺</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>清晏舫 (石舫)</strong> ➔ 沿西堤六桥漫步观水鸟与湖岸秋柳</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>清晏舫 (石舫)</span>
+                                        </div>
+                                        <div class="g-step-sub-line">漫步西堤六桥，赏昆明湖沿岸秋柳水鸟风光</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>南湖岛 · 十七孔桥</strong> ➔ 铜牛 ➔ 廓如亭</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>南湖岛 · 十七孔桥</span>
+                                        </div>
+                                        <div class="g-step-sub-line">十七孔桥 ➔ 镇水铜牛 ➔ 廓如亭全景打卡</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">6</div>
-                                    <div class="g-step-desc"><strong>新建宫门出园</strong>：出园打车或乘公交前往晚餐厅</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>新建宫门出园</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">门外平地直通出租车/网约车接驳点</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3240,14 +3522,12 @@
 
                     <div class="g-block senior-tips g-content-span-2">
                         <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
-                        <p>① <strong>千万别从北宫门进！</strong>北宫门进园是苏州街后山，全是陡峭高耸的石阶险道，极度消耗膝盖；<strong>必须走东宫门进</strong>，平地穿行；<br>
-                        ② <strong>画舫乘船是精髓：</strong>从石舫码头乘船直达十七孔桥（¥40/人），直接省去步行绕湖近2公里的疲劳，老人还能坐着吹风赏景；<br>
-                        ③ <strong>新建宫门出门最省心：</strong>出门直接是宽阔平路，网约车和出租车上下客极其便利，无需走回东宫门。</p>
+                        <p>① <strong>千万别从北宫门进！</strong>北宫门进园是苏州街后山，全是陡峭高耸的石阶险道，极度消耗膝盖；<strong>必须走东宫门进</strong>，平地穿行；<br>② <strong>画舫乘船是精髓：</strong>从石舫码头乘船直达十七孔桥（¥40/人），直接省去步行绕湖近2公里的疲劳，老人还能坐着吹风赏景；<br>③ <strong>新建宫门出门最省心：</strong>出门直接是宽阔平路，网约车和出租车上下客极其便利，无需走回东宫门。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. 故宫博物院 -->
+            <!-- 🏮 故宫博物院 · 600年紫禁城明清皇宫 -->
             <div class="guide-card-enriched" id="g-gugong">
                 <div class="g-header">
                     <h3 class="g-header-title">🏮 故宫博物院 · 600年紫禁城明清皇宫</h3>
@@ -3257,7 +3537,6 @@
                     </div>
                 </div>
 
-                <!-- 双路线切换组件 -->
                 <div class="g-mode-switch-box">
                     <input type="radio" name="gmode-gg" id="gm-gg-a" class="state-ctrl" checked>
                     <input type="radio" name="gmode-gg" id="gm-gg-b" class="state-ctrl">
@@ -3277,29 +3556,59 @@
                                 <span>⏱️ 约 3 小时 · 约 8,500 步 · 全程走平缓坡道</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>午门正门入宫</strong>：验身份证入园，过五座汉白玉内金水桥</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>午门正门入宫</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">刷身份证快速入宫，过五座汉白玉内金水桥</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>太和门广场</strong>：与青铜母子狮合影，仰望紫禁城第一正殿太和殿<span class="step-tag-pill pill-must">经典合影</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>太和门广场留影</span><span class="step-tag-pill pill-must">经典合影</span>
+                                        </div>
+                                        <div class="g-step-sub-line">与明代青铜母子狮合影，仰望紫禁城第一正殿</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>太和殿 ➔ 中和殿 ➔ 保和殿</strong>：观十只脊兽与殿后200吨云龙大石雕<span class="step-tag-pill pill-save">走东西两侧缓坡道</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>前朝三大殿巡礼</span><span class="step-tag-pill pill-save">走两侧缓坡</span>
+                                        </div>
+                                        <div class="g-step-sub-line">太和殿 ➔ 中和殿 ➔ 保和殿后200吨云龙石雕</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row exp">
+                                <div class="g-step-item exp">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>直转东路入宁寿宫 (珍宝馆)</strong>：观九龙壁、皇极殿与大禹治水万斤青玉山<span class="step-tag-pill pill-exp">乾隆养老宫区</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>直转东路入珍宝馆</span><span class="step-tag-pill pill-exp">乾隆养老宫</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观九龙壁、皇极殿与大禹治水万斤青玉山</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>穿颐和轩 ➔ 珍妃井 ➔ 顺道入御花园</strong>：观钦安殿与天圆地方连理柏</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>穿颐和轩入御花园</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观珍妃井、钦安殿与天圆地方连理古柏</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">6</div>
-                                    <div class="g-step-desc"><strong>神武门出宫</strong>：门口拍照打卡，穿地下通道直通景山公园南门</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>神武门出宫</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">神武门拍照打卡，穿地下通道直通景山公园南门</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3313,29 +3622,59 @@
                                 <span>⏱️ 约 5 小时 · 约 16,000 步 · 深度文化漫游</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>午门入宫</strong> ➔ 内金水桥 ➔ 文华殿 (文华殿陶瓷馆)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>午门中门入宫</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">内金水桥 ➔ 文华殿陶瓷馆 ➔ 太和门</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>太和殿 ➔ 中和殿 ➔ 保和殿</strong>：中轴前朝核心大殿朝拜</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>太和殿 ➔ 中和殿 ➔ 保和殿</span><span class="step-tag-pill pill-must">前朝核心</span>
+                                        </div>
+                                        <div class="g-step-sub-line">三大殿中轴威严气派全览</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>西六宫</strong>：探访太极殿、翊坤宫与储秀宫 (慈禧五十大寿居所)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>西六宫深度探访</span>
+                                        </div>
+                                        <div class="g-step-sub-line">太极殿 ➔ 翊坤宫 ➔ 储秀宫 (慈禧五十大寿居所)</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>乾清宫 ➔ 交泰殿 ➔ 坤宁宫</strong>：明清皇帝与皇后寝宫中轴内廷</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>乾清宫 ➔ 交泰殿 ➔ 坤宁宫</span>
+                                        </div>
+                                        <div class="g-step-sub-line">明清皇帝寝宫与皇后中宫中轴内廷</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row exp">
+                                <div class="g-step-item exp">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>奉先殿(钟表馆) ➔ 宁寿宫(珍宝馆全区)</strong>：观西洋机关古钟与皇室金银玉器</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>钟表馆 ➔ 宁寿宫珍宝馆</span><span class="step-tag-pill pill-exp">特展瑰宝</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观西洋机械古钟与皇室稀世金银玉器</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">6</div>
-                                    <div class="g-step-desc"><strong>东六宫(延禧宫) ➔ 御花园 ➔ 堆秀山 ➔ 神武门出宫</strong></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>东六宫 ➔ 御花园 ➔ 神武门出</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">延禧宫 ➔ 堆秀山 ➔ 出神武门</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3363,14 +3702,12 @@
 
                     <div class="g-block senior-tips g-content-span-2">
                         <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
-                        <p>① <strong>走大殿两侧平缓坡道：</strong>三大殿中央大石阶高陡，但<strong>大殿东西两侧均设有平缓宽坡道</strong>，带老人走两侧缓坡既平稳又省腿；<br>
-                        ② <strong>免费热水与休息区：</strong>故宫各大殿后侧配有免费温水直饮机（自备保温杯即可接热水），珍宝馆颐和轩内有长椅与歇脚茶馆；<br>
-                        ③ <strong>出宫无缝衔接：</strong>神武门出来穿过地下通道就是景山公园南门，两景点一气呵成无需任何打车换乘。</p>
+                        <p>① <strong>走大殿两侧平缓坡道：</strong>三大殿中央大石阶高陡，但<strong>大殿东西两侧均设有平缓宽坡道</strong>，带老人走两侧缓坡既平稳又省腿；<br>② <strong>免费热水与休息区：</strong>故宫各大殿后侧配有免费温水直饮机（自备保温杯即可接热水），珍宝馆颐和轩内有长椅与歇脚茶馆；<br>③ <strong>出宫无缝衔接：</strong>神武门出来穿过地下通道就是景山公园南门，两景点一气呵成无需任何打车换乘。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. 天坛公园 -->
+            <!-- 🔵 天坛公园 · 明清帝王祭天与祈谷圣坛 -->
             <div class="guide-card-enriched" id="g-tiantan">
                 <div class="g-header">
                     <h3 class="g-header-title">🔵 天坛公园 · 明清帝王祭天与祈谷圣坛</h3>
@@ -3380,7 +3717,6 @@
                     </div>
                 </div>
 
-                <!-- 双路线切换组件 -->
                 <div class="g-mode-switch-box">
                     <input type="radio" name="gmode-tt" id="gm-tt-a" class="state-ctrl" checked>
                     <input type="radio" name="gmode-tt" id="gm-tt-b" class="state-ctrl">
@@ -3400,29 +3736,59 @@
                                 <span>⏱️ 约 1.5 小时 · 约 5,000 步 · 全平路近地铁</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>天坛南门进园 (昭亨门)</strong>：平缓入园，古柏夹道</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>天坛南门进园 (昭亨门)</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">平缓入园，古柏林荫大道漫步</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>圜丘坛</strong>：站“天心石”说话感受声学共鸣，探寻“九重天”数字奇迹<span class="step-tag-pill pill-must">祭天核心</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>圜丘坛祭天圣台</span><span class="step-tag-pill pill-must">祭天核心</span>
+                                        </div>
+                                        <div class="g-step-sub-line">站天心石说话感受声学共鸣，探寻“九重天”密码</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>皇穹宇 & 回音壁</strong>：观伞状小巧金顶，轻抚磨砖对缝圆形围墙</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>皇穹宇 & 回音壁</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观伞状小巧金顶，轻抚磨砖对缝圆形围墙</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>漫步丹陛桥</strong>：走360米神道海墁大道，直通祈谷坛大门</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>漫步丹陛桥神道</span>
+                                        </div>
+                                        <div class="g-step-sub-line">走360米神道海墁大道，直通祈谷坛大门</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>祈年殿</strong>：仰望三层湛蓝琉璃瓦金顶，观28根无大梁楠木巨柱神迹<span class="step-tag-pill pill-must">地标必打卡</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>祈年殿三层蓝金顶</span><span class="step-tag-pill pill-must">地标必看</span>
+                                        </div>
+                                        <div class="g-step-sub-line">仰望三层湛蓝琉璃瓦金顶，观28根无梁楠木柱奇迹</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">6</div>
-                                    <div class="g-step-desc"><strong>天坛北门出园</strong>：出园直达地铁8号线天坛北门站，免走折返路</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>天坛北门平缓出园</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">出园正对地铁8号线天坛北门站，免走折返路</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3436,25 +3802,50 @@
                                 <span>⏱️ 约 3 小时 · 约 9,000 步</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>南门入园</strong> ➔ 圜丘坛 ➔ 皇穹宇回音壁 ➔ 九龙柏 (明代古柏名木)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>南门进园 ➔ 圜丘坛</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">圜丘坛 ➔ 皇穹宇回音壁 ➔ 九龙柏古名木</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>走丹陛桥</strong> ➔ 祈年殿 ➔ 皇乾殿 (供奉历代皇帝神位)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>丹陛桥 ➔ 祈年殿 ➔ 皇乾殿</span><span class="step-tag-pill pill-must">核心礼乐</span>
+                                        </div>
+                                        <div class="g-step-sub-line">完整参观祈谷坛中轴古建筑群</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>祈谷坛神厨 & 宰牲亭</strong>：观古代祭天大典三牲贡品制作古遗迹</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>祈谷坛神厨 & 宰牲亭</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观古代祭天大典三牲贡品制作古遗址</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>穿百花园与古柏林海</strong> ➔ 斋宫 (皇帝祭天前沐浴斋戒无梁殿与铜人亭)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>百花园 ➔ 斋宫无梁殿</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观皇帝祭天前沐浴斋戒无梁殿与铜人亭</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>天坛西门或北门出园</strong>：出园前往品尝天坛南门涮肉</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>天坛西门或北门出园</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">出园前往附近品尝正宗天坛南门涮肉</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3463,7 +3854,7 @@
 
                 <div class="g-content-sections">
                     <div class="g-block highlights">
-                        <div class="g-block-title">🏛️ 三大声学奇迹与数字密码</div>
+                        <div class="g-block-title">🏛️ 三大必看精粹与历史看点</div>
                         <ul>
                             <li><strong>圜丘坛“九”的秘密：</strong>顶层中央为“天心石”，外围石板圈层全部是9的倍数（9、18、27…至81块），象征九重青天，站天心石发声声波反弹极为嘹亮。</li>
                             <li><strong>回音壁声波折射：</strong>皇穹宇围墙采用圆弧磨砖对缝严密砌筑，墙面光滑平整，轻声贴墙低语，另一端数十米外清晰可闻。</li>
@@ -3481,14 +3872,12 @@
 
                     <div class="g-block senior-tips g-content-span-2">
                         <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
-                        <p>① <strong>南进北出是黄金动线：</strong>南进北出既符合皇帝祭天“从地到天”仪轨，而且北门出来就是地铁8号线天坛北门站，无需折返；<br>
-                        ② <strong>古柏林遮阴极佳：</strong>天坛古柏成林、地面全为平整砖石大道，全程几乎无高陡坡，长辈漫步吸氧十分惬意；<br>
-                        ③ <strong>联票包含内部核心：</strong>必须买联票（老人优惠联票仅¥14）才能进祈年殿与回音壁，普通大门票只能在外部树林闲逛。</p>
+                        <p>① <strong>南进北出是黄金动线：</strong>南进北出既符合皇帝祭天“从地到天”仪轨，而且北门出来就是地铁8号线天坛北门站，无需折返；<br>② <strong>古柏林遮阴极佳：</strong>天坛古柏成林、地面全为平整砖石大道，全程几乎无高陡坡，长辈漫步吸氧十分惬意；<br>③ <strong>联票包含内部核心：</strong>必须买联票（老人优惠联票仅¥14）才能进祈年殿与回音壁，普通大门票只能在外部树林闲逛。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 4. 八达岭长城 -->
+            <!-- 🐉 八达岭长城 · 万里长城明代防御核心锁钥 -->
             <div class="guide-card-enriched" id="g-changcheng">
                 <div class="g-header">
                     <h3 class="g-header-title">🐉 八达岭长城 · 万里长城明代防御核心锁钥</h3>
@@ -3498,7 +3887,6 @@
                     </div>
                 </div>
 
-                <!-- 双路线切换组件 -->
                 <div class="g-mode-switch-box">
                     <input type="radio" name="gmode-cc" id="gm-cc-a" class="state-ctrl" checked>
                     <input type="radio" name="gmode-cc" id="gm-cc-b" class="state-ctrl">
@@ -3518,29 +3906,59 @@
                                 <span>⏱️ 约 2 小时 · 约 5,000 步 · 绝不硬爬陡台阶</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>京张高铁八达岭长城站出站</strong>：乘免费接驳车3分钟抵达索道下站</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>高铁八达岭站接驳</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">出站乘免费接驳车3分钟直达索道下站</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row exp">
+                                <div class="g-step-item exp">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>北线空中索道</strong>：8分钟直飞北七楼绝顶，空中俯瞰燕山群峰与城墙长龙<span class="step-tag-pill pill-exp">缆车体验</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>北线空中索道直飞北七楼</span><span class="step-tag-pill pill-exp">缆车代步</span>
+                                        </div>
+                                        <div class="g-step-sub-line">8分钟直达海拔近800米长城巅峰，俯瞰群峰长龙</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>登北八楼 (海拔888米最高峰)</strong>：八达岭最高敌楼，极目远眺长城好汉坡<span class="step-tag-pill pill-must">好汉巅峰</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>登北八楼 (海拔888米最高峰)</span><span class="step-tag-pill pill-must">好汉巅峰</span>
+                                        </div>
+                                        <div class="g-step-sub-line">极目远眺长城好汉坡，饱览燕山雄关万夫莫开</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>顺着城墙缓坡向下行</strong>：视野居高临下开阔无阻，下坡省力保护膝盖</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>顺着城墙缓坡向下行</span><span class="step-tag-pill pill-save">下坡护膝</span>
+                                        </div>
+                                        <div class="g-step-sub-line">居高临下视野极佳，下坡行走轻松保护膝盖</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>北四楼好汉碑平台</strong>：打卡“不到长城非好汉”石碑，拍摄连绵起伏背景</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>北四楼好汉碑合影</span><span class="step-tag-pill pill-must">拍照胜地</span>
+                                        </div>
+                                        <div class="g-step-sub-line">以起伏奔腾的长城为大背景拍摄，避开拥挤</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">6</div>
-                                    <div class="g-step-desc"><strong>北一楼关口平缓出长城</strong>：步行至接驳点乘车返回高铁站或大巴</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>北一楼关口平缓出长城</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">步行至接驳点乘车返回高铁站或大巴</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3554,25 +3972,50 @@
                                 <span>⏱️ 约 4.5 小时 · 约 14,000 步 · 倾角近50°</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>关城登山口进入</strong> ➔ 徒步登南一楼至南四楼 (人少景幽，回望关城)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>关城登山口步入</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">徒步登南一楼至南四楼，人少景幽回望关城</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>折返关城中轴关门</strong> ➔ 开始挑战北线登山口</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>折返关城中轴关门</span>
+                                        </div>
+                                        <div class="g-step-sub-line">经关门开始挑战北线险峻城墙</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>徒步攀爬北一楼至北四楼好汉碑</strong>：石阶较陡，沿途体会长城筑城险阻</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>攀爬北一楼至北四楼</span><span class="step-tag-pill pill-must">陡坡挑战</span>
+                                        </div>
+                                        <div class="g-step-sub-line">石阶倾角近50°，体会古代筑城险阻</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>挑战登顶北八楼“好汉坡”</strong>：抵达八达岭最高点，俯瞰雄关漫道真如铁</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>登顶北八楼“好汉坡”</span><span class="step-tag-pill pill-must">体力考验</span>
+                                        </div>
+                                        <div class="g-step-sub-line">抵达八达岭最高点，俯瞰雄关漫道</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>续行至北十一楼乘滑车出长城</strong>：或原路缓步下山</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>北十一楼乘滑车出关</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">或原路缓步下山至关城出口</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3599,14 +4042,12 @@
 
                     <div class="g-block senior-tips g-content-span-2">
                         <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
-                        <p>① <strong>千万别步行硬爬！</strong>长城石阶角度极陡（局部倾角达45°），长辈硬爬会严重损伤膝盖软骨。<strong>务必乘坐索道直飞高层</strong>；<br>
-                        ② <strong>“上坡乘索道，下坡慢慢走”最科学：</strong>下坡身体受力比拼命蹬腿上行轻松数倍，每走100米停下拍照赏景，轻松不喘；<br>
-                        ③ <strong>防风保暖：</strong>11月长城山顶风大气温比市区低6~8℃，长辈务必戴好防风帽子与围巾，鞋底要选择防滑运动鞋。</p>
+                        <p>① <strong>千万别步行硬爬！</strong>长城石阶角度极陡（局部倾角达45°），长辈硬爬会严重损伤膝盖软骨。<strong>务必乘坐索道直飞高层</strong>；<br>② <strong>“上坡乘索道，下坡慢慢走”最科学：</strong>下坡身体受力比拼命蹬腿上行轻松数倍，每走100米停下拍照赏景，轻松不喘；<br>③ <strong>防风保暖：</strong>11月长城山顶风大气温比市区低6~8℃，长辈务必戴好防风帽子与围巾，鞋底要选择防滑运动鞋。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 5. 景山公园 -->
+            <!-- ⛰️ 景山公园 · 万春亭京城中轴线绝美俯瞰 -->
             <div class="guide-card-enriched" id="g-jingshan">
                 <div class="g-header">
                     <h3 class="g-header-title">⛰️ 景山公园 · 万春亭京城中轴线绝美俯瞰</h3>
@@ -3616,7 +4057,6 @@
                     </div>
                 </div>
 
-                <!-- 双路线切换组件 -->
                 <div class="g-mode-switch-box">
                     <input type="radio" name="gmode-js" id="gm-js-a" class="state-ctrl" checked>
                     <input type="radio" name="gmode-js" id="gm-js-b" class="state-ctrl">
@@ -3636,25 +4076,50 @@
                                 <span>⏱️ 约 45 分钟 · 约 2,800 步 · 15分钟轻松登顶</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>景山南门进园</strong>：故宫神武门出宫后穿地下通道直达，免走回头路</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>景山南门进园</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">故宫神武门出宫穿地下通道直达，无缝衔接</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>沿东侧缓坡林荫石阶上山</strong>：坡度比西路平缓得多，每登一段有凉亭可歇脚<span class="step-tag-pill pill-save">坡缓好走</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>沿东侧缓坡林荫台阶上山</span><span class="step-tag-pill pill-save">坡缓好走</span>
+                                        </div>
+                                        <div class="g-step-sub-line">东坡比西路平缓得多，沿途有凉亭可坐下歇脚</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>登顶万春亭 (北京中轴线几何中心)</strong>：360°俯瞰紫禁城琉璃金顶与京城落日全貌<span class="step-tag-pill pill-must">全网封神机位</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>登顶万春亭 (中轴线正中心)</span><span class="step-tag-pill pill-must">封神机位</span>
+                                        </div>
+                                        <div class="g-step-sub-line">360°俯瞰紫禁城金色大屋顶与京城落日全貌</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>顺西坡慢步下山</strong>：观东麓明思宗崇祯皇帝殉国槐树与御制石碑</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>顺西坡慢步下山</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观东麓明思宗崇祯皇帝殉国槐树与御制石碑</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>景山西门或南门出园</strong>：西门外出园紧邻北海公园东门，平坦打车</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>景山西门或南门出园</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">西门外出园紧邻北海公园东门，平坦打车</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3668,25 +4133,50 @@
                                 <span>⏱️ 约 2 小时 · 约 6,000 步</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>南门入园</strong> ➔ 绮望楼 (乾隆时期官学建筑)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>景山南门进园</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">绮望楼 (乾隆时期官学建筑)</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>景山东坡登山</strong> ➔ 周赏亭 ➔ 观妙亭 (依山筑亭观四方景致)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>东坡登山 ➔ 周赏亭 ➔ 观妙亭</span>
+                                        </div>
+                                        <div class="g-step-sub-line">依山筑亭观四方不同景致</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>登顶万春亭</strong>：正南俯瞰故宫全景、正北远眺中轴寿皇殿与钟鼓楼</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>登顶万春亭</span><span class="step-tag-pill pill-must">全景俯瞰</span>
+                                        </div>
+                                        <div class="g-step-sub-line">正南俯瞰故宫、正北远眺寿皇殿与钟鼓楼</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>西坡下山</strong> ➔ 富览亭 ➔ 辑芳亭 ➔ 崇祯皇帝殉国处</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>西坡下山 ➔ 崇祯皇帝殉国处</span>
+                                        </div>
+                                        <div class="g-step-sub-line">富览亭 ➔ 辑芳亭 ➔ 崇祯殉国古槐</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>北麓寿皇殿建筑群</strong>：参观清代皇帝祭祀祖先容像正殿，景山后街出</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>寿皇殿建筑群 ➔ 北门出</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">参观清代皇帝祭祀祖先正殿，景山后街出</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3713,14 +4203,12 @@
 
                     <div class="g-block senior-tips g-content-span-2">
                         <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
-                        <p>① <strong>走东路缓坡最省腿：</strong>上山建议走东侧石阶，坡度比西侧缓得多，且每爬一段就有平坦凉亭可以坐下喝水歇息，10~15分钟轻松登顶；<br>
-                        ② <strong>卡准落日时间（约16:30~17:00）：</strong>故宫出神武门后抓紧入园登顶，夕阳余晖斜照在紫禁城金顶上的一刻是全天最壮美的景观；<br>
-                        ③ <strong>下山走西门：</strong>西门外紧邻北海公园东门，道路平整，打车或步行前往什刹海都很便捷。</p>
+                        <p>① <strong>走东路缓坡最省腿：</strong>上山建议走东侧石阶，坡度比西侧缓得多，且每爬一段就有平坦凉亭可以坐下喝水歇息，10~15分钟轻松登顶；<br>② <strong>卡准落日时间（约16:30~17:00）：</strong>故宫出神武门后抓紧入园登顶，夕阳余晖斜照在紫禁城金顶上的一刻是全天最壮美的景观；<br>③ <strong>下山走西门：</strong>西门外紧邻北海公园东门，道路平整，打车或步行前往什刹海都很便捷。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 6. 天安门广场与城楼 -->
+            <!-- 🇨🇳 天安门广场 & 天安门城楼 · 国家象征中轴核心 -->
             <div class="guide-card-enriched" id="g-tiananmen">
                 <div class="g-header">
                     <h3 class="g-header-title">🇨🇳 天安门广场 & 天安门城楼 · 国家象征中轴核心</h3>
@@ -3730,7 +4218,6 @@
                     </div>
                 </div>
 
-                <!-- 双路线切换组件 -->
                 <div class="g-mode-switch-box">
                     <input type="radio" name="gmode-tam" id="gm-tam-a" class="state-ctrl" checked>
                     <input type="radio" name="gmode-tam" id="gm-tam-b" class="state-ctrl">
@@ -3750,25 +4237,50 @@
                                 <span>⏱️ 约 1 小时 · 约 3,500 步 · 顺畅进故宫</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>前门地铁通道入广场</strong>：安检通道入场，平视广阔天安门广场</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>前门地铁通道入广场</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">安检通道入场，平视广阔天安门广场</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>人民英雄纪念碑远眺</strong>：观汉白玉纪念碑与毛主席纪念堂雄伟外观</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>人民英雄纪念碑远眺</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观汉白玉纪念碑与毛主席纪念堂雄伟外观</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>天安门金水桥前打卡</strong>：在桥正中与天安门城楼、毛主席画像合影<span class="step-tag-pill pill-must">经典仪式感</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>天安门金水桥前打卡</span><span class="step-tag-pill pill-must">仪式感</span>
+                                        </div>
+                                        <div class="g-step-sub-line">在桥正中与天安门城楼、毛主席画像合影</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row exp">
+                                <div class="g-step-item exp">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>验票登天安门城楼</strong>：登楼参观开国大典原状陈列，俯瞰广场中轴线<span class="step-tag-pill pill-exp">登楼俯瞰</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>验票登天安门城楼</span><span class="step-tag-pill pill-exp">登楼俯瞰</span>
+                                        </div>
+                                        <div class="g-step-sub-line">参观开国大典原状陈列，俯瞰广场中轴线</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>下楼穿端门直抵故宫午门</strong>：无需再次安检，直接进入故宫验票口</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>穿端门直抵故宫午门</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">下楼后直接穿过端门，无缝进入故宫验票口</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3782,25 +4294,50 @@
                                 <span>⏱️ 约 3.5 小时 · 约 10,000 步</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>正阳门箭楼与城楼</strong>：前门大街北端观老北京城内城正门</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>正阳门城楼与箭楼</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">前门大街北端观老北京内城正门</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>进入广场瞻仰毛主席纪念堂</strong>：瞻仰伟人遗容 (须提前实名预约)</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>瞻仰毛主席纪念堂</span>
+                                        </div>
+                                        <div class="g-step-sub-line">进入广场瞻仰伟人遗容 (须提前实名预约)</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>人民大会堂与国家博物馆外景留影</strong>：观庄严肃穆国家级建筑</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>大会堂与国博外景打卡</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观庄严肃穆国家级建筑</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>过金水桥登天安门城楼</strong>：参观城楼大厅与巨型红灯笼</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>过金水桥登天安门城楼</span><span class="step-tag-pill pill-must">中轴核心</span>
+                                        </div>
+                                        <div class="g-step-sub-line">参观城楼大厅与巨型大红灯笼</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>顺访中山公园社稷坛或太庙</strong>：观五色土与明清皇家祭祖太庙古柏</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>顺访中山公园或太庙</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观社稷坛五色土与皇家祭祖太庙古柏</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3827,14 +4364,12 @@
 
                     <div class="g-block senior-tips g-content-span-2">
                         <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
-                        <p>① <strong>安检轻装上阵：</strong>广场及城楼安检极其严格，随身不要携带大包、打火机和折叠刀，轻装走无包通道排队节省20分钟；<br>
-                        ② <strong>登楼必须存包：</strong>除手机、相机外，所有随身背包和保温水杯均需在城楼下寄存处免费寄存，下楼后再取回；<br>
-                        ③ <strong>身份证原件是核心：</strong>无需换取任何纸质门票，刷二代身份证原件快速核验入场。</p>
+                        <p>① <strong>安检轻装上阵：</strong>广场及城楼安检极其严格，随身不要携带大包、打火机和折叠刀，轻装走无包通道排队节省20分钟；<br>② <strong>登楼必须存包：</strong>除手机、相机外，所有随身背包和保温水杯均需在城楼下寄存处免费寄存，下楼后再取回；<br>③ <strong>身份证原件是核心：</strong>无需换取任何纸质门票，刷二代身份证原件快速核验入场。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 7. 什刹海 & 胡同 -->
+            <!-- 🛶 什刹海 & 烟袋斜街 · 老北京运河水系与胡同烟火 -->
             <div class="guide-card-enriched" id="g-shichahai">
                 <div class="g-header">
                     <h3 class="g-header-title">🛶 什刹海 & 烟袋斜街 · 老北京运河水系与胡同烟火</h3>
@@ -3844,7 +4379,6 @@
                     </div>
                 </div>
 
-                <!-- 双路线切换组件 -->
                 <div class="g-mode-switch-box">
                     <input type="radio" name="gmode-sch" id="gm-sch-a" class="state-ctrl" checked>
                     <input type="radio" name="gmode-sch" id="gm-sch-b" class="state-ctrl">
@@ -3864,25 +4398,50 @@
                                 <span>⏱️ 约 1.5 小时 · 约 3,500 步 · 老北京三轮车代步</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>什刹海地铁站A口出站</strong>：漫步进入烟袋斜街，打卡大清邮局与特色文创店</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>什刹海地铁站A口出站</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">漫步进入烟袋斜街，打卡大清邮局与老商铺</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>银锭桥头“银锭观山”</strong>：伫立桥头赏落日余晖洒在湖面与西山远景<span class="step-tag-pill pill-must">燕京八景</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>银锭桥头“银锭观山”</span><span class="step-tag-pill pill-must">燕京八景</span>
+                                        </div>
+                                        <div class="g-step-sub-line">立于桥头赏落日余晖洒在湖面与西山远景</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row exp">
+                                <div class="g-step-item exp">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>包老北京人力三轮车游胡同</strong>：听车夫京腔讲解老北京王府与四合院故事<span class="step-tag-pill pill-save">长辈零步数</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>包老北京人力三轮车游胡同</span><span class="step-tag-pill pill-save">长辈省腿</span>
+                                        </div>
+                                        <div class="g-step-sub-line">听老北京车夫京腔讲解王府古宅四合院故事</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>后海北沿柳荫漫步</strong>：沿湖散步感受老北京水岸慢生活与游船倒影</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>后海北沿柳荫漫步</span>
+                                        </div>
+                                        <div class="g-step-sub-line">沿湖散步感受老北京水岸慢生活与游船倒影</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>桥头烤肉季/同和居晚餐</strong>：无缝衔接品尝正宗炙子烤肉与特色干炸丸子</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>桥头烤肉季/同和居晚餐</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">无缝品尝百年老字号正宗炙子烤肉与干炸丸子</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3896,25 +4455,50 @@
                                 <span>⏱️ 约 4 小时 · 约 12,000 步</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>南锣鼓巷主街与东西胡同</strong>：探访炒豆胡同、黑芝麻胡同与老院落门楼</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>南锣鼓巷主街与胡同</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">探访炒豆胡同、黑芝麻胡同与老院落门楼</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>烟袋斜街穿出抵银锭桥</strong> ➔ 沿前海西沿前往恭王府</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>烟袋斜街穿出抵银锭桥</span>
+                                        </div>
+                                        <div class="g-step-sub-line">沿前海西沿前往恭王府</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>参观恭王府 (和珅府邸)</strong>：观银安殿、大戏楼与滴翠岩秘云洞“天下第一福字碑”</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>参观恭王府 (和珅府邸)</span><span class="step-tag-pill pill-must">和珅豪宅</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观大戏楼与滴翠岩秘云洞“天下第一福字碑”</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>宋庆龄故居 (醇亲王府西花园)</strong>：观清代王府花园水榭与纳兰明珠故宅</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>宋庆龄故居 (醇亲王府西花园)</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观清代王府花园水榭与纳兰明珠故宅</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>钟鼓楼文化广场</strong>：观暮鼓晨钟红墙古建，打卡赵雷《鼓楼》同款机位</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>钟鼓楼文化广场</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观暮鼓晨钟古建，打卡赵雷《鼓楼》同款机位</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3941,13 +4525,12 @@
 
                     <div class="g-block senior-tips g-content-span-2">
                         <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
-                        <p>① <strong>老人优选人力三轮车胡同游：</strong>若长辈脚力吃紧，可在前海沿岸包一辆正规老北京人力三轮车（约¥60~80/车/2人），听老北京车夫唱京腔讲胡同典故，省力又有趣；<br>
-                        ② <strong>桥头晚餐无缝衔接：</strong>银锭桥旁即为百年老字号“烤肉季”与“同和居”，傍晚在湖边靠窗品尝正宗炙子烤肉与干炸丸子，体验极佳。</p>
+                        <p>① <strong>老人优选人力三轮车胡同游：</strong>若长辈脚力吃紧，可在前海沿岸包一辆正规老北京人力三轮车（约¥60~80/车/2人），听老北京车夫唱京腔讲胡同典故，省力又有趣；<br>② <strong>桥头晚餐无缝衔接：</strong>银锭桥旁即为百年老字号“烤肉季”与“同和居”，傍晚在湖边靠窗品尝正宗炙子烤肉与干炸丸子，体验极佳。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 8. 奥林匹克公园 -->
+            <!-- 🏟️ 奥林匹克公园 · 鸟巢 & 水立方双奥地标 -->
             <div class="guide-card-enriched" id="g-olympic">
                 <div class="g-header">
                     <h3 class="g-header-title">🏟️ 奥林匹克公园 · 鸟巢 & 水立方双奥地标</h3>
@@ -3957,7 +4540,6 @@
                     </div>
                 </div>
 
-                <!-- 双路线切换组件 -->
                 <div class="g-mode-switch-box">
                     <input type="radio" name="gmode-ol" id="gm-ol-a" class="state-ctrl" checked>
                     <input type="radio" name="gmode-ol" id="gm-ol-b" class="state-ctrl">
@@ -3977,25 +4559,50 @@
                                 <span>⏱️ 约 1 小时 · 约 3,500 步 · 全程避风温暖</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>地铁8/15号线奥林匹克公园站出站</strong>：直达庆典广场中轴景观大道</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>奥林匹克公园地铁站出站</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">直达庆典广场中轴景观大道</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>鸟巢 (国家体育场) 外围合影</strong>：观红色巨大钢骨架编织摇篮夜景灯光<span class="step-tag-pill pill-must">红色震撼</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>鸟巢 (国家体育场) 外围合影</span><span class="step-tag-pill pill-must">红色震撼</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观巨型红色钢骨架编织摇篮夜景灯光</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row highlight">
+                                <div class="g-step-item highlight">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>水立方 (国家游泳中心) 夜景打卡</strong>：观蓝色梦幻ETFE气枕膜变色灯光<span class="step-tag-pill pill-must">蓝色梦幻</span></div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>水立方 (国家游泳中心) 打卡</span><span class="step-tag-pill pill-must">蓝色梦幻</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观蓝色梦幻ETFE气枕膜变色夜景灯光</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>正中轴步道同框拍摄</strong>：站在鸟巢与水立方正中间，同时收录一红一蓝双奥灯光</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>正中轴步道同框拍摄</span>
+                                        </div>
+                                        <div class="g-step-sub-line">站两大建筑正中间，一红一蓝双奥灯光同时入镜</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>直下新奥购物中心暖气大厅</strong>：避开夜间寒风，就近享用京味热汤晚餐</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>下新奥购物中心暖气大厅</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">避开夜间寒风，就近享用京味热汤晚餐与茶饮</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -4009,25 +4616,50 @@
                                 <span>⏱️ 约 3.5 小时 · 约 11,000 步</span>
                             </div>
                             <div class="g-step-timeline">
-                                <div class="g-step-row start">
+                                <div class="g-step-item start">
                                     <div class="g-step-dot">1</div>
-                                    <div class="g-step-desc"><strong>奥林匹克森林公园南园</strong>：漫步银杏林道与湿地，赏京城秋日彩林</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>奥林匹克森林公园南园</span><span class="step-tag-pill pill-start">入口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">漫步银杏林道与生态湿地，赏京城秋日彩林</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row exp">
+                                <div class="g-step-item exp">
                                     <div class="g-step-dot">2</div>
-                                    <div class="g-step-desc"><strong>登奥林匹克塔 (海贝塔)</strong>：246米高空观景台，360°俯瞰京城南北中轴夜景</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>登奥林匹克塔 (海贝塔)</span><span class="step-tag-pill pill-exp">高空俯瞰</span>
+                                        </div>
+                                        <div class="g-step-sub-line">246米高空观景台，360°俯瞰京城中轴夜景</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">3</div>
-                                    <div class="g-step-desc"><strong>鸟巢内部金色大厅与跑道参观</strong>：重温2008与2022双奥开闭幕式荣耀</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>鸟巢金色大厅与跑道参观</span>
+                                        </div>
+                                        <div class="g-step-sub-line">重温2008与2022双奥开闭幕式辉煌</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row">
+                                <div class="g-step-item ">
                                     <div class="g-step-dot">4</div>
-                                    <div class="g-step-desc"><strong>水立方(冰立方)比赛大厅</strong>：观奥运泳池与冰壶赛道</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>水立方(冰立方)比赛大厅</span>
+                                        </div>
+                                        <div class="g-step-sub-line">观奥运泳池与冰壶赛道</div>
+                                    </div>
                                 </div>
-                                <div class="g-step-row end">
+                                <div class="g-step-item end">
                                     <div class="g-step-dot">5</div>
-                                    <div class="g-step-desc"><strong>龙形水系木栈道观光</strong>：拍摄湖面灯光倒影后乘地铁返回酒店</div>
+                                    <div class="g-step-body">
+                                        <div class="g-step-title-line">
+                                            <span>龙形水系木栈道观光</span><span class="step-tag-pill pill-end">出口</span>
+                                        </div>
+                                        <div class="g-step-sub-line">拍摄湖面灯光倒影后乘地铁返回酒店</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -4054,9 +4686,7 @@
 
                     <div class="g-block senior-tips g-content-span-2">
                         <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
-                        <p>① <strong>外围夜景免费打卡即可：</strong>带老人游览夜景无需购买内部参观高价票，在广阔的中轴景观大道漫步拍照最出片、感受最强；<br>
-                        ② <strong>防寒保暖第一位：</strong>11月夜间广场空旷多风，务必给长辈准备防风外套或围巾；<br>
-                        ③ <strong>新奥购物中心是暖心补给站：</strong>广场正下方即为大型新奥地下商城，与地铁直通，有充足暖气、无障碍卫生间与各类平价美食茶饮。</p>
+                        <p>① <strong>外围夜景免费打卡即可：</strong>带老人游览夜景无需购买内部参观高价票，在广阔的中轴景观大道漫步拍照最出片、感受最强；<br>② <strong>防寒保暖第一位：</strong>11月夜间广场空旷多风，务必给长辈准备防风外套或围巾；<br>③ <strong>新奥购物中心是暖心补给站：</strong>广场正下方即为大型新奥地下商城，与地铁直通，有充足暖气、无障碍卫生间与各类平价美食茶饮。</p>
                     </div>
                 </div>
             </div>
