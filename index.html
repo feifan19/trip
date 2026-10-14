@@ -688,111 +688,183 @@
             color: var(--text-main);
         }
 
-        /* 预约撕页日历卡 */
+                /* ==================== 预约日历卡片 (参照图1顶部Banner样式) ==================== */
         .book-card-list {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
-            margin-bottom: 18px;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .book-card-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .cal-card {
-            display: flex;
             background: #fff;
             border: 1px solid var(--border-color);
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-        }
-
-        .cal-left {
-            width: 118px;
-            flex-shrink: 0;
-            background: linear-gradient(180deg, #991B1B 0%, #7F1D1D 100%);
-            color: #fff;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 6px;
-            text-align: center;
-            border-right: 2px dashed rgba(255, 255, 255, 0.3);
         }
 
-        .cal-left.amber-cal {
-            background: linear-gradient(180deg, #D97706 0%, #B45309 100%);
+        .cal-card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
         }
 
-        .cal-left.green-cal {
-            background: linear-gradient(180deg, #0D9488 0%, #0F766E 100%);
-        }
-
-        .cal-label {
-            font-size: 10px;
-            background: rgba(0, 0, 0, 0.25);
-            padding: 1px 6px;
-            border-radius: 99px;
-            margin-bottom: 4px;
-            color: #FDE68A;
-        }
-
-        .cal-date {
-            font-size: 17px;
-            font-weight: 900;
-            line-height: 1.2;
-        }
-
-        .cal-weekday {
-            font-size: 11px;
-            opacity: 0.9;
-            margin-bottom: 4px;
-        }
-
-        .cal-clock {
-            font-size: 13px;
-            font-weight: 800;
-            background: #FEF08A;
-            color: #78350F;
-            padding: 2px 8px;
-            border-radius: 6px;
-        }
-
-        .cal-right {
-            padding: 12px 14px;
-            flex: 1;
+        /* 顶部Banner (参照图1的 day-banner) */
+        .cal-header {
+            background: linear-gradient(90deg, #7F1D1D 0%, #9B2323 100%);
+            color: #fff;
+            padding: 13px 16px;
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            cursor: pointer;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
-        .cal-check {
-            width: 18px;
-            height: 18px;
-            margin-top: 3px;
-            accent-color: #16A34A;
-            flex-shrink: 0;
+        .cal-header.amber-theme {
+            background: linear-gradient(90deg, #B45309 0%, #D97706 100%);
         }
 
-        .cal-body {
-            flex: 1;
-            font-size: 12px;
+        .cal-header.green-theme {
+            background: linear-gradient(90deg, #0F766E 0%, #0D9488 100%);
         }
 
-        .cal-check:checked+.cal-body {
-            opacity: 0.4;
-            text-decoration: line-through;
-        }
-
-        .cal-spot-title {
-            font-size: 15px;
-            font-weight: 800;
+        .cal-header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 8px;
+        }
+
+        .cal-header-title-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             flex-wrap: wrap;
-            gap: 4px;
-            margin-bottom: 4px;
+            flex: 1;
+        }
+
+        .cal-time-pill {
+            background: #FDE68A;
+            color: #78350F;
+            font-weight: 800;
+            font-size: 11.5px;
+            padding: 2.5px 8px;
+            border-radius: 5px;
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .cal-header-title {
+            font-size: 15.5px;
+            font-weight: 800;
+            line-height: 1.35;
+            color: #FFF;
+        }
+
+        /* 仿图1右侧展开/收起样式的打勾完成控制胶囊 */
+        .cal-check-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 3px 9px;
+            border-radius: 99px;
+            font-size: 11.5px;
+            color: #FFF;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .cal-check-label:hover {
+            background: rgba(255, 255, 255, 0.32);
+        }
+
+        .cal-check-label input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            accent-color: #10B981;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        /* 顶部属性指标行 (参照图1的 day-metrics) */
+        .cal-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 14px;
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.95);
+            padding-top: 6px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.25);
+        }
+
+        .cal-metrics span {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .cal-metrics strong {
+            color: #FDE68A;
+        }
+
+        /* 卡片主体内容区 (白色全宽) */
+        .cal-body {
+            padding: 13px 16px;
+            background: #fff;
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.65;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .cal-body-line {
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .cal-body-line::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: var(--red-main);
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .cal-body strong {
+            color: var(--text-main);
+        }
+
+        /* 打勾完成后的样式 */
+        .cal-card.card-done {
+            opacity: 0.55;
+        }
+
+        .cal-card.card-done .cal-header-title {
+            text-decoration: line-through;
+        }
+
+        .cal-card.card-done .cal-check-label {
+            background: #10B981;
+            border-color: #10B981;
         }
 
         /* 通用模块卡片网格 */
@@ -1143,6 +1215,263 @@
 
         .num-input.sm {
             width: 48px;
+        }
+
+                
+        /* 门票项优雅双栏/行内分级样式（完全兼容PC端与手机端） */
+        .tkt-policy-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #FFFDF7;
+            border: 1px solid #FDE68A;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-bottom: 10px;
+            color: #78350F;
+        }
+
+        .tkt-policy-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            line-height: 1.4;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .tkt-preset-pills {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .preset-label {
+            font-size: 11px;
+            color: #92400E;
+            font-weight: 700;
+        }
+
+        .preset-pill {
+            background: #FFFFFF;
+            border: 1px solid #D97706;
+            color: #B45309;
+            padding: 2.5px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .preset-pill:hover,
+        .preset-pill.active {
+            background: #B45309;
+            color: #FFFFFF;
+            border-color: #B45309;
+            box-shadow: 0 1px 3px rgba(180, 83, 9, 0.2);
+        }
+
+        /* 门票行统一样式，继承原生 calc-row 风格 */
+        .calc-row.tkt-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            padding: 9px 0;
+            border-bottom: 1px dashed #EFECE6;
+            font-size: 13px;
+        }
+
+        .calc-row.tkt-row:last-child {
+            border-bottom: none;
+        }
+
+        .calc-row.tkt-row .calc-item-label {
+            flex: 1 1 200px;
+            min-width: 180px;
+            margin: 0;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .tkt-dual-inputs {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .tkt-sub-tier {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            padding: 3px 6px;
+            border-radius: 6px;
+            font-size: 12px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .tkt-sub-tier.adult {
+            background: #F1F5F9;
+            border: 1px solid #E2E8F0;
+            color: #334155;
+        }
+
+        .tkt-sub-tier.senior {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            color: #92400E;
+        }
+
+        .tier-tag {
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 1px 4px;
+            border-radius: 3px;
+            letter-spacing: 0.2px;
+        }
+
+        .tkt-sub-tier.adult .tier-tag {
+            background: #E2E8F0;
+            color: #1E293B;
+        }
+
+        .tkt-sub-tier.senior .tier-tag {
+            background: #FDE68A;
+            color: #78350F;
+        }
+
+        .tkt-sub-tier .num-input.sm {
+            width: 38px;
+            padding: 2px 3px;
+            font-size: 12px;
+            text-align: center;
+            height: 24px;
+            border: 1px solid #CBD5E1;
+            border-radius: 4px;
+            background: #FFFFFF;
+        }
+
+        .tkt-sub-tier.senior .num-input.sm {
+            border-color: #FCD34D;
+        }
+
+        .tkt-sub-tier span {
+            color: var(--text-sub);
+            font-size: 11.5px;
+        }
+
+        /* 手机端响应式优化：完美2行对齐 */
+        @media (max-width: 660px) {
+            .calc-row.tkt-row {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                padding: 8px 0;
+            }
+
+            .calc-row.tkt-row .calc-item-label {
+                order: 1;
+                flex: 1 1 auto;
+                min-width: 160px;
+            }
+
+            .calc-row.tkt-row .row-total-wrap {
+                order: 2;
+                margin-left: auto;
+            }
+
+            .tkt-dual-inputs {
+                order: 3;
+                width: 100%;
+                justify-content: flex-start;
+                padding-left: 25px;
+                margin-top: 6px;
+                gap: 5px;
+            }
+
+            .tkt-sub-tier {
+                padding: 2px 5px;
+                font-size: 11px;
+            }
+
+            .tkt-sub-tier .num-input.sm {
+                width: 32px;
+                height: 22px;
+                padding: 1px 2px;
+                font-size: 11.5px;
+            }
+
+            .tkt-policy-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 7px 10px;
+            }
+        }
+
+        .row-total-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            min-width: 84px;
+            justify-content: flex-end;
+        }
+
+        .row-total-prefix {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: var(--red-main);
+            user-select: none;
+        }
+
+        .row-total-val {
+            width: 72px;
+            padding: 3px 6px;
+            border: 1px solid #FECACA;
+            border-radius: 6px;
+            font-size: 13.5px;
+            font-weight: 800;
+            text-align: right;
+            color: var(--red-main);
+            background: #FEF2F2;
+            transition: all 0.15s ease;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        .row-total-val:hover {
+            border-color: var(--red-main);
+            background: #FFF5F5;
+        }
+
+        .row-total-val:focus {
+            outline: none;
+            border-color: var(--red-main);
+            background: #FFF;
+            box-shadow: 0 0 0 2px rgba(155, 35, 35, 0.2);
+        }
+
+        .row-total-val::-webkit-inner-spin-button,
+        .row-total-val::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .row-total-val {
+            -moz-appearance: textfield;
+        }
+
+        #panel-cost.calc-locked .row-total-val {
+            opacity: 0.72;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .row-result {
@@ -1785,186 +2114,216 @@
             </details>
         </div>
 
-        <!-- =====================================================================
-         模块 2：🎫 预约日历（左侧超大撕页日历突出抢票日期）
+                <!-- =====================================================================
+         模块 2：🎫 预约日历（参照图1：顶部红色开抢条 + 全宽信息卡片）
          ===================================================================== -->
         <div id="panel-book" class="module-panel">
             <div class="mod-banner">
                 <h2>⏰ 8大景点预约日历（按开抢日期突出显示）</h2>
-                <p>已为您精确换算好具体抢票日期！标有【限5人/单】的景点，6人同行请务必准备 2~3 部手机同时操作（点击右侧方框可打勾划掉 ✅）。</p>
+                <p>已为您精确换算好具体抢票日期！标有【限5人/单】的景点，6人同行请务必准备 2~3 部手机同时操作（点击右上角胶囊可标记已搞定 ✅）。</p>
             </div>
 
             <div class="book-card-list">
                 <!-- 1. 故宫 -->
-                <div class="cal-card">
-                    <div class="cal-left">
-                        <span class="cal-label">🔥 最难抢·定闹钟</span>
-                        <div class="cal-date">11月1日</div>
-                        <div class="cal-weekday">周日 · 提前7天</div>
-                        <div class="cal-clock">20:00 开抢</div>
-                    </div>
-                    <label class="cal-right">
-                        <input type="checkbox" class="cal-check">
-                        <div class="cal-body">
-                            <div class="cal-spot-title">
-                                <span>1. 故宫博物院 (游览日: 11/8 周日)</span>
-                                <span class="m-badge warn">必须预约 · 限5人/单(需2~3部手机!)</span>
+                <div class="cal-card" id="card-spot-1">
+                    <div class="cal-header">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🔥 11月1日 20:00 开抢</span>
+                                <span class="cal-header-title">1. 故宫博物院 (游览日: 11/8 周日)</span>
                             </div>
-                            <div>• <strong>预约渠道：</strong>微信小程序“故宫博物院”（务必提前在个人中心录入6人“常用观众”）<br>•
-                                <strong>购票要点：</strong>淡季大门票40元，<strong>珍宝馆(10元)、钟表馆(10元)建议勾选一起约</strong>；15:30停止检票。
-                            </div>
+                            <label class="cal-check-label" title="点击标记为已约好">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已约好</span>
+                            </label>
                         </div>
-                    </label>
+                        <div class="cal-metrics">
+                            <span>⚡ 开抢：<strong>11月1日 周日 20:00</strong></span>
+                            <span>⏰ 提前：<strong>提前7天放票</strong></span>
+                            <span>📱 限制：<strong>限5人/单 (需2~3部手机抢)</strong></span>
+                            <span>🎫 票价：<strong>淡季大门票 ¥40</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信小程序“故宫博物院”（务必提前在个人中心录入6人“常用观众”）。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>淡季大门票40元，<strong>珍宝馆(10元)、钟表馆(10元)建议勾选一起约</strong>；15:30停止检票。</div>
+                    </div>
                 </div>
 
                 <!-- 2. 天安门城楼 -->
-                <div class="cal-card">
-                    <div class="cal-left">
-                        <span class="cal-label">🔴 必须预约</span>
-                        <div class="cal-date">11月1日</div>
-                        <div class="cal-weekday">周日 · 提前7天</div>
-                        <div class="cal-clock">17:00 开抢</div>
-                    </div>
-                    <label class="cal-right">
-                        <input type="checkbox" class="cal-check">
-                        <div class="cal-body">
-                            <div class="cal-spot-title">
-                                <span>2. 天安门城楼 (游览日: 11/8 周日上午)</span>
-                                <span class="m-badge ok">必须预约 · 限10人/单(1部手机搞定)</span>
+                <div class="cal-card" id="card-spot-2">
+                    <div class="cal-header">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🔴 11月1日 17:00 开抢</span>
+                                <span class="cal-header-title">2. 天安门城楼 (游览日: 11/8 周日上午)</span>
                             </div>
-                            <div>• <strong>预约渠道：</strong>微信公众号“天安门城楼参观预约”<br>•
-                                <strong>购票要点：</strong>15元/人，需逐一填写每位参观者实名信息；<strong>背包、水杯、充电宝禁上城楼</strong>(北侧免费存包)。
-                            </div>
+                            <label class="cal-check-label" title="点击标记为已约好">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已约好</span>
+                            </label>
                         </div>
-                    </label>
+                        <div class="cal-metrics">
+                            <span>⚡ 开抢：<strong>11月1日 周日 17:00</strong></span>
+                            <span>⏰ 提前：<strong>提前7天放票</strong></span>
+                            <span>📱 限制：<strong>限10人/单 (1部手机可搞定)</strong></span>
+                            <span>🎫 票价：<strong>登楼门票 ¥15</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“天安门城楼参观预约”。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>15元/人，需逐一填写每位参观者实名信息；<strong>背包、水杯、充电宝禁上城楼</strong>(北侧免费存包)。</div>
+                    </div>
                 </div>
 
                 <!-- 3. 毛主席纪念堂 -->
-                <div class="cal-card">
-                    <div class="cal-left">
-                        <span class="cal-label">🔴 必须预约</span>
-                        <div class="cal-date">11月1日</div>
-                        <div class="cal-weekday">周日 · 提前1-6天</div>
-                        <div class="cal-clock">12:30 开抢</div>
-                    </div>
-                    <label class="cal-right">
-                        <input type="checkbox" class="cal-check">
-                        <div class="cal-body">
-                            <div class="cal-spot-title">
-                                <span>3. 毛主席纪念堂 (游览日: 11/7 周六上午)</span>
-                                <span class="m-badge warn">必须预约 · 限5人/单(需2部手机!)</span>
+                <div class="cal-card" id="card-spot-3">
+                    <div class="cal-header">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🔴 11月1日 12:30 开抢</span>
+                                <span class="cal-header-title">3. 毛主席纪念堂 (游览日: 11/7 周六上午)</span>
                             </div>
-                            <div>• <strong>预约渠道：</strong>小程序/公众号“毛主席纪念堂”<br>•
-                                <strong>购票要点：</strong>免费；每账号每天仅限1个待出行预约；仅上午开放；<strong>严禁带包、相机、水杯</strong>。
-                            </div>
+                            <label class="cal-check-label" title="点击标记为已约好">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已约好</span>
+                            </label>
                         </div>
-                    </label>
+                        <div class="cal-metrics">
+                            <span>⚡ 开抢：<strong>11月1日 周日 12:30</strong></span>
+                            <span>⏰ 提前：<strong>提前1~6天均可约</strong></span>
+                            <span>📱 限制：<strong>限5人/单 (需2部手机同时约)</strong></span>
+                            <span>🎫 票价：<strong>免费预约 (¥0)</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信小程序 / 公众号“毛主席纪念堂”。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>免费；每账号每天仅限1个待出行预约；仅上午开放；<strong>严禁带包、相机、水杯</strong>。</div>
+                    </div>
                 </div>
 
                 <!-- 4. 颐和园 -->
-                <div class="cal-card">
-                    <div class="cal-left amber-cal">
-                        <span class="cal-label">🟡 建议提前买</span>
-                        <div class="cal-date">10月31日起</div>
-                        <div class="cal-weekday">提前1-7天均可</div>
-                        <div class="cal-clock">21:00 放票</div>
-                    </div>
-                    <label class="cal-right">
-                        <input type="checkbox" class="cal-check">
-                        <div class="cal-body">
-                            <div class="cal-spot-title">
-                                <span>4. 颐和园 (游览日: 11/7 周六下午)</span>
-                                <span class="m-badge ok">无人数上限 · 支持合并支付</span>
+                <div class="cal-card" id="card-spot-4">
+                    <div class="cal-header amber-theme">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🟡 10月31日起 21:00</span>
+                                <span class="cal-header-title">4. 颐和园 (游览日: 11/7 周六下午)</span>
                             </div>
-                            <div>• <strong>预约渠道：</strong>公众号“颐和园”、“畅游公园”或微信<strong>“京通”小程序</strong><br>•
-                                <strong>购票要点：</strong>淡季门票20元，联票50元(含佛香阁)；<strong>入园时订单内所有人必须刷各自身份证原件</strong>。
-                            </div>
+                            <label class="cal-check-label" title="点击标记为已买好">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已买好</span>
+                            </label>
                         </div>
-                    </label>
+                        <div class="cal-metrics">
+                            <span>⚡ 放票：<strong>10月31日起 每天21:00</strong></span>
+                            <span>⏰ 提前：<strong>提前1~7天均可买</strong></span>
+                            <span>📱 限制：<strong>无人数上限 (支持合并支付)</strong></span>
+                            <span>🎫 票价：<strong>淡季大门票 ¥20 / 联票 ¥50</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“颐和园”、“畅游公园”或微信<strong>“京通”小程序</strong>。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>淡季门票20元，联票50元(含佛香阁)；<strong>入园时订单内所有人必须刷各自身份证原件</strong>。</div>
+                    </div>
                 </div>
 
                 <!-- 5. 八达岭长城 -->
-                <div class="cal-card">
-                    <div class="cal-left amber-cal">
-                        <span class="cal-label">🟡 建议提前买</span>
-                        <div class="cal-date">11月2日起</div>
-                        <div class="cal-weekday">周一 · 提前7天</div>
-                        <div class="cal-clock">全天可约</div>
-                    </div>
-                    <label class="cal-right">
-                        <input type="checkbox" class="cal-check">
-                        <div class="cal-body">
-                            <div class="cal-spot-title">
-                                <span>5. 八达岭长城 (游览日: 11/9 周一全天)</span>
-                                <span class="m-badge ok">限10人/单 · 1部手机搞定</span>
+                <div class="cal-card" id="card-spot-5">
+                    <div class="cal-header amber-theme">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🟡 11月2日起 全天可约</span>
+                                <span class="cal-header-title">5. 八达岭长城 (游览日: 11/9 周一全天)</span>
                             </div>
-                            <div>• <strong>预约渠道：</strong>公众号“八达岭长城”或微信<strong>“京通”小程序</strong><br>•
-                                <strong>购票要点：</strong>淡季35元；<strong>周一正常开放</strong>；每张证件每日限购1张。
-                            </div>
+                            <label class="cal-check-label" title="点击标记为已买好">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已买好</span>
+                            </label>
                         </div>
-                    </label>
+                        <div class="cal-metrics">
+                            <span>⚡ 放票：<strong>11月2日 周一 全天可约</strong></span>
+                            <span>⏰ 提前：<strong>提前7天放票</strong></span>
+                            <span>📱 限制：<strong>限10人/单 (1部手机搞定)</strong></span>
+                            <span>🎫 票价：<strong>淡季大门票 ¥35</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“八达岭长城”或微信<strong>“京通”小程序</strong>。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>淡季门票35元；<strong>周一正常开放</strong>；每张证件每日限购1张。</div>
+                    </div>
                 </div>
 
                 <!-- 6. 天坛公园 -->
-                <div class="cal-card">
-                    <div class="cal-left amber-cal">
-                        <span class="cal-label">🟡 建议提前买</span>
-                        <div class="cal-date">11月3日起</div>
-                        <div class="cal-weekday">周二 · 提前1-7天</div>
-                        <div class="cal-clock">21:00 放票</div>
-                    </div>
-                    <label class="cal-right">
-                        <input type="checkbox" class="cal-check">
-                        <div class="cal-body">
-                            <div class="cal-spot-title">
-                                <span>6. 天坛公园 (游览日: 11/10 周二上午)</span>
-                                <span class="m-badge warn">限5人/单 · 需分2单购买</span>
+                <div class="cal-card" id="card-spot-6">
+                    <div class="cal-header amber-theme">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🟡 11月3日起 21:00</span>
+                                <span class="cal-header-title">6. 天坛公园 (游览日: 11/10 周二上午)</span>
                             </div>
-                            <div>• <strong>预约渠道：</strong>“畅游公园”、“天坛”小程序或微信<strong>“京通”小程序</strong><br>•
-                                <strong>购票要点：</strong>务必买<strong>【淡季联票 28元】</strong>（含祈年殿、回音壁、圜丘）；核心景点周一关闭。
-                            </div>
+                            <label class="cal-check-label" title="点击标记为已买好">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已买好</span>
+                            </label>
                         </div>
-                    </label>
+                        <div class="cal-metrics">
+                            <span>⚡ 放票：<strong>11月3日 周二 21:00放票</strong></span>
+                            <span>⏰ 提前：<strong>提前1~7天均可</strong></span>
+                            <span>📱 限制：<strong>限5人/单 (需分2单购买)</strong></span>
+                            <span>🎫 票价：<strong>淡季联票 ¥28</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>预约渠道：</strong>“畅游公园”、“天坛”小程序或微信<strong>“京通”小程序</strong>。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>务必买<strong>【淡季联票 28元】</strong>（含祈年殿、回音壁、圜丘）；核心景点周一关闭。</div>
+                    </div>
                 </div>
 
                 <!-- 7. 天安门广场 -->
-                <div class="cal-card">
-                    <div class="cal-left green-cal">
-                        <span class="cal-label">🟢 随主景点免约</span>
-                        <div class="cal-date">无需单约</div>
-                        <div class="cal-weekday">凭纪念堂记录进</div>
-                        <div class="cal-clock">直接通行</div>
-                    </div>
-                    <label class="cal-right">
-                        <input type="checkbox" class="cal-check">
-                        <div class="cal-body">
-                            <div class="cal-spot-title">
-                                <span>7. 天安门广场 (游览日: 11/7 周六上午)</span>
-                                <span class="m-badge info">凭纪念堂或故宫记录进入</span>
+                <div class="cal-card" id="card-spot-7">
+                    <div class="cal-header green-theme">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🟢 随主景点免单约</span>
+                                <span class="cal-header-title">7. 天安门广场 (游览日: 11/7 周六上午)</span>
                             </div>
-                            <div>• <strong>规则说明：</strong>只要预约了毛主席纪念堂或故宫，凭记录即可进入广场，<strong>无需单独预约</strong>！</div>
+                            <label class="cal-check-label" title="点击标记为已知晓">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已知晓</span>
+                            </label>
                         </div>
-                    </label>
+                        <div class="cal-metrics">
+                            <span>⚡ 准入规则：<strong>凭纪念堂或故宫预约记录直接通行</strong></span>
+                            <span>🎫 门票费用：<strong>免费通行，无需单独预约 (¥0)</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>规则说明：</strong>只要预约了毛主席纪念堂或故宫，凭预约记录即可直接进入广场安检，<strong>完全无需单独预约天安门广场</strong>！</div>
+                    </div>
                 </div>
 
                 <!-- 8. 景山公园 -->
-                <div class="cal-card">
-                    <div class="cal-left green-cal">
-                        <span class="cal-label">🟢 免预约</span>
-                        <div class="cal-date">现场扫码</div>
-                        <div class="cal-weekday">随到随买</div>
-                        <div class="cal-clock">门票 2元</div>
-                    </div>
-                    <label class="cal-right">
-                        <input type="checkbox" class="cal-check">
-                        <div class="cal-body">
-                            <div class="cal-spot-title">
-                                <span>8. 景山公园 (游览日: 11/8 周日下午)</span>
-                                <span class="m-badge info">现场扫码直接入园</span>
+                <div class="cal-card" id="card-spot-8">
+                    <div class="cal-header green-theme">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🟢 免预约 · 现场扫码</span>
+                                <span class="cal-header-title">8. 景山公园 (游览日: 11/8 周日下午)</span>
                             </div>
-                            <div>• <strong>规则说明：</strong>完全无需提前预约，从故宫神武门出来过地下通道即到，门口扫码2元入园。</div>
+                            <label class="cal-check-label" title="点击标记为已知晓">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已知晓</span>
+                            </label>
                         </div>
-                    </label>
+                        <div class="cal-metrics">
+                            <span>⚡ 入园方式：<strong>现场随到随买直接扫码入园</strong></span>
+                            <span>🎫 门票费用：<strong>门票 ¥2/人</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>规则说明：</strong>完全无需提前预约，从故宫神武门出来过地下通道即到，门口手机扫码2元即可直接入园。</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2035,7 +2394,10 @@
                         <span>×</span><input type="number" id="hotel-nights" class="num-input sm" value="4"
                             oninput="recalcAll()"><span>晚</span>
                     </div>
-                    <div class="row-result" id="res-hotel">¥3,600</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" id="res-hotel-input" class="row-total-val" value="3600" min="0" step="any" oninput="onHotelTotalInput(this)" title="可直接编辑修改此项总价，单价将根据房间数与晚数自动折算">
+                    </div>
                 </div>
             </div>
 
@@ -2060,7 +2422,10 @@
                         <span>×</span><input type="number" class="num-input sm trans-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥1,425</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="1425" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2073,7 +2438,10 @@
                         <span>×</span><input type="number" class="num-input sm trans-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥2,388</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="2388" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2086,7 +2454,10 @@
                         <span>×</span><input type="number" class="num-input sm trans-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥360</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="360" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2099,100 +2470,180 @@
                         <span>×</span><input type="number" class="num-input sm trans-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥720</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="720" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
             </div>
 
-            <!-- 3. 景区必买门票（自动根据11月淡季价格统计） -->
+                                    <!-- 3. 景区基础门票（自动根据11月淡季价格统计，含60岁+长者免票/半价优惠） -->
             <div class="calc-section">
                 <div class="calc-sec-head">
                     <label class="calc-sec-head-label" title="全选 / 全不选 基础门票模块">
                         <input type="checkbox" class="sec-master-chk" id="master-chk-tkt" checked
                             onchange="toggleSecMaster('tkt', this.checked)">
-                        <span class="calc-sec-title">🎫 3. 景区基础门票 (已按11月淡季官方价自动关联)</span>
+                        <span class="calc-sec-title">🎫 3. 景区基础门票 (含60岁+长者免费/半价优惠)</span>
                     </label>
                     <span class="calc-sec-sub" id="sec-ticket-val">¥0</span>
                 </div>
-                <div style="font-size:11.5px; color:var(--text-sub); margin-bottom:6px;">
-                    💡 注：南锣鼓巷、什刹海、毛主席纪念堂、天安门广场、奥林匹克公园外围均<strong>免费 (¥0)</strong>；若有60岁以上长辈或学生，可直接把对应景点的买票人数调少。
+
+                <!-- 政策速览与快捷预设栏 -->
+                <div class="tkt-policy-banner">
+                    <div class="tkt-policy-info">
+                        <span>👵</span>
+                        <span><strong>长者官方政策</strong>：颐和园/长城/景山大门票<strong>免票(¥0)</strong> · 故宫/天安门<strong>半价</strong> · 天坛联票<strong>¥14</strong></span>
+                    </div>
+                    <div class="tkt-preset-pills">
+                        <span class="preset-label">快捷设定:</span>
+                        <button type="button" class="preset-pill active" id="btn-preset-4-2" onclick="applyTktPreset(4, 2, this)">👥 4成人 + 2长辈</button>
+                        <button type="button" class="preset-pill" id="btn-preset-5-1" onclick="applyTktPreset(5, 1, this)">👥 5成人 + 1长辈</button>
+                        <button type="button" class="preset-pill" id="btn-preset-6-0" onclick="applyTktPreset(6, 0, this)">👥 6位全价成人</button>
+                    </div>
                 </div>
-                <div class="calc-row">
+
+                <!-- 1. 颐和园 -->
+                <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
                         <span>【D2】颐和园 · 淡季大门票</span>
                     </label>
-                    <div class="calc-inputs">
-                        <span>单价¥</span><input type="number" class="num-input sm tkt-price" value="20"
-                            oninput="recalcAll()">
-                        <span>×</span><input type="number" class="num-input sm tkt-cnt" value="6"
-                            oninput="recalcAll()"><span>人</span>
+                    <div class="tkt-dual-inputs">
+                        <div class="tkt-sub-tier adult">
+                            <span class="tier-tag">成人</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-adult-price" value="20" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-adult-cnt" value="4" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
+                        <div class="tkt-sub-tier senior">
+                            <span class="tier-tag">长者免票</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-senior-price" value="0" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-senior-cnt" value="2" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
                     </div>
-                    <div class="row-result">¥120</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val tkt-total-val" value="80" min="0" step="any" oninput="onTktRowTotalInput(this)" title="此门票项总额（可直接编辑修改，单价自动折算）">
+                    </div>
                 </div>
-                <div class="calc-row">
+
+                <!-- 2. 天安门城楼 -->
+                <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
                         <span>【D3】天安门城楼 · 登楼门票</span>
                     </label>
-                    <div class="calc-inputs">
-                        <span>单价¥</span><input type="number" class="num-input sm tkt-price" value="15"
-                            oninput="recalcAll()">
-                        <span>×</span><input type="number" class="num-input sm tkt-cnt" value="6"
-                            oninput="recalcAll()"><span>人</span>
+                    <div class="tkt-dual-inputs">
+                        <div class="tkt-sub-tier adult">
+                            <span class="tier-tag">成人</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-adult-price" value="15" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-adult-cnt" value="4" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
+                        <div class="tkt-sub-tier senior">
+                            <span class="tier-tag">长者半价</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-senior-price" value="7.5" step="0.5" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-senior-cnt" value="2" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
                     </div>
-                    <div class="row-result">¥90</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val tkt-total-val" value="75" min="0" step="any" oninput="onTktRowTotalInput(this)" title="此门票项总额（可直接编辑修改，单价自动折算）">
+                    </div>
                 </div>
-                <div class="calc-row">
+
+                <!-- 3. 故宫博物院 -->
+                <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
                         <span>【D3】故宫博物院 · 淡季大门票</span>
                     </label>
-                    <div class="calc-inputs">
-                        <span>单价¥</span><input type="number" class="num-input sm tkt-price" value="40"
-                            oninput="recalcAll()">
-                        <span>×</span><input type="number" class="num-input sm tkt-cnt" value="6"
-                            oninput="recalcAll()"><span>人</span>
+                    <div class="tkt-dual-inputs">
+                        <div class="tkt-sub-tier adult">
+                            <span class="tier-tag">成人</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-adult-price" value="40" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-adult-cnt" value="4" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
+                        <div class="tkt-sub-tier senior">
+                            <span class="tier-tag">长者半价</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-senior-price" value="20" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-senior-cnt" value="2" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
                     </div>
-                    <div class="row-result">¥240</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val tkt-total-val" value="200" min="0" step="any" oninput="onTktRowTotalInput(this)" title="此门票项总额（可直接编辑修改，单价自动折算）">
+                    </div>
                 </div>
-                <div class="calc-row">
+
+                <!-- 4. 景山公园 -->
+                <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
                         <span>【D3】景山公园 · 门票</span>
                     </label>
-                    <div class="calc-inputs">
-                        <span>单价¥</span><input type="number" class="num-input sm tkt-price" value="2"
-                            oninput="recalcAll()">
-                        <span>×</span><input type="number" class="num-input sm tkt-cnt" value="6"
-                            oninput="recalcAll()"><span>人</span>
+                    <div class="tkt-dual-inputs">
+                        <div class="tkt-sub-tier adult">
+                            <span class="tier-tag">成人</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-adult-price" value="2" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-adult-cnt" value="4" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
+                        <div class="tkt-sub-tier senior">
+                            <span class="tier-tag">长者免票</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-senior-price" value="0" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-senior-cnt" value="2" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
                     </div>
-                    <div class="row-result">¥12</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val tkt-total-val" value="8" min="0" step="any" oninput="onTktRowTotalInput(this)" title="此门票项总额（可直接编辑修改，单价自动折算）">
+                    </div>
                 </div>
-                <div class="calc-row">
+
+                <!-- 5. 八达岭长城 -->
+                <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
                         <span>【D4】八达岭长城 · 淡季大门票</span>
                     </label>
-                    <div class="calc-inputs">
-                        <span>单价¥</span><input type="number" class="num-input sm tkt-price" value="35"
-                            oninput="recalcAll()">
-                        <span>×</span><input type="number" class="num-input sm tkt-cnt" value="6"
-                            oninput="recalcAll()"><span>人</span>
+                    <div class="tkt-dual-inputs">
+                        <div class="tkt-sub-tier adult">
+                            <span class="tier-tag">成人</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-adult-price" value="35" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-adult-cnt" value="4" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
+                        <div class="tkt-sub-tier senior">
+                            <span class="tier-tag">长者免票</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-senior-price" value="0" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-senior-cnt" value="2" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
                     </div>
-                    <div class="row-result">¥210</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val tkt-total-val" value="140" min="0" step="any" oninput="onTktRowTotalInput(this)" title="此门票项总额（可直接编辑修改，单价自动折算）">
+                    </div>
                 </div>
-                <div class="calc-row">
+
+                <!-- 6. 天坛公园 -->
+                <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
                         <span>【D5】天坛公园 · 淡季联票 (含祈年殿/回音壁/圜丘)</span>
                     </label>
-                    <div class="calc-inputs">
-                        <span>单价¥</span><input type="number" class="num-input sm tkt-price" value="28"
-                            oninput="recalcAll()">
-                        <span>×</span><input type="number" class="num-input sm tkt-cnt" value="6"
-                            oninput="recalcAll()"><span>人</span>
+                    <div class="tkt-dual-inputs">
+                        <div class="tkt-sub-tier adult">
+                            <span class="tier-tag">成人</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-adult-price" value="28" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-adult-cnt" value="4" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
+                        <div class="tkt-sub-tier senior">
+                            <span class="tier-tag">长者优惠联票</span>
+                            <span>¥</span><input type="number" class="num-input sm tkt-senior-price" value="14" oninput="onTktTierInput(this)">
+                            <span>×</span><input type="number" class="num-input sm tkt-senior-cnt" value="2" oninput="onTktTierInput(this)"><span>人</span>
+                        </div>
                     </div>
-                    <div class="row-result">¥168</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val tkt-total-val" value="140" min="0" step="any" oninput="onTktRowTotalInput(this)" title="此门票项总额（可直接编辑修改，单价自动折算）">
+                    </div>
                 </div>
             </div>
 
@@ -2217,7 +2668,10 @@
                         <span>×</span><input type="number" class="num-input sm opt-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥120</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="120" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2230,7 +2684,10 @@
                         <span>×</span><input type="number" class="num-input sm opt-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥840</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="840" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2243,7 +2700,10 @@
                         <span>×</span><input type="number" class="num-input sm opt-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥0</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="0" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2256,7 +2716,10 @@
                         <span>×</span><input type="number" class="num-input sm opt-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥0</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="0" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2269,7 +2732,10 @@
                         <span>×</span><input type="number" class="num-input sm opt-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥0</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="0" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
             </div>
 
@@ -2294,7 +2760,10 @@
                         <span>×</span><input type="number" class="num-input sm food-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥780</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="780" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2307,7 +2776,10 @@
                         <span>×</span><input type="number" class="num-input sm food-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥1,650</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="1650" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2320,7 +2792,10 @@
                         <span>×</span><input type="number" class="num-input sm food-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥1,500</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="1500" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2333,7 +2808,10 @@
                         <span>×</span><input type="number" class="num-input sm food-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥840</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="840" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2346,7 +2824,10 @@
                         <span>×</span><input type="number" class="num-input sm food-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥780</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="780" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
             </div>
 
@@ -2371,7 +2852,10 @@
                         <span>×</span><input type="number" class="num-input sm other-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥480</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="480" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
@@ -2384,7 +2868,10 @@
                         <span>×</span><input type="number" class="num-input sm other-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
-                    <div class="row-result">¥600</div>
+                    <div class="row-total-wrap">
+                        <span class="row-total-prefix">¥</span>
+                        <input type="number" class="row-total-val" value="600" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                    </div>
                 </div>
             </div>
         </div>
@@ -2615,6 +3102,41 @@
             ['hotel', 'trans', 'tkt', 'opt', 'food', 'other'].forEach(updateSecMasterUI);
         }
 
+        // 用户直接修改单项总额时，反向折算单价
+        function onRowTotalInput(el) {
+            var row = el.closest('.calc-row');
+            if (!row) return;
+            var totalVal = parseFloat(el.value);
+            if (isNaN(totalVal) || totalVal < 0) totalVal = 0;
+
+            var calcInputs = row.querySelector('.calc-inputs');
+            if (calcInputs) {
+                var inputs = calcInputs.querySelectorAll('input[type="number"]');
+                if (inputs.length >= 2) {
+                    var priceInput = inputs[0];
+                    var cntInput = inputs[inputs.length - 1];
+                    var cnt = parseFloat(cntInput.value) || 1;
+                    if (cnt <= 0) cnt = 1;
+                    var unitPrice = totalVal / cnt;
+                    priceInput.value = Math.round(unitPrice * 100) / 100;
+                }
+            }
+            recalcAll();
+        }
+
+        // 酒店总额直接修改时，反向折算单价
+        function onHotelTotalInput(el) {
+            var totalVal = parseFloat(el.value);
+            if (isNaN(totalVal) || totalVal < 0) totalVal = 0;
+            var rooms = parseFloat(document.getElementById('hotel-rooms').value) || 1;
+            var nights = parseFloat(document.getElementById('hotel-nights').value) || 1;
+            if (rooms <= 0) rooms = 1;
+            if (nights <= 0) nights = 1;
+            var unitPrice = totalVal / (rooms * nights);
+            document.getElementById('hotel-price').value = (Math.round(unitPrice * 100) / 100);
+            recalcAll();
+        }
+
         function calcGroup(chkClass, priceClass, cntClass) {
             var chks = document.querySelectorAll('.' + chkClass);
             var prices = document.querySelectorAll('.' + priceClass);
@@ -2622,13 +3144,125 @@
             var sum = 0;
             for (var i = 0; i < chks.length; i++) {
                 var row = chks[i].closest('.calc-row');
-                var resEl = row ? row.querySelector('.row-result') : null;
+                var rowTotalInp = row ? row.querySelector('.row-total-val') : null;
                 var p = parseFloat(prices[i].value) || 0;
                 var c = parseFloat(cnts[i].value) || 0;
-                var sub = chks[i].checked ? (p * c) : 0;
-                if (resEl) resEl.textContent = fmt(sub);
+
+                var rowTotal;
+                if (rowTotalInp && document.activeElement === rowTotalInp) {
+                    rowTotal = parseFloat(rowTotalInp.value) || 0;
+                } else {
+                    rowTotal = Math.round(p * c * 100) / 100;
+                    if (rowTotalInp) rowTotalInp.value = rowTotal;
+                }
+
+                var sub = chks[i].checked ? rowTotal : 0;
+                if (rowTotalInp) {
+                    rowTotalInp.style.opacity = chks[i].checked ? '1' : '0.45';
+                }
                 sum += sub;
             }
+            return sum;
+        }
+
+        
+        // 门票人数快速预设（如 4成人+2长辈 或 6成人）
+        function applyTktPreset(adultCnt, seniorCnt, btnEl) {
+            if (btnEl) {
+                document.querySelectorAll('.preset-pill').forEach(function(b) {
+                    b.classList.remove('active');
+                });
+                btnEl.classList.add('active');
+            }
+            var rows = document.querySelectorAll('.tkt-row');
+            rows.forEach(function(row) {
+                var aCntInp = row.querySelector('.tkt-adult-cnt');
+                var sCntInp = row.querySelector('.tkt-senior-cnt');
+                if (aCntInp) aCntInp.value = adultCnt;
+                if (sCntInp) sCntInp.value = seniorCnt;
+                updateTktRowTotal(row);
+            });
+            recalcAll();
+        }
+
+        // 修改门票的成人/长者单价或人数
+        function onTktTierInput(el) {
+            var row = el.closest('.tkt-row');
+            if (row) {
+                updateTktRowTotal(row);
+            }
+            recalcAll();
+        }
+
+        // 更新单张门票内的小计与行总额
+        function updateTktRowTotal(row) {
+            var aPrice = parseFloat(row.querySelector('.tkt-adult-price').value) || 0;
+            var aCnt = parseFloat(row.querySelector('.tkt-adult-cnt').value) || 0;
+            var sPrice = parseFloat(row.querySelector('.tkt-senior-price').value) || 0;
+            var sCnt = parseFloat(row.querySelector('.tkt-senior-cnt').value) || 0;
+
+            var aSub = Math.round(aPrice * aCnt * 100) / 100;
+            var sSub = Math.round(sPrice * sCnt * 100) / 100;
+            var rowTotal = Math.round((aSub + sSub) * 100) / 100;
+
+            var totalInp = row.querySelector('.tkt-total-val');
+            if (totalInp && document.activeElement !== totalInp) {
+                totalInp.value = rowTotal;
+            }
+        }
+
+        // 直接修改门票行总额时，反向折算成人单价（保持长者优惠政策不变）
+        function onTktRowTotalInput(el) {
+            var row = el.closest('.tkt-row');
+            if (!row) return;
+            var totalVal = parseFloat(el.value);
+            if (isNaN(totalVal) || totalVal < 0) totalVal = 0;
+
+            var sPrice = parseFloat(row.querySelector('.tkt-senior-price').value) || 0;
+            var sCnt = parseFloat(row.querySelector('.tkt-senior-cnt').value) || 0;
+            var sSub = Math.round(sPrice * sCnt * 100) / 100;
+
+            var aCnt = parseFloat(row.querySelector('.tkt-adult-cnt').value) || 1;
+            if (aCnt <= 0) aCnt = 1;
+
+            var remainForAdult = totalVal - sSub;
+            if (remainForAdult < 0) remainForAdult = 0;
+            var newAdultPrice = Math.round((remainForAdult / aCnt) * 100) / 100;
+
+            var aPriceInp = row.querySelector('.tkt-adult-price');
+            if (aPriceInp) aPriceInp.value = newAdultPrice;
+
+            recalcAll();
+        }
+
+        // 计算门票模块总金额
+        function calcTicketModule() {
+            var rows = document.querySelectorAll('.tkt-row');
+            var sum = 0;
+            rows.forEach(function(row) {
+                var chk = row.querySelector('.tkt-chk');
+                var totalInp = row.querySelector('.tkt-total-val');
+                var isChecked = chk ? chk.checked : true;
+
+                var rowTotal;
+                if (totalInp && document.activeElement === totalInp) {
+                    rowTotal = parseFloat(totalInp.value) || 0;
+                } else {
+                    var aPrice = parseFloat(row.querySelector('.tkt-adult-price').value) || 0;
+                    var aCnt = parseFloat(row.querySelector('.tkt-adult-cnt').value) || 0;
+                    var sPrice = parseFloat(row.querySelector('.tkt-senior-price').value) || 0;
+                    var sCnt = parseFloat(row.querySelector('.tkt-senior-cnt').value) || 0;
+                    rowTotal = Math.round(((aPrice * aCnt) + (sPrice * sCnt)) * 100) / 100;
+                    if (totalInp) totalInp.value = rowTotal;
+                }
+
+                if (totalInp) {
+                    totalInp.style.opacity = isChecked ? '1' : '0.45';
+                }
+                if (isChecked) {
+                    sum += rowTotal;
+                }
+            });
             return sum;
         }
 
@@ -2643,8 +3277,19 @@
             var hPrice = parseFloat(document.getElementById('hotel-price').value) || 0;
             var hRooms = parseFloat(document.getElementById('hotel-rooms').value) || 0;
             var hNights = parseFloat(document.getElementById('hotel-nights').value) || 0;
-            var hotelSum = hotelChk ? (hPrice * hRooms * hNights) : 0;
-            document.getElementById('res-hotel').textContent = fmt(hotelSum);
+            var hotelTotalInp = document.getElementById('res-hotel-input');
+            
+            var hotelRowTotal;
+            if (hotelTotalInp && document.activeElement === hotelTotalInp) {
+                hotelRowTotal = parseFloat(hotelTotalInp.value) || 0;
+            } else {
+                hotelRowTotal = Math.round(hPrice * hRooms * hNights * 100) / 100;
+                if (hotelTotalInp) hotelTotalInp.value = hotelRowTotal;
+            }
+            if (hotelTotalInp) {
+                hotelTotalInp.style.opacity = hotelChk ? '1' : '0.45';
+            }
+            var hotelSum = hotelChk ? hotelRowTotal : 0;
             document.getElementById('sec-hotel-val').textContent = fmt(hotelSum);
             document.getElementById('sum-hotel').textContent = fmt(hotelSum);
 
@@ -2654,7 +3299,7 @@
             document.getElementById('sum-trans').textContent = fmt(transSum);
 
             // 3. 基础门票
-            var ticketSum = calcGroup('tkt-chk', 'tkt-price', 'tkt-cnt');
+            var ticketSum = calcTicketModule();
             document.getElementById('sec-ticket-val').textContent = fmt(ticketSum);
             document.getElementById('sum-ticket').textContent = fmt(ticketSum);
 
@@ -2667,6 +3312,7 @@
             var foodSum = calcGroup('food-chk', 'food-price', 'food-cnt');
             document.getElementById('sec-food-val').textContent = fmt(foodSum);
             document.getElementById('sum-food').textContent = fmt(foodSum);
+
 
             // 6. 小吃与伴手礼
             var otherSum = calcGroup('other-chk', 'other-price', 'other-cnt');
@@ -2702,7 +3348,7 @@
         }
 
         // ================= 保存与锁定功能 =================
-        const STORAGE_KEY = 'beijing_trip_cost_state_v2';
+        const STORAGE_KEY = 'beijing_trip_cost_state_v5';
 
         function collectGroupData(chkClass, priceClass, cntClass) {
             var chks = document.querySelectorAll('.' + chkClass);
@@ -2710,10 +3356,13 @@
             var cnts = document.querySelectorAll('.' + cntClass);
             var arr = [];
             for (var i = 0; i < chks.length; i++) {
+                var row = chks[i].closest('.calc-row');
+                var rowTotalInp = row ? row.querySelector('.row-total-val') : null;
                 arr.push({
                     checked: chks[i].checked,
                     price: prices[i] ? prices[i].value : '',
-                    cnt: cnts[i] ? cnts[i].value : ''
+                    cnt: cnts[i] ? cnts[i].value : '',
+                    rowTotal: rowTotalInp ? rowTotalInp.value : ''
                 });
             }
             return arr;
@@ -2728,6 +3377,11 @@
                 chks[i].checked = arr[i].checked;
                 if (prices[i] && arr[i].price !== undefined) prices[i].value = arr[i].price;
                 if (cnts[i] && arr[i].cnt !== undefined) cnts[i].value = arr[i].cnt;
+                var row = chks[i].closest('.calc-row');
+                var rowTotalInp = row ? row.querySelector('.row-total-val') : null;
+                if (rowTotalInp && arr[i].rowTotal !== undefined && arr[i].rowTotal !== '') {
+                    rowTotalInp.value = arr[i].rowTotal;
+                }
             }
         }
 
@@ -2764,7 +3418,8 @@
                         chk: document.getElementById('chk-hotel').checked,
                         price: document.getElementById('hotel-price').value,
                         rooms: document.getElementById('hotel-rooms').value,
-                        nights: document.getElementById('hotel-nights').value
+                        nights: document.getElementById('hotel-nights').value,
+                        rowTotal: document.getElementById('res-hotel-input') ? document.getElementById('res-hotel-input').value : ''
                     },
                     trans: collectGroupData('trans-chk', 'trans-price', 'trans-cnt'),
                     tkt: collectGroupData('tkt-chk', 'tkt-price', 'tkt-cnt'),
@@ -2797,6 +3452,46 @@
             }
         }
 
+                // 预约日历卡片勾选完成控制
+        function toggleCalCard(chk) {
+            var card = chk.closest('.cal-card');
+            if (!card) return;
+            if (chk.checked) {
+                card.classList.add('card-done');
+            } else {
+                card.classList.remove('card-done');
+            }
+            saveCalCardState();
+        }
+
+        function saveCalCardState() {
+            var checks = document.querySelectorAll('.cal-check');
+            var states = [];
+            checks.forEach(function (c) {
+                states.push(c.checked);
+            });
+            try {
+                localStorage.setItem('beijing_trip_cal_cards_v1', JSON.stringify(states));
+            } catch (e) { }
+        }
+
+        function loadCalCardState() {
+            try {
+                var str = localStorage.getItem('beijing_trip_cal_cards_v1');
+                if (!str) return;
+                var states = JSON.parse(str);
+                var checks = document.querySelectorAll('.cal-check');
+                for (var i = 0; i < checks.length && i < states.length; i++) {
+                    checks[i].checked = states[i];
+                    var card = checks[i].closest('.cal-card');
+                    if (card) {
+                        if (states[i]) card.classList.add('card-done');
+                        else card.classList.remove('card-done');
+                    }
+                }
+            } catch (e) { }
+        }
+
         function loadSavedState() {
             try {
                 var str = localStorage.getItem(STORAGE_KEY);
@@ -2812,6 +3507,9 @@
                     document.getElementById('hotel-price').value = state.hotel.price;
                     document.getElementById('hotel-rooms').value = state.hotel.rooms;
                     document.getElementById('hotel-nights').value = state.hotel.nights;
+                    if (state.hotel.rowTotal && document.getElementById('res-hotel-input')) {
+                        document.getElementById('res-hotel-input').value = state.hotel.rowTotal;
+                    }
                 }
                 restoreGroupData('trans-chk', 'trans-price', 'trans-cnt', state.trans);
                 restoreGroupData('tkt-chk', 'tkt-price', 'tkt-cnt', state.tkt);
@@ -2844,9 +3542,11 @@
         // 初始化
         window.addEventListener('DOMContentLoaded', function () {
             loadSavedState();
+            loadCalCardState();
             recalcAll();
         });
         loadSavedState();
+        loadCalCardState();
         recalcAll();
     </script>
 
