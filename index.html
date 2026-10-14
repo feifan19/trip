@@ -901,6 +901,227 @@
             }
         }
 
+        
+        
+        /* ==================== 景点导览：双路线切换器与移动端时间轴优化 ==================== */
+        .g-mode-switch-box {
+            margin-bottom: 12px;
+        }
+
+        .g-mode-switch-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: #F4EFE6;
+            padding: 5px 8px;
+            border-radius: 9px;
+            margin-bottom: 9px;
+        }
+
+        .g-mode-btns {
+            display: inline-flex;
+            background: #E5DFC8;
+            padding: 3px;
+            border-radius: 7px;
+            gap: 3px;
+        }
+
+        .g-mode-btn {
+            font-size: 12px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #645E56;
+            transition: all 0.15s ease;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .g-mode-btn:hover {
+            color: var(--text-main);
+        }
+
+        /* 选中态高亮 */
+        input[id^="gm-"][id$="-a"]:checked ~ .g-mode-switch-bar label[for$="-a"],
+        input[id^="gm-"][id$="-b"]:checked ~ .g-mode-switch-bar label[for$="-b"] {
+            background: var(--red-main);
+            color: #FFFFFF;
+            box-shadow: 0 1px 4px rgba(155, 35, 35, 0.3);
+        }
+
+        .g-mode-panel-a,
+        .g-mode-panel-b {
+            display: none;
+        }
+
+        input[id^="gm-"][id$="-a"]:checked ~ .g-mode-panel-a {
+            display: block;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        input[id^="gm-"][id$="-b"]:checked ~ .g-mode-panel-b {
+            display: block;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(2px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 路线卡片容器 */
+        .g-route-card {
+            background: #FCFBF8;
+            border: 1px solid #EFEAE0;
+            border-radius: 10px;
+            padding: 10px 12px;
+            margin-bottom: 11px;
+        }
+
+        .g-route-card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #78350F;
+            border-bottom: 1px dashed #EAE3D2;
+            padding-bottom: 6px;
+            margin-bottom: 8px;
+        }
+
+        .g-route-badge-easy {
+            background: #ECFDF5;
+            color: #047857;
+            border: 1px solid #A7F3D0;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .g-route-badge-deep {
+            background: #EFF6FF;
+            color: #1D4ED8;
+            border: 1px solid #BFDBFE;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* 移动端友好垂直步进动线 (Vertical Stepper Timeline) */
+        .g-step-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            position: relative;
+            padding-left: 2px;
+        }
+
+        .g-step-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 12.5px;
+            line-height: 1.4;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .g-step-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FFF;
+            border: 1.5px solid #CBD5E1;
+            color: #475569;
+            font-size: 10.5px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .g-step-row.start .g-step-dot {
+            background: #059669;
+            border-color: #059669;
+            color: #FFF;
+        }
+
+        .g-step-row.end .g-step-dot {
+            background: #DC2626;
+            border-color: #DC2626;
+            color: #FFF;
+        }
+
+        .g-step-row.highlight .g-step-dot {
+            background: #F59E0B;
+            border-color: #F59E0B;
+            color: #FFF;
+        }
+
+        .g-step-row.exp .g-step-dot {
+            background: #2563EB;
+            border-color: #2563EB;
+            color: #FFF;
+        }
+
+        .g-step-desc {
+            flex: 1;
+            padding-bottom: 2px;
+        }
+
+        .g-step-desc strong {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .g-step-desc .step-tag-pill {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 3px;
+            margin-left: 4px;
+            line-height: 1.2;
+            vertical-align: middle;
+        }
+
+        .pill-save {
+            background: #ECFDF5;
+            color: #047857;
+            border: 1px solid #A7F3D0;
+        }
+
+        .pill-exp {
+            background: #EFF6FF;
+            color: #1D4ED8;
+            border: 1px solid #BFDBFE;
+        }
+
+        .pill-must {
+            background: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FDE68A;
+        }
+
+        /* PC 宽屏自适应：让步骤排成2列网格，充分利用空间 */
+        @media (min-width: 760px) {
+            .g-step-timeline {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px 16px;
+            }
+        }
+
         .guide-card {
             background: #fff;
             border: 1px solid var(--border-color);
@@ -2879,57 +3100,964 @@
         <!-- =====================================================================
          模块 4：🏛️ 景点导览 & 6人最佳合影机位
          ===================================================================== -->
+                <!-- =====================================================================
+         模块 4：🏛️ 景点导览 & 核心游览攻略（含经典顺路动线 / 看点 / 机位 / 避坑）
+         ===================================================================== -->
+                <!-- =====================================================================
+         模块 4：🏛️ 景点导览 & 核心游览攻略（支持“🛋️省力Plan”与“👟深度全览”一键切换）
+         ===================================================================== -->
         <div id="panel-guide" class="module-panel">
             <div class="mod-banner">
-                <h2>🏛️ 核心景点导览 · 看点速读 & 6人最佳合影机位</h2>
-                <p>拒绝走马观花！每个景点用 3 句话讲透必看镇馆之宝，并附上最出片的家庭/团队合影位置。</p>
+                <h2>🏛️ 核心景点全景深度导览 · 经典双路线 & 实战攻略</h2>
+                <p>支持<strong>“🛋️ 省力舒适线（长辈优选·少走回头路）”</strong>与<strong>“👟 经典深度全览线”</strong>自由切换，每条路线均标明用时、步数与节点细节，配齐镇馆必看、最佳合影机位与长辈避坑贴士！</p>
             </div>
 
-            <div class="info-grid">
-                <div class="guide-card">
-                    <h3><span>🏮 故宫博物院</span><span class="g-tag">明清24位皇帝皇宫</span></h3>
-                    <p>• <strong>三大必看细节：</strong>① <strong>太和殿屋脊兽</strong>（唯一拥有10只脊兽的建筑，代表最高皇权）；②
-                        <strong>保和殿后云龙大石雕</strong>（重达200吨的整块巨石，冬天泼水成冰运入宫）；③
-                        <strong>珍宝馆九龙壁与点翠凤冠</strong>（乾隆养老的宁寿宫区，工艺登峰造极）。
-                    </p>
-                    <div class="photo-spot">📸 <strong>6人最佳合影机位：</strong>① 太和门广场石狮子前（背景纵深极佳，能避开台阶人流）；② 珍宝馆颐和轩门前红墙。</div>
-                </div>
+            <!-- 顶部快捷定位胶囊栏 -->
+            <div class="guide-filter-bar">
+                <a href="#g-yiheyuan" class="g-jump-pill">🌊 颐和园</a>
+                <a href="#g-gugong" class="g-jump-pill">🏮 故宫紫禁城</a>
+                <a href="#g-tiantan" class="g-jump-pill">🔵 天坛公园</a>
+                <a href="#g-changcheng" class="g-jump-pill">🐉 八达岭长城</a>
+                <a href="#g-jingshan" class="g-jump-pill">⛰️ 景山万春亭</a>
+                <a href="#g-tiananmen" class="g-jump-pill">🇨🇳 天安门</a>
+                <a href="#g-shichahai" class="g-jump-pill">🛶 什刹海</a>
+                <a href="#g-olympic" class="g-jump-pill">🏟️ 鸟巢水立方</a>
+            </div>
 
-                <div class="guide-card">
-                    <h3><span>⛰️ 景山公园 · 万春亭</span><span class="g-tag">北京中轴线制高点</span></h3>
-                    <p>• <strong>历史看点：</strong>景山是用当年开挖紫禁城护城河与南海的泥土堆筑而成的“镇山”（风水靠山），东麓也是明朝崇祯皇帝自缢处。山顶万春亭正好处于北京南北中轴线的中心点上。
-                    </p>
-                    <div class="photo-spot">📸 <strong>6人最佳合影机位：</strong>万春亭西侧栏杆处，以脚下连绵起伏的故宫琉璃金顶为背景拍大合照。</div>
-                </div>
-
-                <div class="guide-card">
-                    <h3><span>🌊 颐和园</span><span class="g-tag">皇家园林博物馆</span></h3>
-                    <p>• <strong>三大必看细节：</strong>① <strong>仁寿殿铜麒麟</strong>（名为“甪端”，能日行一万八千里、通四方语言）；②
-                        <strong>乐寿堂“败家石”</strong>（乾隆破墙运入的太湖石“青芝岫”）；③ <strong>长廊苏式彩绘</strong>（728米长廊共有14000多幅不重样的历史故事画）。
-                    </p>
-                    <div class="photo-spot">📸 <strong>6人最佳合影机位：</strong>知春亭小岛上（背后是万寿山佛香阁倒映在昆明湖中，视野最开阔）。</div>
-                </div>
-
-                <div class="guide-card">
-                    <h3><span>🔵 天坛公园</span><span class="g-tag">明清祭天圣地</span></h3>
-                    <p>• <strong>三大声学与数字奇迹：</strong>① <strong>圜丘坛“九”的秘密</strong>（天心石外围扇面石、栏板全为9的倍数，代表“九重天”）；②
-                        <strong>回音壁与三音石</strong>（声波折射奇观）；③ <strong>祈年殿无大梁结构</strong>（全靠28根楠木巨柱支撑，分别代表四季、12个月、12时辰）。
-                    </p>
-                    <div class="photo-spot">📸 <strong>6人最佳合影机位：</strong>祈年殿南门外的丹陛桥汉白玉石栏旁（仰拍能避开人群，把三层蓝瓦金顶完整框入）。</div>
-                </div>
-
-                <div class="guide-card">
-                    <h3><span>🐉 八达岭长城</span><span class="g-tag">万里长城之首</span></h3>
-                    <p>• <strong>历史看点：</strong>居庸关的前哨，古称“居庸之险不在关而在八达岭”。城墙依山脊走势盘旋，北八楼海拔888米，是八达岭最高敌楼（好汉坡）。</p>
-                    <div class="photo-spot">📸 <strong>6人最佳合影机位：</strong>北四楼或南二楼的垛口转角处（能拍出长城在山脊上蜿蜒如巨龙的纵深感，比挤在好汉碑前更好看）。
+            <!-- 1. 颐和园 -->
+            <div class="guide-card-enriched" id="g-yiheyuan">
+                <div class="g-header">
+                    <h3 class="g-header-title">🌊 颐和园 · 中国古典皇家园林之巅</h3>
+                    <div class="g-meta-tags">
+                        <span class="g-tag-item g-tag-gold">世界文化遗产 · 慈禧夏宫</span>
+                        <span class="g-tag-item g-tag-gray">11月昆明湖日落约17:00</span>
                     </div>
                 </div>
 
-                <div class="guide-card">
-                    <h3><span>🌅 什刹海 & 银锭桥</span><span class="g-tag">老北京水系灵魂</span></h3>
-                    <p>• <strong>历史看点：</strong>先有什刹海，后有北京城。这里曾是元代京杭大运河漕运的终点码头，周围聚集了恭王府、醇亲王府等众多王府与名人故居，“银锭观山”是燕京小八景之一。
-                    </p>
-                    <div class="photo-spot">📸 <strong>6人最佳合影机位：</strong>银锭桥北侧前海东沿河岸，以落日余晖、游船和远处的鼓楼剪影为背景。</div>
+                <!-- 双路线切换组件 -->
+                <div class="g-mode-switch-box">
+                    <input type="radio" name="gmode-yh" id="gm-yh-a" class="state-ctrl" checked>
+                    <input type="radio" name="gmode-yh" id="gm-yh-b" class="state-ctrl">
+
+                    <div class="g-mode-switch-bar">
+                        <div class="g-mode-btns">
+                            <label for="gm-yh-a" class="g-mode-btn">🛋️ 省力舒适线 (长辈优选)</label>
+                            <label for="gm-yh-b" class="g-mode-btn">👟 经典深度全览线</label>
+                        </div>
+                    </div>
+
+                    <!-- Panel A: 省力舒适线 -->
+                    <div class="g-mode-panel-a">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-easy">🛋️ 省力精华线 · 东宫门进 ➔ 新建宫门出</span>
+                                <span>⏱️ 约 2.5 小时 · 约 6,500 步 · 乘船免折返2公里</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>东宫门进园</strong>：平坦入园，打卡仁寿殿神兽“甪端”与御案</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>乐寿堂 & 玉澜堂</strong>：观米万钟“败家石”，赏慈禧寝宫庭院</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>728米彩绘长廊</strong>：漫步吉尼斯世界纪录游廊，仰拍万寿山佛香阁<span class="step-tag-pill pill-must">必看</span></div>
+                                </div>
+                                <div class="g-step-row exp">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>石舫码头乘画舫横渡昆明湖</strong>：泛舟湖上吹风赏景，直抵南湖岛<span class="step-tag-pill pill-save">立省2公里步行</span></div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>南湖岛 · 十七孔桥 & 镇水铜牛</strong>：漫步十七孔桥头，观清代乾隆镀金铜牛</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">6</div>
+                                    <div class="g-step-desc"><strong>新建宫门出园</strong>：迎着黄昏观十七孔桥落日，门外平地打车极方便</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel B: 深度全览线 -->
+                    <div class="g-mode-panel-b">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-deep">👟 经典全景纵深线 · 含登万寿山佛香阁</span>
+                                <span>⏱️ 约 4.5 小时 · 约 13,000 步 · 强度较高</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>东宫门进园</strong> ➔ 仁寿殿 ➔ 德和园大戏楼 ➔ 乐寿堂</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>登万寿山佛香阁</strong>：攀登台阶至排云殿及佛香阁，鸟瞰昆明湖全貌<span class="step-tag-pill pill-must">需爬坡</span></div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>后山后湖 · 苏州街</strong>：沿万寿山后山下行，观乾隆仿江南水乡水街商铺</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>清晏舫 (石舫)</strong> ➔ 沿西堤六桥漫步观水鸟与湖岸秋柳</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>南湖岛 · 十七孔桥</strong> ➔ 铜牛 ➔ 廓如亭</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">6</div>
+                                    <div class="g-step-desc"><strong>新建宫门出园</strong>：出园打车或乘公交前往晚餐厅</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-content-sections">
+                    <div class="g-block highlights">
+                        <div class="g-block-title">🏛️ 三大必看精粹与历史看点</div>
+                        <ul>
+                            <li><strong>仁寿殿铜麒麟（甪端）：</strong>慈禧光绪接见外使处。殿前甪端神兽相传“日行一万八千里、通晓四方语言”，代表圣明君主明察四海。</li>
+                            <li><strong>乐寿堂“败家石”：</strong>慈禧寝宫庭院巨型太湖石“青芝岫”。明代米万钟散尽家财运送弃于道，乾隆花费巨万破墙运入。</li>
+                            <li><strong>728米彩绘长廊：</strong>吉尼斯纪录最长游廊（273间），梁枋绘有14,000余幅不重样的古典名著与历史典故画卷。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block photos">
+                        <div class="g-block-title">📸 6人团队绝佳合影机位</div>
+                        <ul>
+                            <li><strong>知春亭小岛东侧：</strong>远眺万寿山与佛香阁倒映昆明湖全景，视线开阔无遮挡，6人站一排最显皇家气派。</li>
+                            <li><strong>十七孔桥头镇水铜牛处：</strong>以十七孔桥石拱与万寿山远景为纵深背景，下午顺光出片温润纯净。</li>
+                            <li><strong>新建宫门外湖堤：</strong>黄昏日落时分，逆光抓拍十七孔桥金光剪影与湖面波光粼粼。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block senior-tips g-content-span-2">
+                        <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
+                        <p>① <strong>千万别从北宫门进！</strong>北宫门进园是苏州街后山，全是陡峭高耸的石阶险道，极度消耗膝盖；<strong>必须走东宫门进</strong>，平地穿行；<br>
+                        ② <strong>画舫乘船是精髓：</strong>从石舫码头乘船直达十七孔桥（¥40/人），直接省去步行绕湖近2公里的疲劳，老人还能坐着吹风赏景；<br>
+                        ③ <strong>新建宫门出门最省心：</strong>出门直接是宽阔平路，网约车和出租车上下客极其便利，无需走回东宫门。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 故宫博物院 -->
+            <div class="guide-card-enriched" id="g-gugong">
+                <div class="g-header">
+                    <h3 class="g-header-title">🏮 故宫博物院 · 600年紫禁城明清皇宫</h3>
+                    <div class="g-meta-tags">
+                        <span class="g-tag-item g-tag-gold">世界最大古代木结构宫殿群</span>
+                        <span class="g-tag-item g-tag-gray">单向参观：午门进，神武门出</span>
+                    </div>
+                </div>
+
+                <!-- 双路线切换组件 -->
+                <div class="g-mode-switch-box">
+                    <input type="radio" name="gmode-gg" id="gm-gg-a" class="state-ctrl" checked>
+                    <input type="radio" name="gmode-gg" id="gm-gg-b" class="state-ctrl">
+
+                    <div class="g-mode-switch-bar">
+                        <div class="g-mode-btns">
+                            <label for="gm-gg-a" class="g-mode-btn">🛋️ 省力舒适线 (中轴三大殿+珍宝馆)</label>
+                            <label for="gm-gg-b" class="g-mode-btn">👟 经典深度全览线</label>
+                        </div>
+                    </div>
+
+                    <!-- Panel A: 省力舒适线 -->
+                    <div class="g-mode-panel-a">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-easy">🛋️ 省力精华线 · 前朝三大殿 + 宁寿宫珍宝馆 + 御花园</span>
+                                <span>⏱️ 约 3 小时 · 约 8,500 步 · 全程走平缓坡道</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>午门正门入宫</strong>：验身份证入园，过五座汉白玉内金水桥</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>太和门广场</strong>：与青铜母子狮合影，仰望紫禁城第一正殿太和殿<span class="step-tag-pill pill-must">经典合影</span></div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>太和殿 ➔ 中和殿 ➔ 保和殿</strong>：观十只脊兽与殿后200吨云龙大石雕<span class="step-tag-pill pill-save">走东西两侧缓坡道</span></div>
+                                </div>
+                                <div class="g-step-row exp">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>直转东路入宁寿宫 (珍宝馆)</strong>：观九龙壁、皇极殿与大禹治水万斤青玉山<span class="step-tag-pill pill-exp">乾隆养老宫区</span></div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>穿颐和轩 ➔ 珍妃井 ➔ 顺道入御花园</strong>：观钦安殿与天圆地方连理柏</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">6</div>
+                                    <div class="g-step-desc"><strong>神武门出宫</strong>：门口拍照打卡，穿地下通道直通景山公园南门</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel B: 深度全览线 -->
+                    <div class="g-mode-panel-b">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-deep">👟 深度全院贯通线 · 前朝三大殿 + 东西六宫 + 珍宝馆 + 钟表馆</span>
+                                <span>⏱️ 约 5 小时 · 约 16,000 步 · 深度文化漫游</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>午门入宫</strong> ➔ 内金水桥 ➔ 文华殿 (文华殿陶瓷馆)</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>太和殿 ➔ 中和殿 ➔ 保和殿</strong>：中轴前朝核心大殿朝拜</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>西六宫</strong>：探访太极殿、翊坤宫与储秀宫 (慈禧五十大寿居所)</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>乾清宫 ➔ 交泰殿 ➔ 坤宁宫</strong>：明清皇帝与皇后寝宫中轴内廷</div>
+                                </div>
+                                <div class="g-step-row exp">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>奉先殿(钟表馆) ➔ 宁寿宫(珍宝馆全区)</strong>：观西洋机关古钟与皇室金银玉器</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">6</div>
+                                    <div class="g-step-desc"><strong>东六宫(延禧宫) ➔ 御花园 ➔ 堆秀山 ➔ 神武门出宫</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-content-sections">
+                    <div class="g-block highlights">
+                        <div class="g-block-title">🏛️ 三大必看精粹与历史看点</div>
+                        <ul>
+                            <li><strong>太和殿十只脊兽：</strong>中国古建最高规制，全国唯此一处排满10只仙人神兽（骑凤仙人、龙、凤、狮子、天马、海马、狻猊、狎鱼、獬豸、斗牛、行什）。</li>
+                            <li><strong>保和殿后云龙大石雕：</strong>整块重达200吨汉白玉巨石，明代冬天沿路泼水成冰、数万民夫连拖28天才从房山运入紫禁城，雕刻九条飞龙翻江倒海。</li>
+                            <li><strong>宁寿宫珍宝馆：</strong>乾隆为当太上皇营建的“微缩紫禁城”，必看中国最大琉璃九龙壁、大禹治水万斤青玉山、金丝点翠凤冠。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block photos">
+                        <div class="g-block-title">📸 6人团队绝佳合影机位</div>
+                        <ul>
+                            <li><strong>太和门广场东侧：</strong>以巍峨太和门与汉白玉石阶为背景，此处空间开阔，能避开主干道人流，拍出红墙金顶恢弘大气。</li>
+                            <li><strong>珍宝馆皇极门前九龙壁：</strong>色彩艳丽、九龙腾飞气场强大，6人并排在白玉基座前合照寓意“吉祥福贵”。</li>
+                            <li><strong>神武门出宫后回头：</strong>隔着护城河（筒子河）以神武门高耸城楼与角楼为背景合影。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block senior-tips g-content-span-2">
+                        <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
+                        <p>① <strong>走大殿两侧平缓坡道：</strong>三大殿中央大石阶高陡，但<strong>大殿东西两侧均设有平缓宽坡道</strong>，带老人走两侧缓坡既平稳又省腿；<br>
+                        ② <strong>免费热水与休息区：</strong>故宫各大殿后侧配有免费温水直饮机（自备保温杯即可接热水），珍宝馆颐和轩内有长椅与歇脚茶馆；<br>
+                        ③ <strong>出宫无缝衔接：</strong>神武门出来穿过地下通道就是景山公园南门，两景点一气呵成无需任何打车换乘。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 天坛公园 -->
+            <div class="guide-card-enriched" id="g-tiantan">
+                <div class="g-header">
+                    <h3 class="g-header-title">🔵 天坛公园 · 明清帝王祭天与祈谷圣坛</h3>
+                    <div class="g-meta-tags">
+                        <span class="g-tag-item g-tag-gold">世界最大祭天建筑群</span>
+                        <span class="g-tag-item g-tag-gray">全园平坦砖石大道</span>
+                    </div>
+                </div>
+
+                <!-- 双路线切换组件 -->
+                <div class="g-mode-switch-box">
+                    <input type="radio" name="gmode-tt" id="gm-tt-a" class="state-ctrl" checked>
+                    <input type="radio" name="gmode-tt" id="gm-tt-b" class="state-ctrl">
+
+                    <div class="g-mode-switch-bar">
+                        <div class="g-mode-btns">
+                            <label for="gm-tt-a" class="g-mode-btn">🛋️ 省力舒适线 (南进北出中轴祈福)</label>
+                            <label for="gm-tt-b" class="g-mode-btn">👟 经典深度全览线</label>
+                        </div>
+                    </div>
+
+                    <!-- Panel A: 省力舒适线 -->
+                    <div class="g-mode-panel-a">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-easy">🛋️ 省力精华线 · 顺应古代祭天仪轨南进北出</span>
+                                <span>⏱️ 约 1.5 小时 · 约 5,000 步 · 全平路近地铁</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>天坛南门进园 (昭亨门)</strong>：平缓入园，古柏夹道</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>圜丘坛</strong>：站“天心石”说话感受声学共鸣，探寻“九重天”数字奇迹<span class="step-tag-pill pill-must">祭天核心</span></div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>皇穹宇 & 回音壁</strong>：观伞状小巧金顶，轻抚磨砖对缝圆形围墙</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>漫步丹陛桥</strong>：走360米神道海墁大道，直通祈谷坛大门</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>祈年殿</strong>：仰望三层湛蓝琉璃瓦金顶，观28根无大梁楠木巨柱神迹<span class="step-tag-pill pill-must">地标必打卡</span></div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">6</div>
+                                    <div class="g-step-desc"><strong>天坛北门出园</strong>：出园直达地铁8号线天坛北门站，免走折返路</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel B: 深度全览线 -->
+                    <div class="g-mode-panel-b">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-deep">👟 深度全景线 · 祭天坛域 + 斋宫 + 宰牲亭神厨</span>
+                                <span>⏱️ 约 3 小时 · 约 9,000 步</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>南门入园</strong> ➔ 圜丘坛 ➔ 皇穹宇回音壁 ➔ 九龙柏 (明代古柏名木)</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>走丹陛桥</strong> ➔ 祈年殿 ➔ 皇乾殿 (供奉历代皇帝神位)</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>祈谷坛神厨 & 宰牲亭</strong>：观古代祭天大典三牲贡品制作古遗迹</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>穿百花园与古柏林海</strong> ➔ 斋宫 (皇帝祭天前沐浴斋戒无梁殿与铜人亭)</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>天坛西门或北门出园</strong>：出园前往品尝天坛南门涮肉</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-content-sections">
+                    <div class="g-block highlights">
+                        <div class="g-block-title">🏛️ 三大声学奇迹与数字密码</div>
+                        <ul>
+                            <li><strong>圜丘坛“九”的秘密：</strong>顶层中央为“天心石”，外围石板圈层全部是9的倍数（9、18、27…至81块），象征九重青天，站天心石发声声波反弹极为嘹亮。</li>
+                            <li><strong>回音壁声波折射：</strong>皇穹宇围墙采用圆弧磨砖对缝严密砌筑，墙面光滑平整，轻声贴墙低语，另一端数十米外清晰可闻。</li>
+                            <li><strong>祈年殿无梁柱建筑奇迹：</strong>殿高38米全靠28根楠木巨柱支撑，中央4根龙井柱代表四季，中层12根金柱代表12个月，外层12根檐柱代表12时辰。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block photos">
+                        <div class="g-block-title">📸 6人团队绝佳合影机位</div>
+                        <ul>
+                            <li><strong>祈年殿南门外丹陛桥栏杆旁：</strong>稍仰拍机位，能避开广场人流，把三层湛蓝琉璃瓦金顶完整收入画面，极富皇家神圣庄严感。</li>
+                            <li><strong>皇穹宇殿前汉白玉甬道：</strong>殿顶小巧精致呈伞状金顶，色彩饱满，人物站在殿前台阶处半身照极为端庄。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block senior-tips g-content-span-2">
+                        <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
+                        <p>① <strong>南进北出是黄金动线：</strong>南进北出既符合皇帝祭天“从地到天”仪轨，而且北门出来就是地铁8号线天坛北门站，无需折返；<br>
+                        ② <strong>古柏林遮阴极佳：</strong>天坛古柏成林、地面全为平整砖石大道，全程几乎无高陡坡，长辈漫步吸氧十分惬意；<br>
+                        ③ <strong>联票包含内部核心：</strong>必须买联票（老人优惠联票仅¥14）才能进祈年殿与回音壁，普通大门票只能在外部树林闲逛。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 八达岭长城 -->
+            <div class="guide-card-enriched" id="g-changcheng">
+                <div class="g-header">
+                    <h3 class="g-header-title">🐉 八达岭长城 · 万里长城明代防御核心锁钥</h3>
+                    <div class="g-meta-tags">
+                        <span class="g-tag-item g-tag-gold">不到长城非好汉 · 国家5A</span>
+                        <span class="g-tag-item g-tag-gray">京张高铁直达</span>
+                    </div>
+                </div>
+
+                <!-- 双路线切换组件 -->
+                <div class="g-mode-switch-box">
+                    <input type="radio" name="gmode-cc" id="gm-cc-a" class="state-ctrl" checked>
+                    <input type="radio" name="gmode-cc" id="gm-cc-b" class="state-ctrl">
+
+                    <div class="g-mode-switch-bar">
+                        <div class="g-mode-btns">
+                            <label for="gm-cc-a" class="g-mode-btn">🛋️ 省力舒适线 (索道直达+下坡漫步)</label>
+                            <label for="gm-cc-b" class="g-mode-btn">👟 徒步勇士挑战线</label>
+                        </div>
+                    </div>
+
+                    <!-- Panel A: 省力舒适线 -->
+                    <div class="g-mode-panel-a">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-easy">🛋️ 索道空中直飞峰顶 + 纯下坡缓行至好汉碑</span>
+                                <span>⏱️ 约 2 小时 · 约 5,000 步 · 绝不硬爬陡台阶</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>京张高铁八达岭长城站出站</strong>：乘免费接驳车3分钟抵达索道下站</div>
+                                </div>
+                                <div class="g-step-row exp">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>北线空中索道</strong>：8分钟直飞北七楼绝顶，空中俯瞰燕山群峰与城墙长龙<span class="step-tag-pill pill-exp">缆车体验</span></div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>登北八楼 (海拔888米最高峰)</strong>：八达岭最高敌楼，极目远眺长城好汉坡<span class="step-tag-pill pill-must">好汉巅峰</span></div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>顺着城墙缓坡向下行</strong>：视野居高临下开阔无阻，下坡省力保护膝盖</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>北四楼好汉碑平台</strong>：打卡“不到长城非好汉”石碑，拍摄连绵起伏背景</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">6</div>
+                                    <div class="g-step-desc"><strong>北一楼关口平缓出长城</strong>：步行至接驳点乘车返回高铁站或大巴</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel B: 深度全览线 -->
+                    <div class="g-mode-panel-b">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-deep">👟 纯徒步好汉穿越线 · 徒步挑战北一至北八楼</span>
+                                <span>⏱️ 约 4.5 小时 · 约 14,000 步 · 倾角近50°</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>关城登山口进入</strong> ➔ 徒步登南一楼至南四楼 (人少景幽，回望关城)</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>折返关城中轴关门</strong> ➔ 开始挑战北线登山口</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>徒步攀爬北一楼至北四楼好汉碑</strong>：石阶较陡，沿途体会长城筑城险阻</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>挑战登顶北八楼“好汉坡”</strong>：抵达八达岭最高点，俯瞰雄关漫道真如铁</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>续行至北十一楼乘滑车出长城</strong>：或原路缓步下山</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-content-sections">
+                    <div class="g-block highlights">
+                        <div class="g-block-title">🏛️ 三大必看精粹与历史看点</div>
+                        <ul>
+                            <li><strong>居庸之险在八达岭：</strong>居庸关前哨，依燕山山脊走势修筑，城墙全部采用花岗岩巨石条砌筑，是明代长城保存最好、防御体系最严密的典型代表。</li>
+                            <li><strong>空心敌楼御敌奇思：</strong>戚继光改进的空心敌楼，上下分层，上层瞭望射箭、下层宿营屯粮，既防严寒又固若金汤。</li>
+                            <li><strong>好汉坡（北八楼）：</strong>八达岭最高烽火台，极目远眺群山莽莽、苍龙横卧，尽显“一夫当关，万夫莫开”气势。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block photos">
+                        <div class="g-block-title">📸 6人团队绝佳合影机位</div>
+                        <ul>
+                            <li><strong>北四楼拐角垛口平台：</strong>以蜿蜒盘旋在五彩山峦上的连绵长城为大背景，纵深感极强，比挤在拥挤的好汉碑前更有意境。</li>
+                            <li><strong>北八楼登顶回望处：</strong>将高耸敌楼与两翼苍翠山峦同框，全家举臂欢呼“登顶好汉”，纪念意义非凡。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block senior-tips g-content-span-2">
+                        <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
+                        <p>① <strong>千万别步行硬爬！</strong>长城石阶角度极陡（局部倾角达45°），长辈硬爬会严重损伤膝盖软骨。<strong>务必乘坐索道直飞高层</strong>；<br>
+                        ② <strong>“上坡乘索道，下坡慢慢走”最科学：</strong>下坡身体受力比拼命蹬腿上行轻松数倍，每走100米停下拍照赏景，轻松不喘；<br>
+                        ③ <strong>防风保暖：</strong>11月长城山顶风大气温比市区低6~8℃，长辈务必戴好防风帽子与围巾，鞋底要选择防滑运动鞋。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. 景山公园 -->
+            <div class="guide-card-enriched" id="g-jingshan">
+                <div class="g-header">
+                    <h3 class="g-header-title">⛰️ 景山公园 · 万春亭京城中轴线绝美俯瞰</h3>
+                    <div class="g-meta-tags">
+                        <span class="g-tag-item g-tag-gold">北京城核心地理制高点</span>
+                        <span class="g-tag-item g-tag-gray">出故宫神武门过地道即达</span>
+                    </div>
+                </div>
+
+                <!-- 双路线切换组件 -->
+                <div class="g-mode-switch-box">
+                    <input type="radio" name="gmode-js" id="gm-js-a" class="state-ctrl" checked>
+                    <input type="radio" name="gmode-js" id="gm-js-b" class="state-ctrl">
+
+                    <div class="g-mode-switch-bar">
+                        <div class="g-mode-btns">
+                            <label for="gm-js-a" class="g-mode-btn">🛋️ 省力舒适线 (15分钟东路登万春亭)</label>
+                            <label for="gm-js-b" class="g-mode-btn">👟 深度全景线 (五亭巡礼+寿皇殿)</label>
+                        </div>
+                    </div>
+
+                    <!-- Panel A: 省力舒适线 -->
+                    <div class="g-mode-panel-a">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-easy">🛋️ 东侧缓坡登山 ➔ 登顶万春亭俯瞰故宫 ➔ 西门出</span>
+                                <span>⏱️ 约 45 分钟 · 约 2,800 步 · 15分钟轻松登顶</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>景山南门进园</strong>：故宫神武门出宫后穿地下通道直达，免走回头路</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>沿东侧缓坡林荫石阶上山</strong>：坡度比西路平缓得多，每登一段有凉亭可歇脚<span class="step-tag-pill pill-save">坡缓好走</span></div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>登顶万春亭 (北京中轴线几何中心)</strong>：360°俯瞰紫禁城琉璃金顶与京城落日全貌<span class="step-tag-pill pill-must">全网封神机位</span></div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>顺西坡慢步下山</strong>：观东麓明思宗崇祯皇帝殉国槐树与御制石碑</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>景山西门或南门出园</strong>：西门外出园紧邻北海公园东门，平坦打车</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel B: 深度全览线 -->
+                    <div class="g-mode-panel-b">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-deep">👟 景山五亭巡礼 + 寿皇殿清代皇家祖庙</span>
+                                <span>⏱️ 约 2 小时 · 约 6,000 步</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>南门入园</strong> ➔ 绮望楼 (乾隆时期官学建筑)</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>景山东坡登山</strong> ➔ 周赏亭 ➔ 观妙亭 (依山筑亭观四方景致)</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>登顶万春亭</strong>：正南俯瞰故宫全景、正北远眺中轴寿皇殿与钟鼓楼</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>西坡下山</strong> ➔ 富览亭 ➔ 辑芳亭 ➔ 崇祯皇帝殉国处</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>北麓寿皇殿建筑群</strong>：参观清代皇帝祭祀祖先容像正殿，景山后街出</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-content-sections">
+                    <div class="g-block highlights">
+                        <div class="g-block-title">🏛️ 三大必看精粹与历史看点</div>
+                        <ul>
+                            <li><strong>京城风水镇山：</strong>明代开挖紫禁城护城河与南海的泥土堆筑而成，古称“煤山”，正好坐落于北京南北8公里中轴线的几何中心上。</li>
+                            <li><strong>360°俯瞰故宫琉璃金顶：</strong>整个紫禁城三大殿、东西六宫与御花园尽收眼底，只有站在此处才能真正领略中国古代皇家宫殿的对称美学。</li>
+                            <li><strong>明思宗殉国处：</strong>山东麓现存一株老槐树与“明思宗殉国处”石碑，见证1644年李自成破京城明朝覆亡历史沧桑。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block photos">
+                        <div class="g-block-title">📸 6人团队绝佳合影机位</div>
+                        <ul>
+                            <li><strong>万春亭正南石栏处：</strong>以脚下连绵起伏、气势恢宏的故宫黄色琉璃瓦金色大屋顶为背景合影，全网最经典、最震撼的北京定妆照机位。</li>
+                            <li><strong>万春亭正北远眺处：</strong>向北俯瞰寿皇殿与远处的钟鼓楼中轴延伸线，秋日视野极为通透。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block senior-tips g-content-span-2">
+                        <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
+                        <p>① <strong>走东路缓坡最省腿：</strong>上山建议走东侧石阶，坡度比西侧缓得多，且每爬一段就有平坦凉亭可以坐下喝水歇息，10~15分钟轻松登顶；<br>
+                        ② <strong>卡准落日时间（约16:30~17:00）：</strong>故宫出神武门后抓紧入园登顶，夕阳余晖斜照在紫禁城金顶上的一刻是全天最壮美的景观；<br>
+                        ③ <strong>下山走西门：</strong>西门外紧邻北海公园东门，道路平整，打车或步行前往什刹海都很便捷。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. 天安门广场与城楼 -->
+            <div class="guide-card-enriched" id="g-tiananmen">
+                <div class="g-header">
+                    <h3 class="g-header-title">🇨🇳 天安门广场 & 天安门城楼 · 国家象征中轴核心</h3>
+                    <div class="g-meta-tags">
+                        <span class="g-tag-item g-tag-gold">共和国心脏 · 庄严神圣</span>
+                        <span class="g-tag-item g-tag-gray">须提前预约</span>
+                    </div>
+                </div>
+
+                <!-- 双路线切换组件 -->
+                <div class="g-mode-switch-box">
+                    <input type="radio" name="gmode-tam" id="gm-tam-a" class="state-ctrl" checked>
+                    <input type="radio" name="gmode-tam" id="gm-tam-b" class="state-ctrl">
+
+                    <div class="g-mode-switch-bar">
+                        <div class="g-mode-btns">
+                            <label for="gm-tam-a" class="g-mode-btn">🛋️ 省力舒适线 (金水桥全景+登城楼)</label>
+                            <label for="gm-tam-b" class="g-mode-btn">👟 广场深度朝圣线</label>
+                        </div>
+                    </div>
+
+                    <!-- Panel A: 省力舒适线 -->
+                    <div class="g-mode-panel-a">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-easy">🛋️ 广场核心速通 ➔ 金水桥合影 ➔ 登城楼 ➔ 直达故宫午门</span>
+                                <span>⏱️ 约 1 小时 · 约 3,500 步 · 顺畅进故宫</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>前门地铁通道入广场</strong>：安检通道入场，平视广阔天安门广场</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>人民英雄纪念碑远眺</strong>：观汉白玉纪念碑与毛主席纪念堂雄伟外观</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>天安门金水桥前打卡</strong>：在桥正中与天安门城楼、毛主席画像合影<span class="step-tag-pill pill-must">经典仪式感</span></div>
+                                </div>
+                                <div class="g-step-row exp">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>验票登天安门城楼</strong>：登楼参观开国大典原状陈列，俯瞰广场中轴线<span class="step-tag-pill pill-exp">登楼俯瞰</span></div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>下楼穿端门直抵故宫午门</strong>：无需再次安检，直接进入故宫验票口</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel B: 深度全览线 -->
+                    <div class="g-mode-panel-b">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-deep">👟 广场全景漫游 + 正阳门 + 登城楼 + 中山公园/太庙</span>
+                                <span>⏱️ 约 3.5 小时 · 约 10,000 步</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>正阳门箭楼与城楼</strong>：前门大街北端观老北京城内城正门</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>进入广场瞻仰毛主席纪念堂</strong>：瞻仰伟人遗容 (须提前实名预约)</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>人民大会堂与国家博物馆外景留影</strong>：观庄严肃穆国家级建筑</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>过金水桥登天安门城楼</strong>：参观城楼大厅与巨型红灯笼</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>顺访中山公园社稷坛或太庙</strong>：观五色土与明清皇家祭祖太庙古柏</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-content-sections">
+                    <div class="g-block highlights">
+                        <div class="g-block-title">🏛️ 三大必看精粹与历史看点</div>
+                        <ul>
+                            <li><strong>开国大典历史见证地：</strong>1949年10月1日毛主席在此宣告中华人民共和国中央人民政府成立，城楼内大厅完整保留开国大典原状陈列。</li>
+                            <li><strong>汉白玉华表与石狮：</strong>天安门城楼前后各有一对汉白玉云龙华表，柱顶蹲坐神兽“望天犼”（城楼前为“望君出”，城楼后为“望君归”）。</li>
+                            <li><strong>七座金水桥与中轴御道：</strong>正对城门的正中桥梁为“御路桥”，古代唯有皇帝方可通行，两侧雕刻蟠龙祥云。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block photos">
+                        <div class="g-block-title">📸 6人团队绝佳合影机位</div>
+                        <ul>
+                            <li><strong>金水桥正南侧外沿：</strong>以毛主席巨幅画像与天安门城楼大红墙体为背景正面仰拍，全家人合照极具仪式感。</li>
+                            <li><strong>城楼二层露天回廊：</strong>站在高处凭栏远眺，以广阔的天安门广场中轴线与人民大会堂为大背景拍照，气魄宏伟。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block senior-tips g-content-span-2">
+                        <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
+                        <p>① <strong>安检轻装上阵：</strong>广场及城楼安检极其严格，随身不要携带大包、打火机和折叠刀，轻装走无包通道排队节省20分钟；<br>
+                        ② <strong>登楼必须存包：</strong>除手机、相机外，所有随身背包和保温水杯均需在城楼下寄存处免费寄存，下楼后再取回；<br>
+                        ③ <strong>身份证原件是核心：</strong>无需换取任何纸质门票，刷二代身份证原件快速核验入场。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. 什刹海 & 胡同 -->
+            <div class="guide-card-enriched" id="g-shichahai">
+                <div class="g-header">
+                    <h3 class="g-header-title">🛶 什刹海 & 烟袋斜街 · 老北京运河水系与胡同烟火</h3>
+                    <div class="g-meta-tags">
+                        <span class="g-tag-item g-tag-gold">燕京小八景 · 银锭观山</span>
+                        <span class="g-tag-item g-tag-gray">京味市井休闲</span>
+                    </div>
+                </div>
+
+                <!-- 双路线切换组件 -->
+                <div class="g-mode-switch-box">
+                    <input type="radio" name="gmode-sch" id="gm-sch-a" class="state-ctrl" checked>
+                    <input type="radio" name="gmode-sch" id="gm-sch-b" class="state-ctrl">
+
+                    <div class="g-mode-switch-bar">
+                        <div class="g-mode-btns">
+                            <label for="gm-sch-a" class="g-mode-btn">🛋️ 省力休闲线 (银锭桥落日+三轮车代步)</label>
+                            <label for="gm-sch-b" class="g-mode-btn">👟 深度胡同探幽线</label>
+                        </div>
+                    </div>
+
+                    <!-- Panel A: 省力舒适线 -->
+                    <div class="g-mode-panel-a">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-easy">🛋️ 烟袋斜街 ➔ 银锭桥落日 ➔ 三轮车游胡同 ➔ 烤肉季晚餐</span>
+                                <span>⏱️ 约 1.5 小时 · 约 3,500 步 · 老北京三轮车代步</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>什刹海地铁站A口出站</strong>：漫步进入烟袋斜街，打卡大清邮局与特色文创店</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>银锭桥头“银锭观山”</strong>：伫立桥头赏落日余晖洒在湖面与西山远景<span class="step-tag-pill pill-must">燕京八景</span></div>
+                                </div>
+                                <div class="g-step-row exp">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>包老北京人力三轮车游胡同</strong>：听车夫京腔讲解老北京王府与四合院故事<span class="step-tag-pill pill-save">长辈零步数</span></div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>后海北沿柳荫漫步</strong>：沿湖散步感受老北京水岸慢生活与游船倒影</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>桥头烤肉季/同和居晚餐</strong>：无缝衔接品尝正宗炙子烤肉与特色干炸丸子</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel B: 深度全览线 -->
+                    <div class="g-mode-panel-b">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-deep">👟 南锣鼓巷 + 烟袋斜街 + 恭王府 + 钟鼓楼大漫游</span>
+                                <span>⏱️ 约 4 小时 · 约 12,000 步</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>南锣鼓巷主街与东西胡同</strong>：探访炒豆胡同、黑芝麻胡同与老院落门楼</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>烟袋斜街穿出抵银锭桥</strong> ➔ 沿前海西沿前往恭王府</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>参观恭王府 (和珅府邸)</strong>：观银安殿、大戏楼与滴翠岩秘云洞“天下第一福字碑”</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>宋庆龄故居 (醇亲王府西花园)</strong>：观清代王府花园水榭与纳兰明珠故宅</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>钟鼓楼文化广场</strong>：观暮鼓晨钟红墙古建，打卡赵雷《鼓楼》同款机位</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-content-sections">
+                    <div class="g-block highlights">
+                        <div class="g-block-title">🏛️ 三大必看精粹与历史看点</div>
+                        <ul>
+                            <li><strong>“先有什刹海，后有北京城”：</strong>元代京杭大运河通航至大都的终点积水潭码头，“万舟骈集”，造就了今日北京最古老繁华的商业水系。</li>
+                            <li><strong>银锭观山绝景：</strong>单孔石拱桥形似倒置银锭，立于桥上向西极目远眺，西山层峦叠嶂尽收眼底，为燕京小八景中唯一的水景山色。</li>
+                            <li><strong>老北京王府与胡同聚落：</strong>周边环绕恭王府、醇亲王府（宋庆龄故居）及成百上千条灰砖青瓦的古朴胡同，京味市井文化保存最完好。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block photos">
+                        <div class="g-block-title">📸 6人团队绝佳合影机位</div>
+                        <ul>
+                            <li><strong>银锭桥北侧前海东沿垂柳下：</strong>以波光粼粼的湖面、古朴游船和桥头人流为背景，京味浓郁自然。</li>
+                            <li><strong>鼓楼南门红墙马路正对面：</strong>以威严的鼓楼红墙与灰色瓦顶为大背景，全家人漫步抓拍极具文艺范。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block senior-tips g-content-span-2">
+                        <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
+                        <p>① <strong>老人优选人力三轮车胡同游：</strong>若长辈脚力吃紧，可在前海沿岸包一辆正规老北京人力三轮车（约¥60~80/车/2人），听老北京车夫唱京腔讲胡同典故，省力又有趣；<br>
+                        ② <strong>桥头晚餐无缝衔接：</strong>银锭桥旁即为百年老字号“烤肉季”与“同和居”，傍晚在湖边靠窗品尝正宗炙子烤肉与干炸丸子，体验极佳。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. 奥林匹克公园 -->
+            <div class="guide-card-enriched" id="g-olympic">
+                <div class="g-header">
+                    <h3 class="g-header-title">🏟️ 奥林匹克公园 · 鸟巢 & 水立方双奥地标</h3>
+                    <div class="g-meta-tags">
+                        <span class="g-tag-item g-tag-gold">双奥之城骄傲 · 璀璨夜景</span>
+                        <span class="g-tag-item g-tag-gray">18:00点亮灯</span>
+                    </div>
+                </div>
+
+                <!-- 双路线切换组件 -->
+                <div class="g-mode-switch-box">
+                    <input type="radio" name="gmode-ol" id="gm-ol-a" class="state-ctrl" checked>
+                    <input type="radio" name="gmode-ol" id="gm-ol-b" class="state-ctrl">
+
+                    <div class="g-mode-switch-bar">
+                        <div class="g-mode-btns">
+                            <label for="gm-ol-a" class="g-mode-btn">🛋️ 省力舒适线 (中轴双奥夜景漫步)</label>
+                            <label for="gm-ol-b" class="g-mode-btn">👟 深度全景线 (奥森+双奥场馆内景)</label>
+                        </div>
+                    </div>
+
+                    <!-- Panel A: 省力舒适线 -->
+                    <div class="g-mode-panel-a">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-easy">🛋️ 中轴景观大道速通打卡 ➔ 鸟巢水立方夜景 ➔ 新奥地下暖气餐饮</span>
+                                <span>⏱️ 约 1 小时 · 约 3,500 步 · 全程避风温暖</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>地铁8/15号线奥林匹克公园站出站</strong>：直达庆典广场中轴景观大道</div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>鸟巢 (国家体育场) 外围合影</strong>：观红色巨大钢骨架编织摇篮夜景灯光<span class="step-tag-pill pill-must">红色震撼</span></div>
+                                </div>
+                                <div class="g-step-row highlight">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>水立方 (国家游泳中心) 夜景打卡</strong>：观蓝色梦幻ETFE气枕膜变色灯光<span class="step-tag-pill pill-must">蓝色梦幻</span></div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>正中轴步道同框拍摄</strong>：站在鸟巢与水立方正中间，同时收录一红一蓝双奥灯光</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>直下新奥购物中心暖气大厅</strong>：避开夜间寒风，就近享用京味热汤晚餐</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel B: 深度全览线 -->
+                    <div class="g-mode-panel-b">
+                        <div class="g-route-card">
+                            <div class="g-route-card-head">
+                                <span class="g-route-badge-deep">👟 奥林匹克森林公园 + 鸟巢水立方内景 + 奥林匹克塔</span>
+                                <span>⏱️ 约 3.5 小时 · 约 11,000 步</span>
+                            </div>
+                            <div class="g-step-timeline">
+                                <div class="g-step-row start">
+                                    <div class="g-step-dot">1</div>
+                                    <div class="g-step-desc"><strong>奥林匹克森林公园南园</strong>：漫步银杏林道与湿地，赏京城秋日彩林</div>
+                                </div>
+                                <div class="g-step-row exp">
+                                    <div class="g-step-dot">2</div>
+                                    <div class="g-step-desc"><strong>登奥林匹克塔 (海贝塔)</strong>：246米高空观景台，360°俯瞰京城南北中轴夜景</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">3</div>
+                                    <div class="g-step-desc"><strong>鸟巢内部金色大厅与跑道参观</strong>：重温2008与2022双奥开闭幕式荣耀</div>
+                                </div>
+                                <div class="g-step-row">
+                                    <div class="g-step-dot">4</div>
+                                    <div class="g-step-desc"><strong>水立方(冰立方)比赛大厅</strong>：观奥运泳池与冰壶赛道</div>
+                                </div>
+                                <div class="g-step-row end">
+                                    <div class="g-step-dot">5</div>
+                                    <div class="g-step-desc"><strong>龙形水系木栈道观光</strong>：拍摄湖面灯光倒影后乘地铁返回酒店</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-content-sections">
+                    <div class="g-block highlights">
+                        <div class="g-block-title">🏛️ 三大必看精粹与历史看点</div>
+                        <ul>
+                            <li><strong>鸟巢钢铁仿生艺术：</strong>由24根门式钢架编织而成的巨型椭圆体，完全不设内部立柱，红暖色灯光点亮后如同一座孕育生命的巨大摇篮。</li>
+                            <li><strong>水立方魔幻ETFE气枕：</strong>世界最大膜结构建筑，外表由3000多个不规则蓝色气枕组成，夜景变换灯光如同晶莹剔透的水分子立方体。</li>
+                            <li><strong>下沉花园传统院落：</strong>中轴地下展示中国传统四合院、青砖门楼与二十四节气长廊，将奥运现代与中国传统完美融合。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block photos">
+                        <div class="g-block-title">📸 6人团队绝佳合影机位</div>
+                        <ul>
+                            <li><strong>鸟巢与水立方正中轴步道：</strong>站在两大建筑之间正中心，可将左侧耀眼红光的鸟巢与右侧梦幻蓝光的水立方同时收入镜头，“一红一蓝”双奥交映最出彩。</li>
+                            <li><strong>龙形水系木栈道平台：</strong>以平静湖面水面倒映出的鸟巢夜景倒影为背景，光影梦幻绚丽。</li>
+                        </ul>
+                    </div>
+
+                    <div class="g-block senior-tips g-content-span-2">
+                        <div class="g-block-title">💡 长辈友好省力指南 & 避坑贴士</div>
+                        <p>① <strong>外围夜景免费打卡即可：</strong>带老人游览夜景无需购买内部参观高价票，在广阔的中轴景观大道漫步拍照最出片、感受最强；<br>
+                        ② <strong>防寒保暖第一位：</strong>11月夜间广场空旷多风，务必给长辈准备防风外套或围巾；<br>
+                        ③ <strong>新奥购物中心是暖心补给站：</strong>广场正下方即为大型新奥地下商城，与地铁直通，有充足暖气、无障碍卫生间与各类平价美食茶饮。</p>
+                    </div>
                 </div>
             </div>
         </div>
