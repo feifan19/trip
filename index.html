@@ -1979,8 +1979,8 @@
             <div class="top-pill">🏮 6人同行旗舰版 · 行程 / 预约 / 预算计算器 / 导览 / 小吃 / 交通</div>
             <h1>金秋北京 · 五日深度游掌上路书</h1>
             <div class="header-sub">
-                <span>📅 11月6日(周五) — 11月10日(周二)</span>
-                <span>🚂 去：K286 (12:54抵丰台) | 🚄 返：G1091 (15:34北京南发)</span>
+                <span>📅 10月30日(周五出发) · 实际游玩 10月31日(周六) — 11月4日(周三)</span>
+                <span>🚂 去：K286 (10/31 12:54抵丰台) | ✈️ 返：CA8641 (11/04 14:55大兴起飞 ➔ 16:15抵烟台蓬莱T2)</span>
             </div>
         </div>
     </header>
@@ -1997,11 +1997,11 @@
         </div>
         <!-- 修改点2：放在 sticky 容器内，点击跳转到任意一天后依然常驻在屏幕顶部！ -->
         <div class="day-jump-bar">
-            <a href="#d1" onclick="document.getElementById('d1').open = true;">D1 · 11/6周五</a>
-            <a href="#d2" onclick="document.getElementById('d2').open = true;">D2 · 11/7周六</a>
-            <a href="#d3" onclick="document.getElementById('d3').open = true;">D3 · 11/8周日</a>
-            <a href="#d4" onclick="document.getElementById('d4').open = true;">D4 · 11/9周一</a>
-            <a href="#d5" onclick="document.getElementById('d5').open = true;">D5 · 11/10周二</a>
+            <a href="#d1" onclick="document.getElementById('d1').open = true;">D1 · 10/31周六(城楼降旗)</a>
+            <a href="#d2" onclick="document.getElementById('d2').open = true;">D2 · 11/01周日(纪念堂颐和园)</a>
+            <a href="#d3" onclick="document.getElementById('d3').open = true;">D3 · 11/02周一(八达岭长城)</a>
+            <a href="#d4" onclick="document.getElementById('d4').open = true;">D4 · 11/03周二(故宫景山工作日)</a>
+            <a href="#d5" onclick="document.getElementById('d5').open = true;">D5 · 11/04周三(天坛返程)</a>
         </div>
     </div>
 
@@ -2010,27 +2010,46 @@
         <!-- =====================================================================
          模块 1：🗺️ 游览计划（左侧模式切换器 + 常驻日期导航 + 分段步数）
          ===================================================================== -->
-        <div id="panel-plan" class="module-panel">
+                                <div id="panel-plan" class="module-panel">
 
             <!-- ==================== DAY 1 ==================== -->
             <details class="fold-card" id="d1" open>
                 <summary class="day-banner">
                     <div class="day-banner-top">
-                        <div class="day-title"><span class="day-num">DAY 1</span>11月6日 周五 · 胡同漫游与什刹海日落</div>
+                        <div class="day-title"><span class="day-num">DAY 1</span>10月31日 周六 · 全员零带包极速登城楼与天安门庄严降旗</div>
                         <span class="fold-hint"></span>
                     </div>
                     <div class="day-metrics">
-                        <span>👟 全天总步数：<strong>约 8,500 步 (约 5.5 km)</strong></span>
-                        <span>⚡ 强度：<strong>⭐⭐ (轻松适应)</strong></span>
-                        <span>🎫 预约：<strong>今日全免预约</strong></span>
+                        <span>👟 全天总步数：<strong>约 9,500 步 (约 6.0 km)</strong></span>
+                        <span>⚡ 强度：<strong>⭐⭐⭐ (轻装快节奏)</strong></span>
+                        <span>🚫 纪律：<strong>全员彻底零带包！仅揣手机/身份证/房卡/Pocket裸机</strong></span>
                     </div>
                 </summary>
 
                 <div class="day-content">
                     <div class="route-Left-banner">
                         <span>🗺️ 当日动线：</span>
-                        <span class="r-step">丰台站(12:54)</span> ➔ <span class="r-step">酒店入住</span> ➔ <span
-                            class="r-step">南锣鼓巷</span> ➔ <span class="r-step">什刹海(银锭桥日落)</span>
+                        <span class="r-step">丰台站(12:54抵)</span> ➔ <span class="r-step">酒店入住放行李</span> ➔ <span
+                            class="r-step">天安门城楼(15:20无包快速登楼)</span> ➔ <span class="r-step">广场观礼降旗(17:16)</span> ➔ <span class="r-step">前门大栅栏(烤鸭夜景)</span>
+                    </div>
+
+                    <!-- 模式切换器：标准模式 vs 省力Plan B -->
+                    <div class="mode-switch-box">
+                        <input type="radio" name="mode-d1" id="m-d1-a" class="state-ctrl" checked>
+                        <input type="radio" name="mode-d1" id="m-d1-b" class="state-ctrl">
+                        <div class="mode-switch-header">
+                            <div class="mode-btns">
+                                <label for="m-d1-a" class="mode-btn">👟 标准模式 (9500步)</label>
+                                <label for="m-d1-b" class="mode-btn">🛋️ 省力Plan B (立省3500步)</label>
+                            </div>
+                        </div>
+                        <div class="mode-panel-a">
+                            <strong>【标准全走动线】</strong>12:54抵京 ➔ 酒店入住 ➔ 地铁1号线天安门东 ➔ 无包通道过检 ➔ 登天安门城楼(游览50分钟) ➔ 过金水桥进入天安门广场看降旗(17:16) ➔ 全程步行穿过地下通道逛前门大栅栏街区 ➔ 四季民福烤鸭店晚餐。
+                        </div>
+                        <div class="mode-panel-b">
+                            <span class="save-pill">⚡ 长辈保护 · 立省 3,500 步</span><br>
+                            <strong>【长者省力走法】</strong>城楼由年轻人陪同慢步走斜坡马道登楼；降旗仪式在<strong>天安门金水桥南侧就近观礼</strong>（无需走入广场深处）；降旗结束后，<strong>长辈不硬走地下通道和长长的大栅栏步行街</strong>，直接在南池子/天安门东路口网约 6 座专车直达前门烤鸭餐厅门口，免去 2 公里石板路徒步！
+                        </div>
                     </div>
 
                     <div class="timeline">
@@ -2038,79 +2057,40 @@
                             <span class="tl-dot trans"></span>
                             <div class="tl-head">
                                 <span class="time-pill teal">12:54 - 14:30</span>
-                                <span class="seg-step-badge">👟 站内换乘约 1,500 步</span>
+                                <span class="seg-step-badge">👟 站内与换乘约 2,000 步</span>
                             </div>
-                            <div class="spot-title">K286 抵达北京丰台站 ➔ 酒店办理入住</div>
-                            <div class="spot-desc">12:54
-                                抵达丰台站。出站乘地铁10号线/16号线或呼叫6座商务车前往酒店放行李休整。（午餐在K286餐车解决，或提前在烟台备好便携食物）。</div>
+                            <div class="spot-title">K286 抵达北京丰台站 ➔ 酒店快速办理入住</div>
+                            <div class="spot-desc">12:54 准点抵京，带行李出站，乘地铁或网约车直奔酒店。办完入住放下所有大包行李，换上轻便鞋子。<strong>严格执行零带包纪律</strong>：手机充满电、身份证、钥匙、Pocket相机装兜里，水杯充电宝全部留在酒店！</div>
                         </div>
 
                         <div class="tl-node">
                             <span class="tl-dot"></span>
                             <div class="tl-head">
-                                <span class="time-pill">15:00 - 18:00</span>
-                                <span class="seg-step-badge">👟 街区漫步约 7,000 步 (4.5 km)</span>
+                                <span class="time-pill">14:30 - 16:15</span>
+                                <span class="seg-step-badge heavy">⚡ 黄金窗口 · 15:20登楼 (游览约50分钟)</span>
                             </div>
-                            <div class="spot-title">南锣鼓巷 ➔ 什刹海（银锭桥看日落）</div>
-                            <div class="spot-desc">11月初北京日落时间约为 <strong>17:04</strong>，建议 16:45 前走到银锭桥欣赏“银锭观山”落日与什刹海夜景。
-                            </div>
-
-                            <!-- 修改点1：去掉多余提示文字，模式切换器直接左对齐置顶 -->
-                            <div class="mode-switch-box">
-                                <input type="radio" name="mode-d1" id="m-d1-a" class="state-ctrl" checked>
-                                <input type="radio" name="mode-d1" id="m-d1-b" class="state-ctrl">
-                                <div class="mode-switch-header">
-                                    <div class="mode-btns">
-                                        <label for="m-d1-a" class="mode-btn">👟 标准串联 (7000步)</label>
-                                        <label for="m-d1-b" class="mode-btn">🛋️ 省力Plan B (省4000步)</label>
-                                    </div>
-                                </div>
-                                <div class="mode-panel-a">
-                                    <strong>【标准全览路线】</strong>地铁南锣鼓巷站E口出，从南往北穿行胡同群：
-                                    <div class="step-flow">
-                                        <span class="step-tag">南锣鼓巷南口</span><span class="arrow">➔</span>
-                                        <span class="step-tag">菊儿胡同</span><span class="arrow">➔</span>
-                                        <span class="step-tag">烟袋斜街</span><span class="arrow">➔</span>
-                                        <span class="step-tag">银锭桥看日落</span><span class="arrow">➔</span>
-                                        <span class="step-tag">什刹海前海散步</span>
-                                    </div>
-                                </div>
-                                <div class="mode-panel-b">
-                                    <span class="save-pill">⚡ 立省 4,000 步 · 适合坐完火车想休息</span><br>
-                                    <strong>【省力轻松走法】</strong>若坐完火车觉得疲惫，直接略过南锣鼓巷拥挤主街，<strong>打车或乘地铁8号线到「什刹海站」A2口出</strong>，步行300米直达<strong>银锭桥</strong>，在什刹海湖边茶馆或直接上烤肉季二楼窗边坐着看日落。
-                                </div>
-                            </div>
+                            <div class="spot-title">外围无包安检 ➔ 跨过存包处 ➔ 登天安门城楼</div>
+                            <div class="spot-desc">乘地铁1号线直达天安门东/西站，<strong>走“无包人员快速通道”秒过外围安检</strong>；直奔端门城楼检票口，<strong>全员无包直接跳过存包处排队长龙</strong>，刷身份证直接登楼！凭栏俯瞰天安门广场开阔中轴全景，参观大殿开国大典历史展陈。</div>
                         </div>
-                    </div>
 
-                    <div class="dining-wrap">
-                        <div class="route-Left-banner"
-                            style="background:var(--gold-bg); border-color:var(--gold-border); border-left-color:#D97706; color:#92400E; margin-bottom:10px;">
-                            🍽️ D1 晚餐决策（什刹海一带 · 3选1）
+                        <div class="tl-node">
+                            <span class="tl-dot"></span>
+                            <div class="tl-head">
+                                <span class="time-pill">16:15 - 17:35</span>
+                                <span class="seg-step-badge">🌅 17:16 庄严降旗 · 无缝衔接</span>
+                            </div>
+                            <div class="spot-title">免取包下楼 ➔ 金水桥进入广场 ➔ 观看天安门降旗仪式</div>
+                            <div class="spot-desc">下城楼完全无需排队取包，直接从金水桥步入天安门广场北侧（自带广场入场权限，免单独预约）。16:30前抢占国旗杆前排位置，<strong>17:16 伴随夕阳晚霞观看国旗护卫队过金水桥降旗仪式</strong>。降旗后广场与城楼华灯齐放，夜景壮美绝伦！</div>
                         </div>
-                        <div class="rest-grid">
-                            <div class="rest-card primary-pick">
-                                <span class="pick-tag star">🌟 首选主推 · 银锭桥边看日落</span>
-                                <div class="rest-head"><span class="rest-name">烤肉季（什刹海总店）</span><span
-                                        class="rest-price">人均 ¥100 | 清真</span></div>
-                                <div class="rest-Signature">★ 必点：非遗烤羊肉配芝麻烧饼、它似蜜</div>
-                                <div class="rest-desc">就在银锭桥边，二楼可俯瞰什刹海，建议提前电话问能否订包间。</div>
-                                <div class="rest-actions">
-                                    <a href="tel:010-64042554" class="act-btn call">📞 订座: 010-64042554</a>
-                                    <span class="act-btn loc">📍 前海东沿14号</span>
-                                </div>
+
+                        <div class="tl-node">
+                            <span class="tl-dot food"></span>
+                            <div class="tl-head">
+                                <span class="time-pill amber">17:45 - 20:30</span>
+                                <span class="seg-step-badge">👟 步行街漫步约 3,500 步</span>
                             </div>
-                            <div class="rest-card">
-                                <span class="pick-tag alt">🔄 备选方案 · 印巷小馆 / 峨嵋酒家</span>
-                                <div class="rest-head"><span class="rest-name">印巷小馆(¥70) / 峨嵋酒家(¥82)</span><span
-                                        class="rest-price">有包厢/近地铁</span></div>
-                                <div class="rest-Signature">★ 印巷小馆(菊儿胡同新派京菜，有包厢) | 峨嵋酒家(宫保鸡丁)</div>
-                                <div class="rest-desc">若烤肉季排队太长，这两家距离都在步行8分钟内，适合6人家庭聚餐。</div>
-                                <div class="rest-actions">
-                                    <a href="tel:010-84084480" class="act-btn call">📞 印巷小馆: 010-84084480</a>
-                                    <a href="tel:010-64045851" class="act-btn call">📞 峨嵋酒家: 010-64045851</a>
-                                </div>
-                            </div>
+                            <div class="spot-title">前门地下通道 ➔ 前门大栅栏步行街夜景 ➔ 四季民福烤鸭</div>
+                            <div class="spot-desc">从广场南侧穿过地下通道，直达前门大街与大栅栏。欣赏前门五牌楼古色古香夜景，在四季民福烤鸭店品尝正宗酥香烤鸭。</div>
                         </div>
                     </div>
                 </div>
@@ -2120,117 +2100,80 @@
             <details class="fold-card" id="d2" open>
                 <summary class="day-banner">
                     <div class="day-banner-top">
-                        <div class="day-title"><span class="day-num">DAY 2</span>11月7日 周六 · 天安门广场与皇家园林颐和园</div>
+                        <div class="day-title"><span class="day-num">DAY 2</span>11月1日 周日 · 长者走绿色通道瞻仰纪念堂与颐和园昆明湖末班游船</div>
                         <span class="fold-hint"></span>
                     </div>
                     <div class="day-metrics">
-                        <span>👟 全天总步数：<strong>约 16,500 步 (约 10.5 km)</strong></span>
-                        <span>⚡ 强度：<strong>⭐⭐⭐⭐</strong></span>
-                        <span>🚫 禁忌：<strong>纪念堂严禁带包/相机/水杯</strong></span>
+                        <span>👟 全天总步数：<strong>约 13,000 步 (水路省力)</strong></span>
+                        <span>⚡ 强度：<strong>⭐⭐⭐ (惬意舒缓)</strong></span>
+                        <span>🚢 亮点：<strong>赶上全年昆明湖末班游船(立省4000步)！长辈走北门爱心绿通</strong></span>
                     </div>
                 </summary>
 
                 <div class="day-content">
                     <div class="route-Left-banner">
                         <span>🗺️ 当日动线：</span>
-                        <span class="r-step">毛主席纪念堂</span> ➔ <span class="r-step">天安门广场</span> ➔ <span
-                            class="r-step">前门大栅栏(午餐)</span> ➔ <span class="r-step">颐和园(东宫门)</span>
+                        <span class="r-step">毛主席纪念堂(08:30长者绿通)</span> ➔ <span class="r-step">地铁4号线直达</span> ➔ <span class="r-step">颐和园(东宫门进·长廊)</span> ➔ <span class="r-step">乘大画舫横渡昆明湖</span> ➔ <span class="r-step">新建宫门出</span> ➔ <span class="r-step">南锣鼓巷/烟袋斜街</span>
+                    </div>
+
+                    <!-- 模式切换器：标准模式 vs 省力Plan B -->
+                    <div class="mode-switch-box">
+                        <input type="radio" name="mode-d2" id="m-d2-a" class="state-ctrl" checked>
+                        <input type="radio" name="mode-d2" id="m-d2-b" class="state-ctrl">
+                        <div class="mode-switch-header">
+                            <div class="mode-btns">
+                                <label for="m-d2-a" class="mode-btn">👟 标准模式 (13000步)</label>
+                                <label for="m-d2-b" class="mode-btn">🛋️ 省力Plan B (立省5500步)</label>
+                            </div>
+                        </div>
+                        <div class="mode-panel-a">
+                            <strong>【标准全览动线】</strong>毛主席纪念堂瞻仰 ➔ 乘地铁4号线到颐和园 ➔ 东宫门进 ➔ 仁寿殿 ➔ 乐寿堂 ➔ 走完全长728米的长廊 ➔ 登高佛香阁 ➔ 石舫码头乘船至十七孔桥 ➔ 步行出园 ➔ 晚上游南锣鼓巷与烟袋斜街。
+                        </div>
+                        <div class="mode-panel-b">
+                            <span class="save-pill">⚡ 水路画舫 · 立省 5,500 步</span><br>
+                            <strong>【水路长者极致省力】</strong>① 纪念堂东侧服务点<strong>免费借轮椅</strong>推长辈走爱心绿色通道；② 颐和园东宫门进，仅走 300 米至排云门码头，<strong>直接登上昆明湖大画舫游船</strong>！不爬佛香阁陡坡，平稳横渡昆明湖直接到达十七孔桥，由新建宫门直接打车，免去万寿山徒步与折返，长辈体力零损耗！
+                        </div>
                     </div>
 
                     <div class="timeline">
                         <div class="tl-node">
                             <span class="tl-dot"></span>
                             <div class="tl-head">
-                                <span class="time-pill">08:30 - 11:15</span>
-                                <span class="seg-step-badge">👟 广场区域约 5,000 步 (3.2 km)</span>
+                                <span class="time-pill">08:00 - 10:00</span>
+                                <span class="seg-step-badge">❤️ 70岁长者爱心通道</span>
                             </div>
-                            <div class="spot-title">毛主席纪念堂 ➔ 天安门广场</div>
-                            <div class="spot-desc">按预约时段瞻仰纪念堂（仅上午开放，<strong>严禁带包/相机/水杯</strong>），出来后凭记录直接漫步天安门广场。</div>
+                            <div class="spot-title">毛主席纪念堂（两位长者走北门爱心绿通 · 免排大队）</div>
+                            <div class="spot-desc">从广场西南侧安检口（检07口）快捷进入。<strong>两位70岁长辈凭身份证原件和预约记录，由家属陪同直接走北门“助老爱心绿色通道”优先入内</strong>，免去普通队伍近1小时的长龙排队！静穆步入瞻仰厅缅怀伟大领袖。（严禁带包、相机、打火机和水杯）。</div>
                         </div>
 
                         <div class="tl-node">
-                            <span class="tl-dot food"></span>
+                            <span class="tl-dot trans"></span>
                             <div class="tl-head">
-                                <span class="time-pill amber">11:15 - 13:15</span>
-                                <span class="seg-step-badge">👟 步行衔接约 1,500 步 (1.0 km)</span>
+                                <span class="time-pill teal">10:15 - 11:15</span>
+                                <span class="seg-step-badge">🚇 地铁4号线直达</span>
                             </div>
-                            <div class="spot-title">前门大栅栏午餐 ➔ 乘地铁4号线前往颐和园</div>
-                            <div class="spot-desc">从纪念堂南侧步行10分钟即达前门大栅栏。餐后乘地铁前往颐和园东宫门。</div>
+                            <div class="spot-title">前门/宣武门 ➔ 乘地铁4号线直达西苑/颐和园东宫门</div>
+                            <div class="spot-desc">出天安门广场乘坐地铁4号线一条线直达颐和园。出站可在周边享用特色午餐（西贝莜面村/老北京炸酱面）。</div>
                         </div>
 
                         <div class="tl-node">
                             <span class="tl-dot"></span>
                             <div class="tl-head">
-                                <span class="time-pill">14:00 - 17:30</span>
-                                <span class="seg-step-badge heavy">👟 颐和园内约 10,000 步 (6.3 km)</span>
+                                <span class="time-pill">11:30 - 16:30</span>
+                                <span class="seg-step-badge heavy">🚢 昆明湖水上大画舫避人流</span>
                             </div>
-                            <div class="spot-title">颐和园（东宫门进 · 核心区游览 · 全员刷身份证原件）</div>
-                            <div class="spot-desc">从东宫门入园，游览帝后生活区、万寿山建筑群与昆明湖风光。</div>
-
-                            <!-- 修改点1：模式切换器左对齐 -->
-                            <div class="mode-switch-box">
-                                <input type="radio" name="mode-d2" id="m-d2-a" class="state-ctrl" checked>
-                                <input type="radio" name="mode-d2" id="m-d2-b" class="state-ctrl">
-                                <div class="mode-switch-header">
-                                    <div class="mode-btns">
-                                        <label for="m-d2-a" class="mode-btn">👟 登佛香阁全览 (10000步)</label>
-                                        <label for="m-d2-b" class="mode-btn">🛋️ 省力Plan B (免爬陡坡)</label>
-                                    </div>
-                                </div>
-                                <div class="mode-panel-a">
-                                    <strong>【标准全览路线（买50元联票）】</strong>包含攀登万寿山佛香阁俯瞰昆明湖：
-                                    <div class="step-flow">
-                                        <span class="step-tag">东宫门</span><span class="arrow">➔</span>
-                                        <span class="step-tag">仁寿殿</span><span class="arrow">➔</span>
-                                        <span class="step-tag">乐寿堂</span><span class="arrow">➔</span>
-                                        <span class="step-tag">长廊</span><span class="arrow">➔</span>
-                                        <span class="step-tag">爬排云殿/佛香阁(陡阶)</span><span class="arrow">➔</span>
-                                        <span class="step-tag">石舫/游船</span>
-                                    </div>
-                                </div>
-                                <div class="mode-panel-b">
-                                    <span class="save-pill">⚡ 立省 3,500 步 + 免爬百级陡峭台阶 · 门票省30元/人</span><br>
-                                    <strong>【省力平路走法（只需买20元大门票）】</strong>佛香阁台阶接近70度非常陡！省力版全程走昆明湖畔平路：
-                                    <div class="step-flow">
-                                        <span class="step-tag green">东宫门</span><span class="arrow">➔</span>
-                                        <span class="step-tag green">仁寿殿/乐寿堂</span><span class="arrow">➔</span>
-                                        <span class="step-tag green">漫步728米彩绘长廊(随时有休息长椅)</span><span
-                                            class="arrow">➔</span>
-                                        <span class="step-tag green">在排云殿门外平地仰拍佛香阁</span><span class="arrow">➔</span>
-                                        <span class="step-tag green">湖边看夕阳后原路回东宫门吃涮肉</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="spot-title">颐和园（东宫门进 · 仁寿殿 · 彩画长廊 · 昆明湖大游船）</div>
+                            <div class="spot-desc">刷身份证入东宫门，游览仁寿殿、玉澜堂、乐寿堂，在长廊前段漫步后，<strong>直接前往排云门/石舫码头登大游船</strong>！赶在冬季停航前坐上昆明湖游船末班车，大船平稳，湖面开阔，万寿山佛香阁与秋水相映，老人坐在船上少走4000多步，并在十七孔桥下船从新建宫门出园，完美避开人潮！</div>
                         </div>
-                    </div>
 
-                    <div class="dining-wrap">
-                        <div class="route-Left-banner"
-                            style="background:var(--gold-bg); border-color:var(--gold-border); border-left-color:#D97706; color:#92400E; margin-bottom:10px;">
-                            🍽️ D2 午/晚餐决策（前门烤鸭 + 颐和园涮肉）
-                        </div>
-                        <div class="rest-grid">
-                            <div class="rest-card primary-pick">
-                                <span class="pick-tag star">🌟 午餐首选 · 四季民福(前门店)</span>
-                                <div class="rest-head"><span class="rest-name">四季民福 / 备选:泰丰楼</span><span
-                                        class="rest-price">人均 ¥100-160</span></div>
-                                <div class="rest-Signature">★ 四季民福(果木烤鸭/炸酱面) | 泰丰楼(鲁菜八大楼，排队少)</div>
-                                <div class="rest-desc">四季民福日常等1.5小时，务必提前取号或订包厢；赶时间选旁边的泰丰楼或都一处烧麦(¥72)。</div>
-                                <div class="rest-actions">
-                                    <a href="tel:010-63016688" class="act-btn call">📞 四季民福: 010-63016688</a>
-                                    <a href="tel:010-63030252" class="act-btn call">📞 泰丰楼: 010-63030252</a>
-                                </div>
+                        <div class="tl-node">
+                            <span class="tl-dot"></span>
+                            <div class="tl-head">
+                                <span class="time-pill">17:00 - 20:00</span>
+                                <span class="seg-step-badge">👟 胡同漫步约 3,500 步</span>
                             </div>
-                            <div class="rest-card primary-pick">
-                                <span class="pick-tag star">🌟 晚餐主推 · 东宫门外老字号</span>
-                                <div class="rest-head"><span class="rest-name">北华涮肉（畅春园店）</span><span
-                                        class="rest-price">人均 ¥100</span></div>
-                                <div class="rest-Signature">★ 必点：30年老字号传统炭火铜锅、鲜切羊肉</div>
-                                <div class="rest-desc">就在颐和园东宫门附近畅春园食街，出园即吃！（或回王府井吃）。</div>
-                                <div class="rest-actions">
-                                    <span class="act-btn loc">📍 海淀区颐和园路畅春园食街</span>
-                                </div>
-                            </div>
+                            <div class="spot-title">南锣鼓巷 ➔ 烟袋斜街 ➔ 钟鼓楼广场夜景</div>
+                            <div class="spot-desc">乘地铁返回二环老城区，感受北京老胡同烟火风情，品尝老北京小吃，打卡鼓楼红墙。</div>
                         </div>
                     </div>
                 </div>
@@ -2240,129 +2183,70 @@
             <details class="fold-card" id="d3" open>
                 <summary class="day-banner">
                     <div class="day-banner-top">
-                        <div class="day-title"><span class="day-num">DAY 3</span>11月8日 周日 · 天安门城楼、故宫与景山俯瞰</div>
+                        <div class="day-title"><span class="day-num">DAY 3</span>11月2日 周一 · 八达岭长城好汉坡与奥林匹克鸟巢夜景</div>
                         <span class="fold-hint"></span>
                     </div>
                     <div class="day-metrics">
-                        <span>👟 全天总步数：<strong>约 22,000 步 (约 14.0 km · 全周最高!)</strong></span>
-                        <span>⚡ 强度：<strong>⭐⭐⭐⭐⭐</strong></span>
-                        <span>🚫 禁忌：<strong>城楼禁带包/水杯/充电宝</strong></span>
+                        <span>👟 全天总步数：<strong>约 14,000 步 (多台阶坡道)</strong></span>
+                        <span>⚡ 强度：<strong>⭐⭐⭐⭐ (登山健步)</strong></span>
+                        <span>💡 策略：<strong>周一市内文博全闭馆，长城室外开放避开人潮</strong></span>
                     </div>
                 </summary>
 
                 <div class="day-content">
                     <div class="route-Left-banner">
                         <span>🗺️ 当日动线：</span>
-                        <span class="r-step">天安门城楼</span> ➔ <span class="r-step">入宫前早午餐</span> ➔ <span
-                            class="r-step">故宫(中轴线)</span> ➔ <span class="r-step">景山公园</span>
+                        <span class="r-step">德胜门877路/清河站高铁</span> ➔ <span class="r-step">八达岭长城(登好汉坡)</span> ➔ <span class="r-step">返回市区</span> ➔ <span class="r-step">奥林匹克公园(鸟巢/水立方外景灯光)</span> ➔ <span class="r-step">新奥购物中心晚餐</span>
+                    </div>
+
+                    <!-- 模式切换器：标准模式 vs 省力Plan B -->
+                    <div class="mode-switch-box">
+                        <input type="radio" name="mode-d3" id="m-d3-a" class="state-ctrl" checked>
+                        <input type="radio" name="mode-d3" id="m-d3-b" class="state-ctrl">
+                        <div class="mode-switch-header">
+                            <div class="mode-btns">
+                                <label for="m-d3-a" class="mode-btn">👟 标准模式 (14000步)</label>
+                                <label for="m-d3-b" class="mode-btn">🛋️ 省力Plan B (立省6000步)</label>
+                            </div>
+                        </div>
+                        <div class="mode-panel-a">
+                            <strong>【标准全爬路线】</strong>乘坐索道上北七楼 ➔ 徒步攀登极陡的北八楼最高点“好汉坡” ➔ 徒步下山或索道下山 ➔ 傍晚奥林匹克公园全程步行2公里观赏鸟巢与水立方 ➔ 步行至新奥购物中心。
+                        </div>
+                        <div class="mode-panel-b">
+                            <span class="save-pill">⚡ 索道+观光车 · 立省 6,000 步</span><br>
+                            <strong>【长辈护膝极佳走法】</strong>① 长城：长辈乘坐<strong>北线索道直达北七楼</strong>，出索道即是平缓烽火台平台，与“好汉碑”合影打卡远眺群山即可，<strong>不硬爬垂直陡峭的北八楼台阶</strong>，避免伤膝盖，拍照后索道原路平稳下山；② 鸟巢：奥林匹克公园乘坐<strong>景区电瓶观光车(15元/人)</strong>环游鸟巢水立方夜景，直达新奥购物中心，省去开阔广场2公里步行！
+                        </div>
                     </div>
 
                     <div class="timeline">
                         <div class="tl-node">
+                            <span class="tl-dot trans"></span>
+                            <div class="tl-head">
+                                <span class="time-pill teal">07:30 - 14:30</span>
+                                <span class="seg-step-badge">👟 爬坡台阶约 9,000 步</span>
+                            </div>
+                            <div class="spot-title">八达岭长城揽胜（不到长城非好汉 · 登北八楼）</div>
+                            <div class="spot-desc">清晨出发直达八达岭长城。周一长城正常开放，避开周末大客流。长辈推荐乘坐索道直达北七楼，徒步至北八楼“好汉坡”，远眺崇山峻岭与燕山秋色。提前自备保温杯、巧克力与面包。</div>
+                        </div>
+
+                        <div class="tl-node">
                             <span class="tl-dot"></span>
                             <div class="tl-head">
-                                <span class="time-pill">08:30 - 10:15</span>
-                                <span class="seg-step-badge">👟 约 3,500 步 (2.2 km)</span>
+                                <span class="time-pill">16:30 - 18:30</span>
+                                <span class="seg-step-badge">👟 平路漫步约 3,500 步</span>
                             </div>
-                            <div class="spot-title">登天安门城楼（北侧先免费存包）</div>
-                            <div class="spot-desc">先在城楼北侧免费存包处寄存背包、水杯、充电宝，登楼游览后再取回。</div>
+                            <div class="spot-title">奥林匹克中心区 ➔ 鸟巢、水立方外观夜景亮灯</div>
+                            <div class="spot-desc">返程抵达奥林匹克公园（地铁8号线直达）。漫步开阔景观大道，打卡国家体育场（鸟巢）与国家游泳中心（水立方）璀璨灯光秀。</div>
                         </div>
 
                         <div class="tl-node">
                             <span class="tl-dot food"></span>
                             <div class="tl-head">
-                                <span class="time-pill amber">10:30 - 12:15</span>
-                                <span class="seg-step-badge">👟 往返餐厅约 2,000 步 (1.3 km)</span>
+                                <span class="time-pill amber">18:30 - 20:30</span>
+                                <span class="seg-step-badge">暖心室内就餐</span>
                             </div>
-                            <div class="spot-title">入宫前错峰午餐（南池子大街 / 王府井）</div>
-                            <div class="spot-desc">10:30 刚开门先去吃饱喝足，避开12点排队高峰，满血状态进故宫！</div>
-                        </div>
-
-                        <div class="tl-node">
-                            <span class="tl-dot"></span>
-                            <div class="tl-head">
-                                <span class="time-pill">12:30 - 16:00</span>
-                                <span class="seg-step-badge heavy">👟 故宫内约 13,500 步 (8.5 km · 核心消耗!)</span>
-                            </div>
-                            <div class="spot-title">故宫博物院（午门进 ➔ 神武门出 · 15:30停检）</div>
-                            <div class="spot-desc">世界上规模最大的木结构宫殿群，南进北出不走回头路。</div>
-
-                            <!-- 修改点1：模式切换器左对齐 -->
-                            <div class="mode-switch-box">
-                                <input type="radio" name="mode-d3" id="m-d3-a" class="state-ctrl" checked>
-                                <input type="radio" name="mode-d3" id="m-d3-b" class="state-ctrl">
-                                <div class="mode-switch-header">
-                                    <div class="mode-btns">
-                                        <label for="m-d3-a" class="mode-btn">👟 深度全览 (13500步)</label>
-                                        <label for="m-d3-b" class="mode-btn">🛋️ 省力Plan B (立省5500步)</label>
-                                    </div>
-                                </div>
-                                <div class="mode-panel-a">
-                                    <strong>【深度全览路线（约3.5小时）】</strong>中轴线 + 珍宝馆 + 东西六宫代表宫殿：
-                                    <div class="step-flow">
-                                        <span class="step-tag">午门</span><span class="arrow">➔</span>
-                                        <span class="step-tag">三大殿</span><span class="arrow">➔</span>
-                                        <span class="step-tag">文华殿/钟表馆</span><span class="arrow">➔</span>
-                                        <span class="step-tag">珍宝馆(九龙壁/珍妃井)</span><span class="arrow">➔</span>
-                                        <span class="step-tag">后三宫 & 西六宫(储秀宫)</span><span class="arrow">➔</span>
-                                        <span class="step-tag">御花园</span><span class="arrow">➔</span>
-                                        <span class="step-tag">神武门出</span>
-                                    </div>
-                                </div>
-                                <div class="mode-panel-b">
-                                    <span class="save-pill">⚡ 立省 5,500 步 (少走1小时) · 保留100%核心精华</span><br>
-                                    <strong>【省力黄金走法】</strong>东西六宫格局高度相似且容易迷路耗体力！省力版<strong>只看宏伟的三大殿 +
-                                        最精华的珍宝馆</strong>，从珍宝馆北门（贞顺门）出来就是神武门出口附近，直接略过西六宫：
-                                    <div class="step-flow">
-                                        <span class="step-tag green">午门</span><span class="arrow">➔</span>
-                                        <span class="step-tag green">太和/中和/保和三大殿</span><span class="arrow">➔</span>
-                                        <span class="step-tag green">直接右转进【珍宝馆】一路向北逛到底(内有长椅休息)</span><span
-                                            class="arrow">➔</span>
-                                        <span class="step-tag green">出贞顺门即达神武门出口</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tl-node">
-                            <span class="tl-dot"></span>
-                            <div class="tl-head">
-                                <span class="time-pill">16:00 - 17:15</span>
-                                <span class="seg-step-badge">👟 约 3,000 步 (含150级平缓台阶)</span>
-                            </div>
-                            <div class="spot-title">景山公园（万春亭俯瞰故宫全景）➔ 自由活动</div>
-                            <div class="spot-desc">神武门出来过地下通道即达，现场扫码2元入园，10分钟登顶万春亭看紫禁城日落。</div>
-                        </div>
-                    </div>
-
-                    <div class="dining-wrap">
-                        <div class="route-Left-banner"
-                            style="background:var(--gold-bg); border-color:var(--gold-border); border-left-color:#D97706; color:#92400E; margin-bottom:10px;">
-                            🍽️ D3 午/晚餐决策（入宫前烤鸭大餐 + 晚餐川菜）
-                        </div>
-                        <div class="rest-grid">
-                            <div class="rest-card primary-pick">
-                                <span class="pick-tag star">🌟 午餐首选 · 四季民福(故宫店) / 大董 / 花家怡园</span>
-                                <div class="rest-head"><span class="rest-name">四季民福 / 大董 / 花家怡园</span><span
-                                        class="rest-price">人均 ¥158-200</span></div>
-                                <div class="rest-Signature">★ 四季民福(南池子大街，离午门最近) | 大董/花家怡园(王府井，包间多)</div>
-                                <div class="rest-desc">6人正式聚餐强烈建议提前电话订好大董或花家怡园的包间！</div>
-                                <div class="rest-actions">
-                                    <a href="tel:010-65267369" class="act-btn call">📞 四季民福: 010-65267369</a>
-                                    <a href="tel:010-65288802" class="act-btn call">📞 花家怡园: 010-65288802</a>
-                                </div>
-                            </div>
-                            <div class="rest-card primary-pick">
-                                <span class="pick-tag star">🌟 晚餐主推 · 亲民高性价比川菜(有包厢)</span>
-                                <div class="rest-head"><span class="rest-name">眉州东坡酒楼（王府井店）</span><span
-                                        class="rest-price">人均 ¥74</span></div>
-                                <div class="rest-Signature">★ 必点：东坡肘子、樟茶鸭、东坡香肠</div>
-                                <div class="rest-desc">6人点一桌菜人均70左右吃得极好！（或从景山坐观光3线去什刹海用餐）。</div>
-                                <div class="rest-actions">
-                                    <a href="tel:010-65223298" class="act-btn call">📞 订座: 010-65223298</a>
-                                    <span class="act-btn loc">📍 王府井银泰in88三层</span>
-                                </div>
-                            </div>
+                            <div class="spot-title">新奥购物中心室内聚餐（局气 / 峨嵋酒家）</div>
+                            <div class="spot-desc">鸟巢旁大型下沉式购物中心，避开室外降温，暖和舒适品尝传统京菜。</div>
                         </div>
                     </div>
                 </div>
@@ -2372,92 +2256,70 @@
             <details class="fold-card" id="d4" open>
                 <summary class="day-banner">
                     <div class="day-banner-top">
-                        <div class="day-title"><span class="day-num">DAY 4</span>11月9日 周一 · 八达岭长城与奥林匹克夜景</div>
+                        <div class="day-title"><span class="day-num">DAY 4</span>11月3日 周二 · 紫禁城工作日包场级尊享游与景山日落金顶</div>
                         <span class="fold-hint"></span>
                     </div>
                     <div class="day-metrics">
-                        <span>👟 全天总步数：<strong>约 13,500 步 (多坡道台阶)</strong></span>
-                        <span>⚡ 强度：<strong>⭐⭐⭐⭐</strong></span>
-                        <span>🥖 提醒：<strong>提前买好面包水果带去长城</strong></span>
+                        <span>👟 全天总步数：<strong>约 20,000 步 (约 13.0 km)</strong></span>
+                        <span>⚡ 强度：<strong>⭐⭐⭐⭐⭐ (工作日核心大日)</strong></span>
+                        <span>🌟 妙处：<strong>周二工作日游客少30%~40%，红墙纯净大片，长辈随时有座椅歇脚！</strong></span>
                     </div>
                 </summary>
 
                 <div class="day-content">
                     <div class="route-Left-banner">
                         <span>🗺️ 当日动线：</span>
-                        <span class="r-step">八达岭长城(全天)</span> ➔ <span class="r-step">奥林匹克公园(鸟巢/水立方夜景)</span> ➔ <span
-                            class="r-step">新奥购物中心晚餐</span>
+                        <span class="r-step">午门进故宫</span> ➔ <span class="r-step">太和/中和/保和三大殿</span> ➔ <span class="r-step">东西六宫/珍宝馆</span> ➔ <span class="r-step">神武门出</span> ➔ <span class="r-step">景山公园(万春亭看金色故宫)</span> ➔ <span class="r-step">什刹海后海夜景·烤肉季</span>
+                    </div>
+
+                    <!-- 模式切换器：标准模式 vs 省力Plan B -->
+                    <div class="mode-switch-box">
+                        <input type="radio" name="mode-d4" id="m-d4-a" class="state-ctrl" checked>
+                        <input type="radio" name="mode-d4" id="m-d4-b" class="state-ctrl">
+                        <div class="mode-switch-header">
+                            <div class="mode-btns">
+                                <label for="m-d4-a" class="mode-btn">👟 标准中轴全景 (20000步)</label>
+                                <label for="m-d4-b" class="mode-btn">🛋️ 省力Plan B (立省7000步)</label>
+                            </div>
+                        </div>
+                        <div class="mode-panel-a">
+                            <strong>【标准全景走法】</strong>午门入 ➔ 前朝三大殿 ➔ 后三宫 ➔ 东西六宫(延禧宫等) ➔ 珍宝馆九龙壁 ➔ 御花园 ➔ 神武门出 ➔ 全员登上景山万春亭台阶俯瞰故宫全貌 ➔ 什刹海烤肉季。
+                        </div>
+                        <div class="mode-panel-b">
+                            <span class="save-pill">⚡ 免费轮椅+平路核心 · 立省 7,000 步</span><br>
+                            <strong>【长辈尊享省力路线】</strong>① 故宫午门导服中心<strong>免费借用轮椅</strong>！走太和门无障碍斜坡，直取最核心的“前朝三大殿 + 乾清宫 + 御花园”，舍弃绕远耗费体力的西六宫；② 景山万春亭台阶较陡，长辈若疲惫可在<strong>山脚下绮望楼广场长椅休息</strong>（有百年古柏与平地观景点），年轻人登顶拍照，随后在门口打车，避免长辈膝盖负重！
+                        </div>
                     </div>
 
                     <div class="timeline">
                         <div class="tl-node">
                             <span class="tl-dot"></span>
                             <div class="tl-head">
-                                <span class="time-pill">08:30 - 15:30</span>
-                                <span class="seg-step-badge heavy">👟 长城段约 9,000 步 (视缆车选择而定)</span>
+                                <span class="time-pill">08:45 - 15:30</span>
+                                <span class="seg-step-badge heavy">👟 故宫内步行约 14,000 步</span>
                             </div>
-                            <div class="spot-title">八达岭长城（周一正常开放 · 避开市内闭馆潮）</div>
-                            <div class="spot-desc">万里长城精华段，山上比市区低 4~5°C 且风大，务必穿防风保暖外套。</div>
-
-                            <!-- 修改点1：模式切换器左对齐 -->
-                            <div class="mode-switch-box">
-                                <input type="radio" name="mode-d4" id="m-d4-a" class="state-ctrl" checked>
-                                <input type="radio" name="mode-d4" id="m-d4-b" class="state-ctrl">
-                                <div class="mode-switch-header">
-                                    <div class="mode-btns">
-                                        <label for="m-d4-a" class="mode-btn">👟 北线好汉坡 (挑战版)</label>
-                                        <label for="m-d4-b" class="mode-btn">🛋️ 省力Plan B (缆车轻松版)</label>
-                                    </div>
-                                </div>
-                                <div class="mode-panel-a">
-                                    <strong>【北线徒步登顶好汉坡】</strong>适合体力充沛的伙伴，从关城徒步攀登北一楼至北八楼（最高点好汉坡），坡度较陡，风景最壮阔。
-                                </div>
-                                <div class="mode-panel-b">
-                                    <span class="save-pill">⚡ 立省 80% 爬升体力 · 6人团队不掉队首选</span><br>
-                                    <strong>【两种缆车省力方案任选】</strong><br>
-                                    •
-                                    <strong>方案1（想打卡北八楼好汉坡）：</strong>直接买<strong>「北线索道(双程140元)」</strong>直达北七楼，下缆车只需走10分钟爬1个楼就到最高点【北八楼好汉坡】！<br>
-                                    •
-                                    <strong>方案2（长辈最舒适·南线）：</strong>坐<strong>「南线地面缆车」</strong>直达南四楼，车厢稳、游客少一半、坡度平缓，拍照完全不挤。
-                                </div>
-                            </div>
+                            <div class="spot-title">故宫博物院（周二工作日人少！三大殿 ➔ 珍宝馆 ➔ 御花园）</div>
+                            <div class="spot-desc">工作日游故宫体验极度舒适！三大殿前人流大幅缩减，长辈在长廊随时能找到空座椅坐下歇息。上午游览太和殿、中和殿、保和殿感受皇家气魄；中午在角楼咖啡或乾清门享用能量轻食；下午游后三宫、延禧宫、珍宝馆皇极殿，穿过御花园从神武门出（15:30停检）。</div>
                         </div>
 
                         <div class="tl-node">
                             <span class="tl-dot"></span>
                             <div class="tl-head">
-                                <span class="time-pill">17:30 - 20:30</span>
-                                <span class="seg-step-badge">👟 奥体广场约 4,500 步 (全平路)</span>
+                                <span class="time-pill">15:45 - 17:15</span>
+                                <span class="seg-step-badge">👟 爬坡登山约 2,500 步</span>
                             </div>
-                            <div class="spot-title">奥林匹克公园（鸟巢、水立方夜景）</div>
-                            <div class="spot-desc">回市区直奔奥体公园看鸟巢、水立方亮灯夜景，随后下到旁边新奥购物中心B1层吃晚饭。</div>
+                            <div class="spot-title">出神武门 ➔ 景山公园登万春亭俯瞰紫禁城金顶全景</div>
+                            <div class="spot-desc">出神武门过马路直进景山公园南门（现场微信2元扫码秒入）。沿石阶慢步登顶中轴线制高点——万春亭，正南俯瞰整个紫禁城夕阳映照下的金色琉璃瓦屋顶，是北京最震撼的中轴大片机位！</div>
                         </div>
-                    </div>
 
-                    <div class="dining-wrap">
-                        <div class="route-Left-banner"
-                            style="background:var(--gold-bg); border-color:var(--gold-border); border-left-color:#D97706; color:#92400E; margin-bottom:10px;">
-                            🍽️ D4 午/晚餐决策（长城简餐 + 鸟巢旁热梨汤）
-                        </div>
-                        <div class="rest-grid">
-                            <div class="rest-card">
-                                <span class="pick-tag alt">🍱 午餐 · 长城景区内</span>
-                                <div class="rest-head"><span class="rest-name">八达岭饭店 / 苏禾 / 快餐</span><span
-                                        class="rest-price">人均 ¥35-100</span></div>
-                                <div class="rest-Signature">★ 正餐：八达岭饭店(有包房) / 苏禾餐厅(红烧肉)</div>
-                                <div class="rest-desc">赶时间可在步行街吃庆丰包子铺、李先生牛肉面，搭配自带干粮。</div>
+                        <div class="tl-node">
+                            <span class="tl-dot food"></span>
+                            <div class="tl-head">
+                                <span class="time-pill amber">17:45 - 20:30</span>
+                                <span class="seg-step-badge">👟 漫步约 3,500 步</span>
                             </div>
-                            <div class="rest-card primary-pick">
-                                <span class="pick-tag star">🌟 晚餐首选 · 爬完长城喝热梨汤</span>
-                                <div class="rest-head"><span class="rest-name">小吊梨汤（鸟巢店）</span><span
-                                        class="rest-price">人均 ¥80</span></div>
-                                <div class="rest-Signature">★ 必点：铜壶小吊梨汤、梨球果仁虾（新奥购物中心B1）</div>
-                                <div class="rest-desc">上菜快、润燥解乏！（若想换口味吃猪肘喝啤酒可选<strong>兰特伯爵国奥店</strong>，人均¥206）。</div>
-                                <div class="rest-actions">
-                                    <a href="tel:010-84378229" class="act-btn call">📞 小吊梨汤: 010-84378229</a>
-                                    <span class="act-btn loc">📍 新奥购物中心B1层</span>
-                                </div>
-                            </div>
+                            <div class="spot-title">景山西门 ➔ 什刹海银锭桥后海夜景 ➔ 烤肉季晚餐</div>
+                            <div class="spot-desc">从景山打车或步行至什刹海。夜游银锭桥、后海沿岸，在百年老字号烤肉季品尝炙子烤羊肉与芝麻烧饼。</div>
                         </div>
                     </div>
                 </div>
@@ -2467,111 +2329,93 @@
             <details class="fold-card" id="d5" open>
                 <summary class="day-banner">
                     <div class="day-banner-top">
-                        <div class="day-title"><span class="day-num">DAY 5</span>11月10日 周二 · 天坛祈年殿与高铁返程</div>
+                        <div class="day-title"><span class="day-num">DAY 5</span>11月4日 周三 · 天坛公园祈福、南门涮肉压轴与大兴起飞返程</div>
                         <span class="fold-hint"></span>
                     </div>
                     <div class="day-metrics">
-                        <span>👟 全天总步数：<strong>约 10,000 步 (全平路)</strong></span>
-                        <span>⚡ 强度：<strong>⭐⭐⭐</strong></span>
-                        <span>🚄 返程：<strong>G1091 (15:34北京南站发车)</strong></span>
+                        <span>👟 全天总步数：<strong>约 8,500 步 (全平路极舒适)</strong></span>
+                        <span>⚡ 强度：<strong>⭐⭐⭐ (从容圆满)</strong></span>
+                        <span>✈️ 返程航班：<strong>国航 CA8641 (14:55大兴起飞 ➔ 16:15抵烟台蓬莱T2)</strong></span>
                     </div>
                 </summary>
 
                 <div class="day-content">
                     <div class="route-Left-banner">
                         <span>🗺️ 当日动线：</span>
-                        <span class="r-step">天坛公园(南门进)</span> ➔ <span class="r-step">南门涮肉(午餐)</span> ➔ <span
-                            class="r-step">回酒店取行李</span> ➔ <span class="r-step">北京南站(15:34发车)</span>
+                        <span class="r-step">酒店退房带行李</span> ➔ <span class="r-step">天坛公园(08:30南门进·祈年殿)</span> ➔ <span class="r-step">南门涮肉总店(11:15第一波)</span> ➔ <span class="r-step">12:20专车赴大兴机场</span> ➔ <span class="r-step">CA8641(14:55起飞)</span>
+                    </div>
+
+                    <!-- 模式切换器：标准模式 vs 省力Plan B -->
+                    <div class="mode-switch-box">
+                        <input type="radio" name="mode-d5" id="m-d5-a" class="state-ctrl" checked>
+                        <input type="radio" name="mode-d5" id="m-d5-b" class="state-ctrl">
+                        <div class="mode-switch-header">
+                            <div class="mode-btns">
+                                <label for="m-d5-a" class="mode-btn">👟 标准中轴祈福 (8500步)</label>
+                                <label for="m-d5-b" class="mode-btn">🛋️ 省力Plan B (立省3000步)</label>
+                            </div>
+                        </div>
+                        <div class="mode-panel-a">
+                            <strong>【标准祈福动线】</strong>天坛南门进 ➔ 圜丘坛 ➔ 皇穹宇回音壁 ➔ 走过360米丹陛桥 ➔ 祈年殿核心打卡 ➔ 漫步古柏林从东门/北门出 ➔ 折返至南门涮肉。
+                        </div>
+                        <div class="mode-panel-b">
+                            <span class="save-pill">⚡ 南门进出零折返 · 立省 3,000 步</span><br>
+                            <strong>【南门闭环最短距离】</strong>行李寄存天坛南门，从南门进入直奔最近的圜丘和皇穹宇（仅200米），走平路至祈年殿打卡祈福后，<strong>原路南门出园（不绕大圈走东门）</strong>！出南门过马路就是南门涮肉总店，零折返、全平路，吃完直接上车去机场！
+                        </div>
                     </div>
 
                     <div class="timeline">
                         <div class="tl-node">
                             <span class="tl-dot"></span>
                             <div class="tl-head">
-                                <span class="time-pill">08:30 - 11:30</span>
-                                <span class="seg-step-badge">👟 天坛内约 7,500 步 (4.8 km)</span>
+                                <span class="time-pill">08:30 - 11:00</span>
+                                <span class="seg-step-badge">👟 古柏大道漫步约 6,000 步</span>
                             </div>
-                            <div class="spot-title">天坛公园（南门进 · 核心景点 · 必买28元联票）</div>
-                            <div class="spot-desc">明清皇帝祭天祈谷之地，古柏参天，全程平坦。</div>
-
-                            <!-- 修改点1：模式切换器左对齐 -->
-                            <div class="mode-switch-box">
-                                <input type="radio" name="mode-d5" id="m-d5-a" class="state-ctrl" checked>
-                                <input type="radio" name="mode-d5" id="m-d5-b" class="state-ctrl">
-                                <div class="mode-switch-header">
-                                    <div class="mode-btns">
-                                        <label for="m-d5-a" class="mode-btn">👟 南北中轴折返 (7500步)</label>
-                                        <label for="m-d5-b" class="mode-btn">🛋️ 省力Plan B (省3000步)</label>
-                                    </div>
-                                </div>
-                                <div class="mode-panel-a">
-                                    <strong>【经典祭天中轴线】</strong>南门进，依次游览圜丘 ➔ 回音壁 ➔ 走丹陛桥到祈年殿，再沿古柏林道走回南门吃涮肉。
-                                </div>
-                                <div class="mode-panel-b">
-                                    <span class="save-pill">⚡ 立省 3,000 步 · 免走返程回头路</span><br>
-                                    <strong>【不走回头路方案】</strong>从南门进依次逛完<strong>圜丘 ➔ 回音壁 ➔
-                                        祈年殿</strong>后，不必再走回南门，直接从离祈年殿最近的<strong>「天坛西门或东门」出园</strong>，门口直接打车6分钟（起步价）直达天坛南门的南门涮肉店门口！
-                                </div>
-                            </div>
+                            <div class="spot-title">天坛公园（南门进 · 圜丘坛 · 皇穹宇回音壁 · 祈年殿祈福）</div>
+                            <div class="spot-desc">酒店退房携带行李（天坛南门游客中心可免费寄放行李），持28元联票从南门入园：圜丘天心石 ➔ 皇穹宇回音壁 ➔ 丹陛桥 ➔ 祈年殿。蓝瓦金顶神圣肃穆，全平路走走停停拍照合影，祈愿平安吉祥。</div>
                         </div>
 
                         <div class="tl-node">
                             <span class="tl-dot food"></span>
                             <div class="tl-head">
-                                <span class="time-pill amber">11:30 - 13:15</span>
-                                <span class="seg-step-badge">👟 约 500 步</span>
+                                <span class="time-pill amber">11:15 - 12:15</span>
+                                <span class="seg-step-badge">🍲 压轴京味盛宴</span>
                             </div>
-                            <div class="spot-title">天坛南门午餐（南门涮肉 / 祥隆餐厅）</div>
-                            <div class="spot-desc">11:00 可派1人先去南门外取号，吃完午餐回酒店取行李。</div>
+                            <div class="spot-title">南门涮肉（天坛南门总店 · 铜锅炭火手切羊肉）</div>
+                            <div class="spot-desc">天坛南门出来过马路即达！11:00刚开门无需排队，第一波入座享用最地道的京城老字号铜锅涮肉，手切鲜羊肉、麻酱笑脸碗、芝麻烧饼，为五天北京之行圆满收官！</div>
                         </div>
 
                         <div class="tl-node">
                             <span class="tl-dot trans"></span>
                             <div class="tl-head">
-                                <span class="time-pill teal">13:15 - 15:34</span>
-                                <span class="seg-step-badge">👟 车站内约 2,000 步</span>
+                                <span class="time-pill teal">12:20 - 16:15</span>
+                                <span class="seg-step-badge">✈️ 航班 CA8641 (14:55 - 16:15)</span>
                             </div>
-                            <div class="spot-title">取行李 ➔ 北京南站 ➔ G1091 (15:34) 返程</div>
-                            <div class="spot-desc">建议 14:30
-                                前进站。晚餐可在北京南站候车大厅买<strong>【七鲜小厨】</strong>现炒盖饭(3-5分钟出餐)打包上车，或车上扫码12306订“京铁佳膳”。</div>
-                        </div>
-                    </div>
-
-                    <div class="dining-wrap">
-                        <div class="rest-grid">
-                            <div class="rest-card primary-pick">
-                                <span class="pick-tag star">🌟 午餐首选 · 南门涮肉(天坛总店)</span>
-                                <div class="rest-head"><span class="rest-name">南门涮肉 / 备选:祥隆餐厅</span><span
-                                        class="rest-price">人均 ¥40-84</span></div>
-                                <div class="rest-Signature">★ 南门涮肉(清真铜锅/麻酱小料) | 祥隆餐厅(砂锅烫饭/羊肉串，快)</div>
-                                <div class="rest-actions">
-                                    <a href="tel:010-67017030" class="act-btn call">📞 南门涮肉: 010-67017030</a>
-                                    <span class="act-btn loc">📍 永定门东街东里13号楼(天坛南门外)</span>
-                                </div>
-                            </div>
+                            <div class="spot-title">专车前往大兴国际机场 ➔ 办理值机 ➔ 飞抵烟台蓬莱T2</div>
+                            <div class="spot-desc">12:20 出发，打车/专车约45分钟直达大兴国际机场（约13:10抵达）。打卡扎哈巨构网红航站楼，14:15前托运行李安检进隔离区。搭乘国航 CA8641（14:55起飞），16:15 平安降落烟台蓬莱机场T2航站楼！</div>
                         </div>
                     </div>
                 </div>
             </details>
         </div>
 
-                <!-- =====================================================================
+        <!-- =====================================================================
          模块 2：🎫 预约日历（参照图1：顶部红色开抢条 + 全宽信息卡片）
          ===================================================================== -->
-        <div id="panel-book" class="module-panel">
+                <div id="panel-book" class="module-panel">
             <div class="mod-banner">
-                <h2>⏰ 8大景点预约日历（按开抢日期突出显示）</h2>
+                <h2>⏰ 8大景点预约日历（按新游玩日 10/31-11/04 精确换算）</h2>
                 <p>已为您精确换算好具体抢票日期！标有【限5人/单】的景点，6人同行请务必准备 2~3 部手机同时操作（点击右上角胶囊可标记已搞定 ✅）。</p>
             </div>
 
-            <div class="book-card-list">
-                <!-- 1. 故宫 -->
+                                    <div class="book-card-list">
+                <!-- 1. 天安门城楼 -->
                 <div class="cal-card" id="card-spot-1">
                     <div class="cal-header">
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🔥 11月1日 20:00 开抢</span>
-                                <span class="cal-header-title">1. 故宫博物院 (游览日: 11/8 周日)</span>
+                                <span class="cal-time-pill">🔴 10月24日 17:00 开抢</span>
+                                <span class="cal-header-title">1. 天安门城楼 (游览日: 10/31 周六下午)</span>
                             </div>
                             <label class="cal-check-label" title="点击标记为已约好">
                                 <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
@@ -2579,41 +2423,41 @@
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 开抢：<strong>11月1日 周日 20:00</strong></span>
+                            <span>⚡ 开抢：<strong>10月24日 周六 17:00</strong></span>
                             <span>⏰ 提前：<strong>提前7天放票</strong></span>
-                            <span>📱 限制：<strong>限5人/单 (需2~3部手机抢)</strong></span>
-                            <span>🎫 票价：<strong>淡季大门票 ¥40</strong></span>
-                        </div>
-                    </div>
-                    <div class="cal-body">
-                        <div class="cal-body-line"><strong>预约渠道：</strong>微信小程序“故宫博物院”（务必提前在个人中心录入6人“常用观众”）。</div>
-                        <div class="cal-body-line"><strong>购票要点：</strong>淡季大门票40元，<strong>珍宝馆(10元)、钟表馆(10元)建议勾选一起约</strong>；15:30停止检票。</div>
-                    </div>
-                </div>
-
-                <!-- 2. 天安门城楼 -->
-                <div class="cal-card" id="card-spot-2">
-                    <div class="cal-header">
-                        <div class="cal-header-top">
-                            <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🔴 11月1日 17:00 开抢</span>
-                                <span class="cal-header-title">2. 天安门城楼 (游览日: 11/8 周日上午)</span>
-                            </div>
-                            <label class="cal-check-label" title="点击标记为已约好">
-                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
-                                <span>已约好</span>
-                            </label>
-                        </div>
-                        <div class="cal-metrics">
-                            <span>⚡ 开抢：<strong>11月1日 周日 17:00</strong></span>
-                            <span>⏰ 提前：<strong>提前7天放票</strong></span>
-                            <span>📱 限制：<strong>限10人/单 (1部手机可搞定)</strong></span>
+                            <span>📱 场次：<strong>抢 15:00-16:00 场次！</strong></span>
                             <span>🎫 票价：<strong>登楼门票 ¥15</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
                         <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“天安门城楼参观预约”。</div>
-                        <div class="cal-body-line"><strong>购票要点：</strong>15元/人，需逐一填写每位参观者实名信息；<strong>背包、水杯、充电宝禁上城楼</strong>(北侧免费存包)。</div>
+                        <div class="cal-body-line"><strong>核心策略：</strong>抢 15:00-16:00 场次！全员零带包直接登楼，下楼免取包无缝衔接 17:16 广场降旗。</div>
+                    </div>
+                </div>
+
+                <!-- 2. 颐和园 -->
+                <div class="cal-card" id="card-spot-2">
+                    <div class="cal-header amber-theme">
+                        <div class="cal-header-top">
+                            <div class="cal-header-title-box">
+                                <span class="cal-time-pill">🟡 10月25日 21:00 开抢</span>
+                                <span class="cal-header-title">2. 颐和园 (游览日: 11/01 周日下午)</span>
+                            </div>
+                            <label class="cal-check-label" title="点击标记为已约好">
+                                <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
+                                <span>已约好</span>
+                            </label>
+                        </div>
+                        <div class="cal-metrics">
+                            <span>⚡ 开抢：<strong>10月25日 周日 21:00</strong></span>
+                            <span>⏰ 提前：<strong>提前7天放票</strong></span>
+                            <span>📱 关键：<strong>赶上全年昆明湖末班游船！</strong></span>
+                            <span>🎫 票价：<strong>联票淡季 ¥50 / 门票 ¥20</strong></span>
+                        </div>
+                    </div>
+                    <div class="cal-body">
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“颐和园”或“畅游公园”。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>建议买联票；下午乘大画舫水路避人流，少走4000多步直达十七孔桥。</div>
                     </div>
                 </div>
 
@@ -2622,8 +2466,8 @@
                     <div class="cal-header">
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🔴 11月1日 12:30 开抢</span>
-                                <span class="cal-header-title">3. 毛主席纪念堂 (游览日: 11/7 周六上午)</span>
+                                <span class="cal-time-pill">🔴 10月26日 12:30 开抢</span>
+                                <span class="cal-header-title">3. 毛主席纪念堂 (游览日: 11/01 周日上午)</span>
                             </div>
                             <label class="cal-check-label" title="点击标记为已约好">
                                 <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
@@ -2631,67 +2475,67 @@
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 开抢：<strong>11月1日 周日 12:30</strong></span>
-                            <span>⏰ 提前：<strong>提前1~6天均可约</strong></span>
-                            <span>📱 限制：<strong>限5人/单 (需2部手机同时约)</strong></span>
+                            <span>⚡ 开抢：<strong>10月26日 周一 12:30</strong></span>
+                            <span>⏰ 提前：<strong>提前6天放票</strong></span>
+                            <span>📱 场次：<strong>抢 08:00-09:00 场次！</strong></span>
                             <span>🎫 票价：<strong>免费预约 (¥0)</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
                         <div class="cal-body-line"><strong>预约渠道：</strong>微信小程序 / 公众号“毛主席纪念堂”。</div>
-                        <div class="cal-body-line"><strong>购票要点：</strong>免费；每账号每天仅限1个待出行预约；仅上午开放；<strong>严禁带包、相机、水杯</strong>。</div>
+                        <div class="cal-body-line"><strong>绿色通道：</strong>两位70岁长辈现场直接走北门“助老爱心通道”优先入内，免排大队！严禁带包/水杯。</div>
                     </div>
                 </div>
 
-                <!-- 4. 颐和园 -->
+                <!-- 4. 八达岭长城 -->
                 <div class="cal-card" id="card-spot-4">
                     <div class="cal-header amber-theme">
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🟡 10月31日起 21:00</span>
-                                <span class="cal-header-title">4. 颐和园 (游览日: 11/7 周六下午)</span>
+                                <span class="cal-time-pill">🟡 10月26日起 全天可约</span>
+                                <span class="cal-header-title">4. 八达岭长城 (游览日: 11/02 周一全天)</span>
                             </div>
-                            <label class="cal-check-label" title="点击标记为已买好">
+                            <label class="cal-check-label" title="点击标记为已约好">
                                 <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
-                                <span>已买好</span>
+                                <span>已约好</span>
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 放票：<strong>10月31日起 每天21:00</strong></span>
-                            <span>⏰ 提前：<strong>提前1~7天均可买</strong></span>
-                            <span>📱 限制：<strong>无人数上限 (支持合并支付)</strong></span>
-                            <span>🎫 票价：<strong>淡季大门票 ¥20 / 联票 ¥50</strong></span>
+                            <span>⚡ 开抢：<strong>10月26日 周一 00:00起</strong></span>
+                            <span>⏰ 提前：<strong>提前1~7天均可</strong></span>
+                            <span>📱 建议：<strong>提前2天约好即可</strong></span>
+                            <span>🎫 票价：<strong>淡季门票 ¥35</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
-                        <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“颐和园”、“畅游公园”或微信<strong>“京通”小程序</strong>。</div>
-                        <div class="cal-body-line"><strong>购票要点：</strong>淡季门票20元，联票50元(含佛香阁)；<strong>入园时订单内所有人必须刷各自身份证原件</strong>。</div>
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“八达岭长城”。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>周一长城照常开放，完美避开市内周一闭馆潮；长辈建议乘索道往返。</div>
                     </div>
                 </div>
 
-                <!-- 5. 八达岭长城 -->
+                <!-- 5. 故宫博物院 -->
                 <div class="cal-card" id="card-spot-5">
-                    <div class="cal-header amber-theme">
+                    <div class="cal-header">
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🟡 11月2日起 全天可约</span>
-                                <span class="cal-header-title">5. 八达岭长城 (游览日: 11/9 周一全天)</span>
+                                <span class="cal-time-pill">🔥 10月27日 20:00 开抢</span>
+                                <span class="cal-header-title">5. 故宫博物院 (游览日: 11/03 周二工作日)</span>
                             </div>
-                            <label class="cal-check-label" title="点击标记为已买好">
+                            <label class="cal-check-label" title="点击标记为已约好">
                                 <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
-                                <span>已买好</span>
+                                <span>已约好</span>
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 放票：<strong>11月2日 周一 全天可约</strong></span>
+                            <span>⚡ 开抢：<strong>10月27日 周二 20:00</strong></span>
                             <span>⏰ 提前：<strong>提前7天放票</strong></span>
-                            <span>📱 限制：<strong>限10人/单 (1部手机搞定)</strong></span>
-                            <span>🎫 票价：<strong>淡季大门票 ¥35</strong></span>
+                            <span>📱 亮点：<strong>工作日人少！好抢很多！</strong></span>
+                            <span>🎫 票价：<strong>淡季大门票 ¥40</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
-                        <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“八达岭长城”或微信<strong>“京通”小程序</strong>。</div>
-                        <div class="cal-body-line"><strong>购票要点：</strong>淡季门票35元；<strong>周一正常开放</strong>；每张证件每日限购1张。</div>
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信小程序“故宫博物院”（提前录齐6人身份证）。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>工作日票源好抢！红墙纯净大片，长辈随时有座椅歇脚；珍宝馆(10元)建议一同勾选。</div>
                     </div>
                 </div>
 
@@ -2700,47 +2544,49 @@
                     <div class="cal-header amber-theme">
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🟡 11月3日起 21:00</span>
-                                <span class="cal-header-title">6. 天坛公园 (游览日: 11/10 周二上午)</span>
+                                <span class="cal-time-pill">🟡 10月28日 21:00 开抢</span>
+                                <span class="cal-header-title">6. 天坛公园 (游览日: 11/04 周三上午)</span>
                             </div>
-                            <label class="cal-check-label" title="点击标记为已买好">
+                            <label class="cal-check-label" title="点击标记为已约好">
                                 <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
-                                <span>已买好</span>
+                                <span>已约好</span>
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 放票：<strong>11月3日 周二 21:00放票</strong></span>
-                            <span>⏰ 提前：<strong>提前1~7天均可</strong></span>
-                            <span>📱 限制：<strong>限5人/单 (需分2单购买)</strong></span>
-                            <span>🎫 票价：<strong>淡季联票 ¥28</strong></span>
+                            <span>⚡ 开抢：<strong>10月28日 周三 21:00</strong></span>
+                            <span>⏰ 提前：<strong>提前7天放票</strong></span>
+                            <span>📱 必选：<strong>必须买28元联票！</strong></span>
+                            <span>🎫 票价：<strong>联票淡季 ¥28 (大门票仅¥10)</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
-                        <div class="cal-body-line"><strong>预约渠道：</strong>“畅游公园”、“天坛”小程序或微信<strong>“京通”小程序</strong>。</div>
-                        <div class="cal-body-line"><strong>购票要点：</strong>务必买<strong>【淡季联票 28元】</strong>（含祈年殿、回音壁、圜丘）；核心景点周一关闭。</div>
+                        <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“天坛”或“畅游公园”。</div>
+                        <div class="cal-body-line"><strong>购票要点：</strong>周三上午从容祈福，出门吃南门涮肉；必须勾选28元联票才能进祈年殿和回音壁。</div>
                     </div>
                 </div>
 
-                <!-- 7. 天安门广场 -->
+                <!-- 7. 天安门广场 (降旗) -->
                 <div class="cal-card" id="card-spot-7">
                     <div class="cal-header green-theme">
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🟢 随主景点免单约</span>
-                                <span class="cal-header-title">7. 天安门广场 (游览日: 11/7 周六上午)</span>
+                                <span class="cal-time-pill">🟢 随城楼免单约</span>
+                                <span class="cal-header-title">7. 天安门广场 (降旗时段 10/31 17:16)</span>
                             </div>
-                            <label class="cal-check-label" title="点击标记为已知晓">
+                            <label class="cal-check-label" title="点击标记为已约好">
                                 <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
-                                <span>已知晓</span>
+                                <span>已约好</span>
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 准入规则：<strong>凭纪念堂或故宫预约记录直接通行</strong></span>
-                            <span>🎫 门票费用：<strong>免费通行，无需单独预约 (¥0)</strong></span>
+                            <span>⚡ 政策：<strong>互通互认 免单独约</strong></span>
+                            <span>⏰ 对应：<strong>10/31 周六下午看降旗</strong></span>
+                            <span>📱 规则：<strong>城楼票自带广场通行权限</strong></span>
+                            <span>🎫 票价：<strong>免费 (¥0)</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
-                        <div class="cal-body-line"><strong>规则说明：</strong>只要预约了毛主席纪念堂或故宫，凭预约记录即可直接进入广场安检，<strong>完全无需单独预约天安门广场</strong>！</div>
+                        <div class="cal-body-line"><strong>免预约政策：</strong>只要预约了 10/31 下午的天安门城楼门票，系统默认联动天安门广场通行，下城楼直接进广场看降旗！</div>
                     </div>
                 </div>
 
@@ -2750,20 +2596,22 @@
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
                                 <span class="cal-time-pill">🟢 免预约 · 现场扫码</span>
-                                <span class="cal-header-title">8. 景山公园 (游览日: 11/8 周日下午)</span>
+                                <span class="cal-header-title">8. 景山公园 (游览日: 11/03 周二下午)</span>
                             </div>
-                            <label class="cal-check-label" title="点击标记为已知晓">
+                            <label class="cal-check-label" title="点击标记为已约好">
                                 <input type="checkbox" class="cal-check" onchange="toggleCalCard(this)">
-                                <span>已知晓</span>
+                                <span>已约好</span>
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 入园方式：<strong>现场随到随买直接扫码入园</strong></span>
-                            <span>🎫 门票费用：<strong>门票 ¥2/人</strong></span>
+                            <span>⚡ 入园：<strong>无需提前抢票</strong></span>
+                            <span>⏰ 对应：<strong>11/03 出故宫神武门后前往</strong></span>
+                            <span>📱 操作：<strong>现场微信扫码即可</strong></span>
+                            <span>🎫 票价：<strong>大门票 ¥2</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
-                        <div class="cal-body-line"><strong>规则说明：</strong>完全无需提前预约，从故宫神武门出来过地下通道即到，门口手机扫码2元即可直接入园。</div>
+                        <div class="cal-body-line"><strong>入园流程：</strong>出故宫神武门过马路即达景山公园南门，门口有几十个二维码立牌，直接微信扫码付2元即可秒入园登万春亭。</div>
                     </div>
                 </div>
             </div>
@@ -2818,7 +2666,7 @@
                     <label class="calc-sec-head-label" title="全选 / 全不选 住宿模块">
                         <input type="checkbox" class="sec-master-chk" id="master-chk-hotel" checked
                             onchange="toggleSecMaster('hotel', this.checked)">
-                        <span class="calc-sec-title">🏨 1. 住宿费用 (11/6入住 - 11/10退房 · 共4晚)</span>
+                        <span class="calc-sec-title">🏨 1. 住宿费用 (10/31入住 - 11/04退房 · 共4晚)</span>
                     </label>
                     <span class="calc-sec-sub" id="sec-hotel-val">¥0</span>
                 </div>
@@ -2871,23 +2719,23 @@
                 <div class="calc-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="trans-chk" checked onchange="recalcAll()">
-                        <span>返程高铁：G1091 (北京南➔烟台 二等座)</span>
+                        <span>返程飞机：国航 CA8641 (北京大兴➔烟台蓬莱 机票6人合计)</span>
                     </label>
                     <div class="calc-inputs">
-                        <span>单人¥</span><input type="number" class="num-input trans-price" value="398"
+                        <span>单人约¥</span><input type="number" class="num-input trans-price" value="457.83" step="0.01"
                             oninput="recalcAll()">
                         <span>×</span><input type="number" class="num-input sm trans-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
                     <div class="row-total-wrap">
                         <span class="row-total-prefix">¥</span>
-                        <input type="number" class="row-total-val" value="2388" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                        <input type="number" class="row-total-val" value="2747" min="0" step="any" oninput="onRowTotalInput(this)" title="返程机票6人总费用¥2747">
                     </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="trans-chk" checked onchange="recalcAll()">
-                        <span>D4 八达岭往返交通 (高铁往返约¥60/人 或 商务包车平摊)</span>
+                        <span>D3 八达岭往返交通 (高铁往返约¥60/人 或 商务包车平摊)</span>
                     </label>
                     <div class="calc-inputs">
                         <span>单人¥</span><input type="number" class="num-input trans-price" value="60"
@@ -2971,7 +2819,7 @@
                 <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
-                        <span>【D3】天安门城楼 · 登楼门票</span>
+                        <span>【D1】天安门城楼 · 登楼门票</span>
                     </label>
                     <div class="tkt-dual-inputs">
                         <div class="tkt-sub-tier adult">
@@ -2995,7 +2843,7 @@
                 <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
-                        <span>【D3】故宫博物院 · 淡季大门票</span>
+                        <span>【D4】故宫博物院 · 淡季大门票</span>
                     </label>
                     <div class="tkt-dual-inputs">
                         <div class="tkt-sub-tier adult">
@@ -3043,7 +2891,7 @@
                 <div class="calc-row tkt-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="tkt-chk" checked onchange="recalcAll()">
-                        <span>【D4】八达岭长城 · 淡季大门票</span>
+                        <span>【D3】八达岭长城 · 淡季大门票</span>
                     </label>
                     <div class="tkt-dual-inputs">
                         <div class="tkt-sub-tier adult">
