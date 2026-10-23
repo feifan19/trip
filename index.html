@@ -64,72 +64,6 @@
         .header-inner {
             max-width: 920px;
             margin: 0 auto;
-        }J؁<!DOCTYPE html>
-<html lang="zh-CN">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>北京游</title>
-    <style>
-        :root {
-            --red-dark: #5C1010;
-            --red-main: #9B2323;
-            --red-light: #FEF2F2;
-            --red-border: #FECACA;
-            --gold-main: #B45309;
-            --gold-bg: #FFFBEB;
-            --gold-border: #FDE68A;
-            --teal-main: #0F766E;
-            --teal-bg: #F0FDFA;
-            --teal-border: #5EEAD4;
-            --bg-page: #F5F2EB;
-            --text-main: #1C1917;
-            --text-sub: #57534E;
-            --border-color: #E5E0D8;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 80px;
-        }
-
-        .container {
-            max-width: 920px;
-            margin: 0 auto;
-            padding: 0 12px;
-        }
-
-        /* 隐藏所有控制状态的 Radio */
-        input.state-ctrl {
-            display: none !important;
-        }
-
-        /* 顶部宫廷风横幅 */
-        header {
-            background: linear-gradient(135deg, #581010 0%, #8B1E1E 55%, #A82828 100%);
-            color: #fff;
-            padding: 22px 16px 26px;
-            border-bottom: 4px solid #D97706;
-        }
-
-        .header-inner {
-            max-width: 920px;
-            margin: 0 auto;
         }
 
         .top-pill {
@@ -1877,51 +1811,505 @@
             font-size: 11.5px;
         }
 
-        /* 手机端响应式优化：完美2行对齐 */
+        /* ==================== 移动端(手机场景)深度排版与自适应重构 ==================== */
+        .people-btns-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
         @media (max-width: 660px) {
-            .calc-row.tkt-row {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                padding: 8px 0;
-            }
-
-            .calc-row.tkt-row .calc-item-label {
-                order: 1;
-                flex: 1 1 auto;
-                min-width: 160px;
-            }
-
-            .calc-row.tkt-row .row-total-wrap {
-                order: 2;
-                margin-left: auto;
-            }
-
-            .tkt-dual-inputs {
-                order: 3;
+            html, body {
+                overflow-x: hidden !important;
                 width: 100%;
-                justify-content: flex-start;
-                padding-left: 25px;
-                margin-top: 6px;
+                -webkit-text-size-adjust: 100%;
+            }
+
+            .container {
+                padding: 0 8px;
+            }
+
+            /* 顶部横幅 */
+            header {
+                padding: 15px 12px 18px;
+            }
+
+            header h1 {
+                font-size: 18.5px;
+                line-height: 1.35;
+                margin-bottom: 5px;
+            }
+
+            .top-pill {
+                font-size: 11px;
+                padding: 2px 8px;
+                white-space: normal;
+                line-height: 1.4;
+            }
+
+            .header-sub {
+                font-size: 11.5px;
+                flex-direction: column;
+                gap: 3px;
+                line-height: 1.4;
+            }
+
+            /* 顶部吸顶6大模块导航条：横向滑动胶囊设计 */
+            .main-tabs {
+                display: flex !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch;
+                padding: 6px 6px 4px;
+                gap: 6px;
+                scrollbar-width: none;
+            }
+
+            .main-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .m-tab-label {
+                flex: 0 0 auto !important;
+                min-width: 68px !important;
+                padding: 5px 8px !important;
+                font-size: 11px !important;
+                border-radius: 8px !important;
+                gap: 1px !important;
+            }
+
+            .m-tab-label .tab-icon {
+                font-size: 13.5px !important;
+            }
+
+            .day-jump-bar {
+                padding: 4px 6px 6px;
                 gap: 5px;
             }
 
-            .tkt-sub-tier {
-                padding: 2px 5px;
+            .day-jump-bar a {
+                font-size: 11px;
+                padding: 3px 9px;
+            }
+
+            /* 行程折叠卡片 */
+            details.fold-card {
+                border-radius: 12px;
+                margin-bottom: 12px;
+                scroll-margin-top: 105px;
+            }
+
+            .day-banner {
+                padding: 10px 12px;
+            }
+
+            .day-title {
+                font-size: 14px;
+                line-height: 1.35;
+            }
+
+            .day-num {
+                font-size: 11px;
+                padding: 1px 5px;
+            }
+
+            .day-metrics {
+                font-size: 11px;
+                padding: 5px 8px;
+                gap: 4px 8px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .day-content {
+                padding: 10px 8px;
+            }
+
+            .route-Left-banner {
+                padding: 7px 8px;
+                font-size: 11.5px;
+                gap: 3px;
+                line-height: 1.5;
+            }
+
+            .route-Left-banner .r-step {
+                padding: 1.5px 5px;
                 font-size: 11px;
             }
 
-            .tkt-sub-tier .num-input.sm {
-                width: 32px;
-                height: 22px;
-                padding: 1px 2px;
+            .timeline {
+                margin-left: 0;
+                padding-left: 14px;
+            }
+
+            .tl-dot {
+                left: -20px;
+                width: 10px;
+                height: 10px;
+            }
+
+            .tl-node {
+                padding: 10px 10px;
+                margin-bottom: 11px;
+                border-radius: 10px;
+            }
+
+            .spot-title {
+                font-size: 14px;
+            }
+
+            .spot-desc {
+                font-size: 12px;
+                line-height: 1.55;
+            }
+
+            .mode-switch-header {
+                padding: 4px 6px;
+            }
+
+            .mode-btns {
+                display: flex;
+                width: 100%;
+            }
+
+            .mode-btn {
+                flex: 1;
+                text-align: center;
+                padding: 4px 2px;
+                font-size: 11px;
+                white-space: normal;
+                line-height: 1.3;
+            }
+
+            /* 预约日历卡片排版 */
+            .cal-card {
+                border-radius: 12px;
+            }
+
+            .cal-header {
+                padding: 10px 12px;
+            }
+
+            .cal-header-top {
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .cal-header-title-box {
+                gap: 4px;
+            }
+
+            .cal-time-pill {
+                font-size: 10.5px;
+                padding: 2px 6px;
+                white-space: normal;
+                line-height: 1.3;
+            }
+
+            .cal-header-title {
+                font-size: 13.5px;
+                line-height: 1.35;
+            }
+
+            .cal-check-label {
+                padding: 2px 7px;
+                font-size: 11px;
+                flex-shrink: 0;
+            }
+
+            .cal-metrics {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 4px 8px;
+                font-size: 11px;
+                padding-top: 5px;
+            }
+
+            @media (min-width: 440px) {
+                .cal-metrics {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            .cal-body {
+                padding: 10px 12px;
+                font-size: 12px;
+                line-height: 1.6;
+            }
+
+            .cal-body-line {
+                padding-left: 12px;
+            }
+
+            /* 费用概算模块看板 */
+            .calc-summary-banner {
+                padding: 12px 10px;
+                border-radius: 12px;
+            }
+
+            .calc-top-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding-bottom: 10px;
+            }
+
+            .calc-total-box {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                gap: 6px;
+            }
+
+            .calc-big-label {
+                font-size: 11px;
+                text-align: center;
+            }
+
+            .calc-big-num {
+                font-size: 22px;
+                text-align: center;
+            }
+
+            .people-setting-wrap {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .people-setting-box {
+                width: 100%;
+                justify-content: center;
+                padding: 5px 8px;
+                font-size: 12px;
+            }
+
+            .people-btns-row {
+                display: flex;
+                width: 100%;
+                gap: 5px;
+            }
+
+            .btn-sync-people, .btn-save-lock, .btn-reset-default {
+                flex: 1;
+                text-align: center;
+                font-size: 10.5px;
+                padding: 6px 2px;
+                border-radius: 6px;
+                white-space: nowrap;
+            }
+
+            .calc-sub-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 4px;
+                margin-top: 8px;
+            }
+
+            .calc-mini-pill {
+                padding: 4px 2px;
+            }
+
+            .calc-mini-pill span {
+                font-size: 9.5px;
+            }
+
+            .calc-mini-pill strong {
                 font-size: 11.5px;
             }
 
+            .calc-section {
+                padding: 11px 9px;
+                border-radius: 12px;
+                margin-bottom: 10px;
+            }
+
+            .calc-sec-title {
+                font-size: 13.5px;
+            }
+
+            .calc-sec-sub {
+                font-size: 13px;
+            }
+
+            /* 核心：所有费用行在手机端统一双行整齐对齐 */
+            .calc-row {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+                padding: 7px 0 !important;
+                border-bottom: 1px dashed #EFECE6 !important;
+            }
+
+            .calc-row .calc-item-label {
+                order: 1 !important;
+                flex: 1 1 auto !important;
+                min-width: 0 !important;
+                max-width: calc(100% - 90px) !important;
+                font-size: 12px !important;
+                line-height: 1.35 !important;
+            }
+
+            .calc-row .row-total-wrap {
+                order: 2 !important;
+                margin-left: auto !important;
+                flex-shrink: 0 !important;
+            }
+
+            .calc-row .calc-inputs {
+                order: 3 !important;
+                width: 100% !important;
+                justify-content: flex-start !important;
+                padding-left: 24px !important;
+                margin-top: 4px !important;
+                font-size: 11px !important;
+                gap: 4px !important;
+            }
+
+            .tkt-dual-inputs {
+                order: 3 !important;
+                width: 100% !important;
+                justify-content: flex-start !important;
+                padding-left: 24px !important;
+                margin-top: 4px !important;
+                gap: 5px !important;
+            }
+
+            .tkt-sub-tier {
+                padding: 2px 4px !important;
+                font-size: 10.5px !important;
+            }
+
+            .tkt-sub-tier .num-input.sm {
+                width: 32px !important;
+                height: 22px !important;
+                padding: 1px 2px !important;
+                font-size: 11px !important;
+            }
+
             .tkt-policy-banner {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                padding: 6px 8px !important;
+                gap: 6px !important;
+            }
+
+            .tkt-preset-pills {
+                width: 100% !important;
+                justify-content: space-between !important;
+            }
+
+            .preset-pill {
+                flex: 1 !important;
+                text-align: center !important;
+                padding: 3px 2px !important;
+                font-size: 10.5px !important;
+            }
+
+            .num-input {
+                font-size: 11.5px !important;
+                padding: 2px 3px !important;
+                height: 24px !important;
+                width: 58px !important;
+            }
+
+            .num-input.sm {
+                width: 36px !important;
+            }
+
+            .row-total-val {
+                width: 66px !important;
+                font-size: 12.5px !important;
+                padding: 2px 4px !important;
+                height: 24px !important;
+            }
+
+            /* 景点导览模块手机端优化 */
+            .guide-card-enriched {
+                padding: 11px 9px;
+                border-radius: 12px;
+                margin-bottom: 12px;
+            }
+
+            .g-header {
+                gap: 4px;
+                padding-bottom: 8px;
+                margin-bottom: 8px;
+            }
+
+            .g-header-title {
+                font-size: 15px;
+            }
+
+            .g-mode-switch-bar {
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 7px 10px;
+                align-items: stretch;
+                gap: 5px;
+                padding: 5px;
+            }
+
+            .g-mode-btns {
+                display: flex;
+                width: 100%;
+            }
+
+            .g-mode-btn {
+                flex: 1;
+                text-align: center;
+                padding: 5px 2px;
+                font-size: 10.5px;
+                white-space: normal;
+                line-height: 1.3;
+            }
+
+            .g-step-item {
+                padding: 5px 6px;
+                min-height: auto;
+            }
+
+            .g-step-dot {
+                width: 19px;
+                height: 19px;
+                font-size: 10px;
+            }
+
+            .g-step-title-line {
+                font-size: 11.5px;
+            }
+
+            .g-step-sub-line {
+                font-size: 11px;
+            }
+
+            .g-content-sections {
+                grid-template-columns: 1fr !important;
+                gap: 6px;
+            }
+
+            .g-block {
+                padding: 8px 9px;
+                font-size: 11.5px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr !important;
+                gap: 8px;
+            }
+
+            .guide-card {
+                padding: 10px 9px;
+                border-radius: 12px;
+            }
+
+            .guide-card h3 {
+                font-size: 13.5px;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            .guide-card p {
+                font-size: 11.5px;
+                line-height: 1.6;
             }
         }
 
@@ -2401,12 +2789,12 @@
             </div>
 
             <div class="book-card-list">
-                <!-- 1. 天安门广场 (降旗时段 · 独立预约) -->
+                <!-- 1. 天安门广场 (降旗时段 · 必须独立预约) -->
                 <div class="cal-card" id="card-spot-1">
                     <div class="cal-header green-theme">
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🟢 每日 12:00 放票 · 提前1~9天</span>
+                                <span class="cal-time-pill">🟢 最早预约：10月22日 12:00 (现已开放可约)</span>
                                 <span class="cal-header-title">1. 天安门广场 (游览日: 10/31 周六下午看降旗 · 必须独立预约)</span>
                             </div>
                             <label class="cal-check-label" title="点击标记为已约好">
@@ -2415,14 +2803,15 @@
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 开抢时间：<strong>每日中午 12:00 (固定放票点)</strong></span>
-                            <span>⏰ 对应开抢：<strong>最迟10月24日12:00 (若支持9天则10/22已开放)</strong></span>
-                            <span>📱 场次：<strong>选 10/31 “降旗时段”！</strong></span>
-                            <span>🎫 票价：<strong>免费预约 (¥0)</strong></span>
+                            <span>⚡ 最早预约：<strong>10月22日 12:00 (提前9天·现已开放)</strong></span>
+                            <span>⏰ 保底放票：<strong>最迟10月24日 12:00 (常规提前7天)</strong></span>
+                            <span>📱 预约场次：<strong>选 10/31 “降旗时段”！</strong></span>
+                            <span>🎫 票价费用：<strong>免费预约 (¥0)</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
-                        <div class="cal-body-line"><strong>放票时间点说明：</strong>天安门广场官方每日固定在 <strong>中午 12:00</strong> 释放新一天名额（个人提前1~7天或9天）。因广场容量极大，降旗时段票源极其充沛，每日 12:00 放票后任何时间进入小程序都能约上，不像故宫那样秒空。</div>
+                        <div class="cal-body-line"><strong>最早预约日期与放票规则：</strong>天安门广场预约小程序<strong>支持提前1~7天或9天放票</strong>。针对10/31游览日，<strong>最早预约日期为 10月22日 (周四) 中午12:00（即当前已经开放可约，随时进入小程序即可提交预约）</strong>；常规保底放票时间为 10月24日 (周六) 中午12:00。</div>
+                        <div class="cal-body-line"><strong>票量充沛不用慌：</strong>天安门广场容量极大，降旗场次每日容纳数万人，票源极其充足，即使错过中午12点，全天任何时间打开小程序都能约上，完全不像故宫需要秒抢。</div>
                         <div class="cal-body-line"><strong>🎯 核心核验点选择：</strong>在小程序地图中，<strong>首选勾选【广场东侧路北安检03】</strong>！</div>
                         <div class="cal-body-line"><strong>🚇 对应地铁与最短路线（黄金路线）：</strong>乘地铁1号线至<strong>【天安门东站】D口（西南口）</strong>出站，出口正位于长安街南侧国家博物馆西北角，完全无需过马路，平地步行几十米即达03号安检口！刷身份证进场后直接正对国旗杆仅80~120米，彻底省去从南端前门横穿880米大广场的长途跋涉！</div>
                         <div class="cal-body-line"><strong>备选核验点：</strong>若03号约满，备选勾选【广场西侧路南安检07】（从前门站A口出站平步进入）。</div>
@@ -2490,7 +2879,7 @@
                     <div class="cal-header amber-theme">
                         <div class="cal-header-top">
                             <div class="cal-header-title-box">
-                                <span class="cal-time-pill">🟡 10月26日起 全天可约</span>
+                                <span class="cal-time-pill">🟡 最早10月26日 00:00放票 · 建议提前2~3天约好</span>
                                 <span class="cal-header-title">4. 八达岭长城 (游览日: 11/02 周一全天)</span>
                             </div>
                             <label class="cal-check-label" title="点击标记为已约好">
@@ -2499,15 +2888,18 @@
                             </label>
                         </div>
                         <div class="cal-metrics">
-                            <span>⚡ 开抢：<strong>10月26日 周一 00:00起</strong></span>
-                            <span>⏰ 提前：<strong>提前1~7天均可</strong></span>
-                            <span>📱 建议：<strong>提前1~2天约好即可</strong></span>
-                            <span>🎫 票价：<strong>淡季门票 ¥35</strong></span>
+                            <span>⚡ 最早放票：<strong>10月26日 周一 00:00起</strong></span>
+                            <span>⏰ 放票规则：<strong>提前1~7天预约（每日00:00放票）</strong></span>
+                            <span>📱 预约建议：<strong>不用熬夜抢，建议出行前2~3天搞定</strong></span>
+                            <span>🎫 门票政策：<strong>成人¥35 / 60岁以上老人免费免预约</strong></span>
                         </div>
                     </div>
                     <div class="cal-body">
                         <div class="cal-body-line"><strong>预约渠道：</strong>微信公众号“八达岭长城”。</div>
-                        <div class="cal-body-line"><strong>购票要点：</strong>周一长城照常开放，完美避开市内周一闭馆潮；长辈建议乘北线索道往返直达北七楼。</div>
+                        <div class="cal-body-line"><strong>【关于“全天可约 / 会不会约不上”答疑】：</strong>八达岭长城官方在微信公众号“八达岭长城”每日00:00释放第7天门票（针对11/02游览日，<strong>最早放票时间是 10月26日 00:00</strong>）。</div>
+                        <div class="cal-body-line"><strong>会约不上吗？什么时候约合适？</strong> 八达岭景区单日核定最大承载量超6.5万人次，且<strong>11月2日是周一工作日（秋冬淡季），普通门票票源极充沛，不会像故宫那样几分钟秒空</strong>。但绝<strong>不建议等到游览当天临阵才买</strong>（避免现场临时排队或极端限流，且上午黄金时段缆车/索道额度有限）。</div>
+                        <div class="cal-body-line"><strong>最佳操作节奏：</strong><strong>无需熬夜零点抢票</strong>，在10月26日（周一）白天或出行前2~3天（10/29-10/30前）顺手在微信公众号约好即可，百分之百稳妥！</div>
+                        <div class="cal-body-line"><strong>长辈优待特权：</strong>两位70岁长辈<strong>享免费优惠政策，无需抢预约票</strong>，游玩当天持本人身份证原件直接刷闸机进站！只需为4位成人提前购票即可。长辈乘坐北线索道直达北七楼，不爬陡阶轻松看长城。</div>
                     </div>
                 </div>
 
@@ -2638,12 +3030,14 @@
                                 oninput="recalcAll()">
                             <span style="font-size:13px;">人</span>
                         </div>
-                        <button type="button" class="btn-sync-people" onclick="syncPeopleToAllItems()"
-                            title="把当前总人数一键同步更新到所有交通、门票、餐饮项目">一键同步人数到所有项</button>
-                        <button type="button" id="btn-save-lock" class="btn-save-lock" onclick="toggleSaveLock()"
-                            title="保存当前页面所有勾选项和金额设置">💾 保存预算并锁定</button>
-                        <button type="button" id="btn-reset-default" class="btn-reset-default"
-                            onclick="resetDefaultPlan()" title="清除已保存数据并恢复初始默认预设" style="display:none;">↺ 恢复默认</button>
+                        <div class="people-btns-row">
+                            <button type="button" class="btn-sync-people" onclick="syncPeopleToAllItems()"
+                                title="把当前总人数一键同步更新到所有交通、门票、餐饮项目">👥 一键同步人数</button>
+                            <button type="button" id="btn-save-lock" class="btn-save-lock" onclick="toggleSaveLock()"
+                                title="保存当前页面所有勾选项和金额设置">💾 保存预算</button>
+                            <button type="button" id="btn-reset-default" class="btn-reset-default"
+                                onclick="resetDefaultPlan()" title="清除已保存数据并恢复初始默认预设" style="display:none;">↺ 恢复默认</button>
+                        </div>
                     </div>
                 </div>
 
@@ -2663,26 +3057,26 @@
                     <label class="calc-sec-head-label" title="全选 / 全不选 住宿模块">
                         <input type="checkbox" class="sec-master-chk" id="master-chk-hotel" checked
                             onchange="toggleSecMaster('hotel', this.checked)">
-                        <span class="calc-sec-title">🏨 1. 住宿费用 (11/6入住 - 11/10退房 · 共4晚)</span>
+                        <span class="calc-sec-title">🏨 1. 住宿费用 (10/31入住 - 11/04退房 · 共4晚)</span>
                     </label>
-                    <span class="calc-sec-sub" id="sec-hotel-val">¥0</span>
+                    <span class="calc-sec-sub" id="sec-hotel-val">¥3,327</span>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
                         <input type="checkbox" id="chk-hotel" checked onchange="recalcAll()">
-                        <span>酒店双床房费用</span>
+                        <span>喜马拉雅宾馆 (东城地坛北里店 · 4晚总价)</span>
                     </label>
                     <div class="calc-inputs">
-                        <span>单价¥</span><input type="number" id="hotel-price" class="num-input" value="300"
+                        <span>折算每晚¥</span><input type="number" id="hotel-price" class="num-input" value="415.88" step="0.01"
                             oninput="recalcAll()">
-                        <span>×</span><input type="number" id="hotel-rooms" class="num-input sm" value="3"
+                        <span>×</span><input type="number" id="hotel-rooms" class="num-input sm" value="2"
                             oninput="recalcAll()"><span>间</span>
                         <span>×</span><input type="number" id="hotel-nights" class="num-input sm" value="4"
                             oninput="recalcAll()"><span>晚</span>
                     </div>
                     <div class="row-total-wrap">
                         <span class="row-total-prefix">¥</span>
-                        <input type="number" id="res-hotel-input" class="row-total-val" value="3600" min="0" step="any" oninput="onHotelTotalInput(this)" title="可直接编辑修改此项总价，单价将根据房间数与晚数自动折算">
+                        <input type="number" id="res-hotel-input" class="row-total-val" value="3327" min="0" step="any" oninput="onHotelTotalInput(this)" title="酒店总价已设定为3327，可直接编辑修改此项总价">
                     </div>
                 </div>
             </div>
@@ -2716,23 +3110,23 @@
                 <div class="calc-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="trans-chk" checked onchange="recalcAll()">
-                        <span>返程高铁：G1091 (北京南➔烟台 二等座)</span>
+                        <span>返程飞机：国航 CA8641 (大兴➔烟台 机票6人合计)</span>
                     </label>
                     <div class="calc-inputs">
-                        <span>单人¥</span><input type="number" class="num-input trans-price" value="398"
+                        <span>单人¥</span><input type="number" class="num-input trans-price" value="457.83"
                             oninput="recalcAll()">
                         <span>×</span><input type="number" class="num-input sm trans-cnt" value="6"
                             oninput="recalcAll()"><span>人</span>
                     </div>
                     <div class="row-total-wrap">
                         <span class="row-total-prefix">¥</span>
-                        <input type="number" class="row-total-val" value="2388" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
+                        <input type="number" class="row-total-val" value="2747" min="0" step="any" oninput="onRowTotalInput(this)" title="可直接编辑修改此项总价，单价将根据人数自动折算">
                     </div>
                 </div>
                 <div class="calc-row">
                     <label class="calc-item-label">
                         <input type="checkbox" class="trans-chk" checked onchange="recalcAll()">
-                        <span>D4 八达岭往返交通 (高铁往返约¥60/人 或 商务包车平摊)</span>
+                        <span>D3 八达岭往返交通 (高铁往返约¥60/人 或 商务包车平摊)</span>
                     </label>
                     <div class="calc-inputs">
                         <span>单人¥</span><input type="number" class="num-input trans-price" value="60"
@@ -4884,6 +5278,8 @@
             var hotelRowTotal;
             if (hotelTotalInp && document.activeElement === hotelTotalInp) {
                 hotelRowTotal = parseFloat(hotelTotalInp.value) || 0;
+            } else if (hotelTotalInp && Math.abs((parseFloat(hotelTotalInp.value) || 0) - (hPrice * hRooms * hNights)) < 0.2) {
+                hotelRowTotal = parseFloat(hotelTotalInp.value) || 0;
             } else {
                 hotelRowTotal = Math.round(hPrice * hRooms * hNights * 100) / 100;
                 if (hotelTotalInp) hotelTotalInp.value = hotelRowTotal;
@@ -4950,7 +5346,7 @@
         }
 
         // ================= 保存与锁定功能 =================
-        const STORAGE_KEY = 'beijing_trip_cost_state_v5';
+        const STORAGE_KEY = 'beijing_trip_cost_state_v6';
 
         function collectGroupData(chkClass, priceClass, cntClass) {
             var chks = document.querySelectorAll('.' + chkClass);
